@@ -28,7 +28,7 @@ public class Torch extends Block {
     super(Material.GLASS);
     this.setHardness(1.0f);
     this.setRegistryName(EmergingTechnology.MODID, _name);
-    this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+    this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
     this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
     this.setSoundType(SoundType.GLASS);
     this.setLightLevel(1.0f);

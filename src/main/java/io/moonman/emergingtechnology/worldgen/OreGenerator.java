@@ -90,7 +90,7 @@ public class OreGenerator implements IWorldGenerator {
         }
 
         if (!newGen) {
-            world.getChunkFromChunkCoords(chunkX, chunkZ).markDirty();
+            world.getChunk(chunkX, chunkZ).markDirty();
         }
     }
 

@@ -12,7 +12,7 @@ public class BlockFluidBase extends BlockFluidClassic {
     public BlockFluidBase(String name, Fluid fluid, Material material) {
         super(fluid, material);
         this.setRegistryName(EmergingTechnology.MODID, name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + name);
     }
 
     @Override

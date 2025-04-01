@@ -7,7 +7,7 @@ public class ItemBase extends Item {
 
     public ItemBase(String name) {
         this.setRegistryName(EmergingTechnology.MODID, name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + name);
         this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
         this.setMaxStackSize(64);
     }

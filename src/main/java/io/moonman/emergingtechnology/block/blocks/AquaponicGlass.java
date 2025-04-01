@@ -13,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.jetbrains.annotations.NotNull;
 
 public class AquaponicGlass extends BlockBreakable {
 
@@ -22,7 +23,7 @@ public class AquaponicGlass extends BlockBreakable {
     super(Material.GLASS, false);
     this.setHardness(1.0f);
     this.setRegistryName(EmergingTechnology.MODID, _name);
-    this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+    this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
     this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
     this.setSoundType(SoundType.STONE);
     this.setLightOpacity(0);
@@ -30,7 +31,7 @@ public class AquaponicGlass extends BlockBreakable {
 
   @SideOnly(Side.CLIENT)
   @Override
-  public BlockRenderLayer getBlockLayer() {
+  public @NotNull BlockRenderLayer getRenderLayer() {
     return BlockRenderLayer.TRANSLUCENT;
   }
 

@@ -13,7 +13,7 @@ public class AquaponicBlock extends Block {
       super(Material.ROCK);
       this.setHardness(2.0f);
       this.setRegistryName(EmergingTechnology.MODID, _name);
-      this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+      this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
       this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
       this.setSoundType(SoundType.STONE);
     }

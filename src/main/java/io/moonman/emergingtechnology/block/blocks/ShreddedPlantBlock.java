@@ -13,7 +13,7 @@ public class ShreddedPlantBlock extends Block {
       super(Material.PLANTS);
       this.setHardness(1.0f);
       this.setRegistryName(EmergingTechnology.MODID, _name);
-      this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+      this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
       this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
       this.setSoundType(SoundType.PLANT);
     }

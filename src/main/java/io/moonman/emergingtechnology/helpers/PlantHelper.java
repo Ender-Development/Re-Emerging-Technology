@@ -125,7 +125,7 @@ public class PlantHelper {
         if (state == null)
             return "Nothing";
 
-        return state.getBlock().getRegistryName().getResourcePath();
+        return state.getBlock().getRegistryName().getPath();
     }
 
     public static boolean isValidSoil(World world, BlockPos pos) {

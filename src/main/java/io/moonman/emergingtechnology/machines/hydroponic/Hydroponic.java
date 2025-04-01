@@ -210,7 +210,7 @@ public class Hydroponic extends MachineBase implements ITileEntityProvider {
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return getDefaultState().withProperty(FACING, EnumFacing.getFront(meta & 7)).withProperty(HAS_WATER,
+        return getDefaultState().withProperty(FACING, EnumFacing.byIndex(meta & 7)).withProperty(HAS_WATER,
                 (meta & 8) != 0);
     }
 

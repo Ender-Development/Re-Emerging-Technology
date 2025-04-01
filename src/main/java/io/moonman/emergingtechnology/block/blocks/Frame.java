@@ -21,6 +21,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.jetbrains.annotations.NotNull;
 
 public class Frame extends Block {
     private final String _name = "frame";
@@ -38,7 +39,7 @@ public class Frame extends Block {
         this.setHardness(1.0f);
         this.setLightOpacity(0);
         this.setRegistryName(EmergingTechnology.MODID, _name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
         this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
         this.setSoundType(SoundType.METAL);
     }
@@ -51,7 +52,8 @@ public class Frame extends Block {
 
 
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer() {
+    @Override
+    public @NotNull BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
     }
 
@@ -101,7 +103,7 @@ public class Frame extends Block {
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        EnumFacing facing = EnumFacing.getHorizontal(meta);
+        EnumFacing facing = EnumFacing.byHorizontalIndex(meta);
         return this.getDefaultState().withProperty(PROPERTYFACING, facing);
     }
 

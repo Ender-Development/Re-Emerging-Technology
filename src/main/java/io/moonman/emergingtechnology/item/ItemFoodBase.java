@@ -8,7 +8,7 @@ public class ItemFoodBase extends ItemFood {
     public ItemFoodBase(String name, int healAmount, float saturation) {
         super(healAmount, saturation, false);
         this.setRegistryName(EmergingTechnology.MODID, name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + name);
         this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
         this.setMaxStackSize(64);
     }

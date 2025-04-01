@@ -1,16 +1,12 @@
-[
-{
-  "modid": "emergingtechnology",
-  "name": "Emerging Technology",
-  "description": "A simple tech mod exploring emerging technologies",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "https://www.curseforge.com/minecraft/mc-mods/emerging-technology-hydroponics",
-  "updateUrl": "",
-  "authorList": ["MoonManModding"],
-  "credits": "Many thanks to the following for their contributions to the mod: Item images by MotorGorilla1 and Bieke | Russian and Ukrainian translations by Smollet777 & TigrKill | Suggestions by DevTimur and the Discord gang | Chinese translations and support by hei_hun",
-  "logoFile": "logo.png",
-  "screenshots": [],
-  "dependencies": []
-}
-]
+[{
+	"modid": "${mod_id}",
+	"name": "${mod_name}",
+	"version": "${mod_version}",
+	"mcversion": "1.12.2",
+	"description": "${mod_description}",
+	"authorList": ["${mod_authors}"],
+	"credits": "${mod_credits}",
+	"url": "${mod_url}",
+	"updateJSON": "${mod_update_json}",
+	"logoFile": "${mod_logo_path}"
+}]

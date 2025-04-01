@@ -14,7 +14,7 @@ public class SimpleMachineBase extends Block {
         super(material);
         this.setHardness(1.0f);
         this.setRegistryName(EmergingTechnology.MODID, name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + name);
         this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
     }
 

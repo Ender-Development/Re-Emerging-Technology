@@ -167,7 +167,7 @@ public class Wind extends SimpleMachineBase implements ITileEntityProvider {
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        EnumFacing facing = EnumFacing.getHorizontal(meta);
+        EnumFacing facing = EnumFacing.byHorizontalIndex(meta);
         return this.getDefaultState().withProperty(FACING, facing);
     }
 

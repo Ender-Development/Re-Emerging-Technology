@@ -14,7 +14,7 @@ public class MachineCase extends Block {
       super(Material.IRON);
       this.setHardness(1.0f);
       this.setRegistryName(EmergingTechnology.MODID, _name);
-      this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+      this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
       this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
       this.setSoundType(SoundType.METAL);
   }

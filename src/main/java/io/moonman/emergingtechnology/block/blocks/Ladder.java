@@ -21,6 +21,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.jetbrains.annotations.NotNull;
 
 public class Ladder extends Block
 {
@@ -37,7 +38,7 @@ public class Ladder extends Block
         super(Material.CIRCUITS);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setRegistryName(EmergingTechnology.MODID, _name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
         this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
         this.setSoundType(SoundType.STONE);
     }
@@ -131,7 +132,7 @@ public class Ladder extends Block
 
     public IBlockState getStateFromMeta(int meta)
     {
-        EnumFacing enumfacing = EnumFacing.getFront(meta);
+        EnumFacing enumfacing = EnumFacing.byIndex(meta);
 
         if (enumfacing.getAxis() == EnumFacing.Axis.Y)
         {
@@ -142,7 +143,8 @@ public class Ladder extends Block
     }
 
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
+    @Override
+    public @NotNull BlockRenderLayer getRenderLayer()
     {
         return BlockRenderLayer.CUTOUT;
     }

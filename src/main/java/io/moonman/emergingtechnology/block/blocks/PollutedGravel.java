@@ -27,7 +27,7 @@ public class PollutedGravel extends Block {
         super(Material.GROUND);
         this.setHardness(1.0f);
         this.setRegistryName(EmergingTechnology.MODID, _name);
-        this.setUnlocalizedName(EmergingTechnology.MODID + "." + _name);
+        this.setTranslationKey(EmergingTechnology.MODID + "." + _name);
         this.setCreativeTab(EmergingTechnology.TECHNOLOGYTAB);
         this.setSoundType(SoundType.GROUND);
     }
