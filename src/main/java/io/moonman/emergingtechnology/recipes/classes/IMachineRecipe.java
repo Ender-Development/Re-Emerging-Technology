@@ -4,12 +4,12 @@ import net.minecraft.item.ItemStack;
 
 public interface IMachineRecipe {
 
-   public ItemStack getInput();
-   public ItemStack getOutput();
+   ItemStack getInput();
+   ItemStack getOutput();
    
-   public String getInputOreName();
-   public boolean hasOreDictInput();
+   String getInputOreName();
+   boolean hasOreDictInput();
 
-   public int getInputCount();
-   public int getOutputCount();
+   int getInputCount();
+   int getOutputCount();
 }
