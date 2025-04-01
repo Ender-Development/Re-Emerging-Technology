@@ -1,48 +1,45 @@
-# <img src="images/Logo.png" alt="Emerging Technology" height="42" width="42"> Emerging Technology
-<p>A Minecraft mod exploring emerging technologies by MoonManModding</p>
+# <img src="images/Logo.png" alt="Emerging Technology" height="42" width="42"> (Re-)Emerging Technology
 
-If you enjoyed this mod and want to support its development, please consider <a href="https://www.patreon.com/moonmanmodding">supporting me on Patreon!</a>
+(Re-)Emerging Technology is a technical mod exploring real-world emerging technologies. This is a fork of the [Emerging Technology](https://www.curseforge.com/minecraft/mc-mods/emerging-technology-hydroponics) by [MoonManModding](https://www.curseforge.com/members/moonmanmodding) and aims to be the definitive 1.12.2 version of the mod. This is achieved by updating dependencies, fixing bugs, and improving the current features.
 
-# Requirements
-- Minecraft Version <b>1.12.2</b>
-- Forge
+<a href="https://www.akliz.net/enderman"><img src="https://github.com/Ender-Development/PatchouliBooks/raw/master/banner.png" align="center"/></a>
 
-The mod was made with Forge version <b>14.23.5.2768</b>
+## Current Changes
 
-# Download
-<a href="https://www.curseforge.com/minecraft/mc-mods/emerging-technology-hydroponics">Download at CurseForge</a>
+- switched build system to [RetroFuturaGradle](https://github.com/GTNewHorizons/RetroFuturaGradle)
 
-# Compatibility
-Emerging Technology works with the following mods:
+## Planned Changes
 
-- Pam's HarvestCraft
-- Botania
-- Mystical Agriculture
-- OpenComputers (full support)
-- NuclearCraft
-- XNET
-- Thermal Series
-- Ender IO
-- AgriCraft (requires some setup)
+- general code cleanup (looking at you 924 warnings)
+- add GroovyScript support to all machines
 
-Untested but likely compatible:
-- Mekanism
-- BuildCraft
+## [Ender-Development](https://github.com/Ender-Development)
 
-Currently incompatible with power/crops:
-- IndustrialCraft 2 (will be added in future)
+Our Team currently includes:
 
-The mod should be compatible with any mods whose plants implement IGrowable and IPlantable, but there are bound to be exceptions. If you are using a mod which does not appear to work with Grow Beds, please create a new Issue above.
+- `_MasterEnderman_` - Project-Manager, Developer
+- `Klebestreifen` - Developer
 
-Most machines can also be integrated into OpenComputers. Take a look at the <a href="https://github.com/MoonManModding/EmergingTechnology/blob/master/examples/open-computers-example.lua">example program</a> for more details. 
+You can contact us on our [Discord](https://discord.gg/JF7x2vG).
 
-# Discord
-<a href="https://discord.gg/Nm3sMXF">Join and discuss!</a>
+## Contributing
 
-# About 🔬
+Feel free to contribute to the project. We are always happy about pull requests.
+If you want to help us, you can find potential tasks in
+the [issue tracker](https://github.com/Ender-Development/Re-Emerging-Technology/issues).
+Of course, you can also create new issues if you find a bug or have a suggestion for a new feature.
+Should you have any questions, feel free to ask us on [Discord](https://discord.gg/JF7x2vG).
 
-This mod is in <b>beta</b>, and also my first mod, so please be patient if you find bugs. Post any problems in the Issues tab in this repository. Feel free to also add requests for future updates.
+## Partnership with Akliz
 
-I'm a freelance developer with bills to pay, but I will try to keep this mod as updated and bug-free as possible while adding new content. Kind thanks to r/feedthebeast for your support and feedback 😍
+> It's a pleasure to be partnered with Akliz. Besides being a fantastic server provider, which makes it incredibly easy
+> to set up a server of your choice, they help me to push myself and the quality of my projects to the next level.
+> Furthermore, you can click on the banner below to get a discount. :')
 
+<a href="https://www.akliz.net/enderman"><img src="https://github.com/MasterEnderman/Zerblands-Remastered/raw/master/Akliz_Partner.png" align="center"/></a>
+
+If you aren't located in the [US](https://www.akliz.net/enderman), Akliz now offers servers in:
+
+- [Europe](https://www.akliz.net/enderman-eu)
+- [Oceania](https://www.akliz.net/enderman-oce)
 
