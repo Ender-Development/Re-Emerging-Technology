@@ -5,6 +5,16 @@ import com.gtnewhorizons.retrofuturagradle.mcp.InjectTagsTask
 import org.jetbrains.changelog.Changelog
 import org.jetbrains.gradle.ext.Gradle
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:" + project.kotlin_version)
+    }
+}
+
 plugins {
     id 'java'
     id 'java-library'
@@ -13,8 +23,8 @@ plugins {
     id 'com.gtnewhorizons.retrofuturagradle' version '1.4.1'
     id 'com.matthewprenger.cursegradle' version '1.4.0' apply false
     id 'com.modrinth.minotaur' version '2.+' apply false
-    id 'org.jetbrains.changelog' version '2.2.0'
-    id "com.diffplug.spotless" version '7.0.2'
+    id 'org.jetbrains.changelog' version '2.2.1'
+    id 'org.jetbrains.kotlin.jvm' version '2.1.10'
 }
 
 apply from: 'gradle/scripts/helpers.gradle'
@@ -69,35 +79,6 @@ configurations {
     embed
     implementation.extendsFrom(embed)
 }
-
-//spotless {
-//    encoding 'UTF-8'
-
-//    // Format common text files
-//    format('misc') {
-//        target '*.gradle', '.gitattributes', '.gitignore', '*.properties', '*.md', '*.yml', '*.toml'
-//        leadingTabsToSpaces(2)
-//        trimTrailingWhitespace()
-//        endWithNewline()
-//    }
-
-//    // Format Java sources using Eclipse
-//    java {
-//        eclipse('4.26').configFile('../cleanroom_format.xml') // Shared formatter config
-//        removeUnusedImports()
-//        importOrder('java', 'javax', 'net.minecraft', 'com.mojang', '', 'com.cleanroommc', '')
-//        formatAnnotations()
-//        leadingTabsToSpaces(4)
-//        trimTrailingWhitespace()
-//        endWithNewline()
-//    }
-
-//    // Format JSON files with 2-space indent (more common)
-//    json {
-//        target 'src/**/*.json'
-//        simple().indentWithSpaces(2)
-//    }
-//}
 
 minecraft {
     mcVersion.set('1.12.2')
