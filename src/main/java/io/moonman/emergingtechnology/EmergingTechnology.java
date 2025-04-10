@@ -1,5 +1,6 @@
 package io.moonman.emergingtechnology;
 
+import io.enderdev.emergingtechnology.Tags;
 import org.apache.logging.log4j.Logger;
 
 import io.moonman.emergingtechnology.gui.GuiProxy;
