@@ -1,0 +1,21 @@
+{
+	"type": "forge:ore_shaped",
+	"pattern": [
+		" C ",
+		"CGC",
+		" C "
+	],
+	"key": {
+		"G": {
+			"type": "forge:ore_dict",
+			"ore": "blockGlass"
+		},
+		"C": {
+			"item": "alchemistry:fission_casing"
+		}
+	},
+	"result": {
+		"count": 4,
+		"item": "alchemistry:fission_glass"
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"GEG",
+		"EEE",
+		"GEG"
+	],
+	"key": {
+		"G": {
+			"type": "forge:ore_dict",
+			"ore": "blockGlass"
+		},
+		"E": {
+			"item": "alchemistry:element",
+			"data": 36
+		}
+	},
+	"result": {
+		"item": "alchemistry:krypton_light"
+	}
+}
