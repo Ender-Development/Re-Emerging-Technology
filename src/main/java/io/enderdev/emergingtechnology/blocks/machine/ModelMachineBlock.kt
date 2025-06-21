@@ -14,34 +14,7 @@ import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.client.model.ModelLoader
 
-open class ModelMachineBlock(name: String, tileClass: Class<out TileEntity>, guiID: Int, vararg val boundingBoxes: AxisAlignedBB) : BaseMachineBlock(EmergingTechnology.catalyxSettings, name, tileClass, guiID), IHasModel {
-	@Deprecated("")
-	override fun getRenderType(state: IBlockState): EnumBlockRenderType = EnumBlockRenderType.MODEL
-
-	@Deprecated("")
-	override fun isOpaqueCube(state: IBlockState) = false
-
-	@Deprecated("")
-	override fun isFullCube(state: IBlockState) = false
-
-	@Deprecated("")
-	override fun getBoundingBox(state: IBlockState, source: IBlockAccess, pos: BlockPos): AxisAlignedBB = boundingBoxes[0]
-
-	@Deprecated("")
-	override fun addCollisionBoxToList(
-		state: IBlockState,
-		worldIn: World,
-		pos: BlockPos,
-		entityBox: AxisAlignedBB,
-		collidingBoxes: List<AxisAlignedBB>,
-		entityIn: Entity?, mysteryboolean: Boolean
-	) {
-		boundingBoxes.forEach {
-			@Suppress("DEPRECATION")
-			addCollisionBoxToList(pos, entityBox, collidingBoxes, it)
-		}
-	}
-
+open class ModelMachineBlock(name: String, tileClass: Class<out TileEntity>, guiID: Int) : BaseMachineBlock(EmergingTechnology.catalyxSettings, name, tileClass, guiID), IHasModel {
 	override fun registerModel() {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, ModelResourceLocation(registryName!!, "inventory"))
 	}

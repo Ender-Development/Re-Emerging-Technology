@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "emergingtechnology:items/circuit_superior"
+	}
+}

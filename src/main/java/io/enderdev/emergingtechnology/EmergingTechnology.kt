@@ -2,6 +2,7 @@ package io.enderdev.emergingtechnology
 
 import io.enderdev.catalyx.CatalyxSettings
 import io.enderdev.catalyx.blocks.BaseBlock
+import io.enderdev.catalyx.items.BaseItem
 import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ItemBase
@@ -41,7 +42,7 @@ object EmergingTechnology {
 		override fun createIcon() = Items.DIAMOND.toStack()//ModBlocks.chemical_combiner.toStack()
 	}
 
-	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it as ItemBase) })
+	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it as BaseItem) })
 
 	//https://github.com/jaredlll08/ModTweaker/blob/1.12/src/main/java/com/blamejared/ModTweaker.java
 	//val LATE_REMOVALS: LinkedList<IAction> = LinkedList()
