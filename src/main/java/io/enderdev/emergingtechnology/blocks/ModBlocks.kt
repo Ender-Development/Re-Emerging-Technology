@@ -1,10 +1,7 @@
 package io.enderdev.emergingtechnology.blocks
 
-import io.enderdev.emergingtechnology.ConfigHandler
-import io.enderdev.emergingtechnology.blocks.machine.*
-import io.enderdev.emergingtechnology.client.gui.GuiHandler
-import io.enderdev.emergingtechnology.tiles.*
 import io.enderdev.catalyx.blocks.BaseBlock
+import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import net.minecraft.block.Block
 import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent

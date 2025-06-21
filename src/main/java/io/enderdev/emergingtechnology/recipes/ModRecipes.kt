@@ -11,7 +11,7 @@ object ModRecipes {
 	//val fissionRecipes = FissionRegister.Companion.INSTANCE
 	//val fusionRecipes = FusionRegister.Companion.INSTANCE
 	//
-	//fun init() {
+	fun init() {
 	//	electrolyzerRecipes.registerRecipes()
 	//	evaporatorRecipes.registerRecipes()
 	//	dissolverRecipes.registerRecipes() // before combiner, so combiner can use reversible recipes
@@ -20,7 +20,7 @@ object ModRecipes {
 	//	liquifierRecipes.registerRecipes()
 	//	fissionRecipes.registerRecipes()
 	//	fusionRecipes.registerRecipes()
-	//}
+	}
 	//
 	//fun initOredict() {
 	//	(1..118).forEach { i ->

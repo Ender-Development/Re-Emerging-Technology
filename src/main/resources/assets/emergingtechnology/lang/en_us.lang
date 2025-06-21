@@ -330,7 +330,7 @@ jei.liquifier.name=Liqufier
 jei.fission_controller.name=Fission Multiblock
 jei.fusion_controller.name=Fusion Multiblock
 
-itemGroup.alchemistry=Alchemistry - Redox
+itemGroup.emergingtechnology=Re-emerging Technology
 
 item.alchemistry:fertilizer.tooltip=Can be used like bonemeal
 item.alchemistry:obsidian_breaker.tooltip=Right-click an obsidian block while holding to instantly harvest the obsidian.
