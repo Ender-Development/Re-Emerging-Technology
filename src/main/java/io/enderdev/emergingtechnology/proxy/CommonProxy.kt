@@ -1,7 +1,6 @@
 package io.enderdev.emergingtechnology.proxy
 
 import io.enderdev.emergingtechnology.EmergingTechnology
-import io.enderdev.emergingtechnology.client.gui.GuiHandler
 import io.enderdev.emergingtechnology.recipes.ModRecipes
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
@@ -40,7 +39,7 @@ open class CommonProxy {
 	open fun init(e: FMLInitializationEvent) {
 		stage = LoadingStage.INIT
 		//ModRecipes.initOredict()
-		NetworkRegistry.INSTANCE.registerGuiHandler(EmergingTechnology, GuiHandler())
+		NetworkRegistry.INSTANCE.registerGuiHandler(EmergingTechnology, EmergingTechnology.guiHandler)
 		MinecraftForge.EVENT_BUS.register(CommonEventHandler())
 
 		//if(Loader.isModLoaded("theoneprobe")) {

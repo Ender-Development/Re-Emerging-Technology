@@ -1,8 +1,12 @@
 package io.enderdev.emergingtechnology.blocks
 
 import io.enderdev.catalyx.blocks.BaseBlock
+import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
+import io.enderdev.emergingtechnology.items.GlassBlock
 import net.minecraft.block.Block
+import net.minecraft.block.SoundType
+import net.minecraft.block.material.Material
 import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
@@ -10,6 +14,9 @@ import net.minecraftforge.fml.relauncher.SideOnly
 
 object ModBlocks {
 	val blocks = mutableListOf<BaseBlock>()
+
+	// TODO - CTM support for certain blocks (aquaponic_base, aquaponic_frame, aquaponic_glass)
+	// TODO - run optipng once finished :3
 
 	// Hydroponics
 	// hydroponic_grow_bed
@@ -20,9 +27,9 @@ object ModBlocks {
 	// co2_diffuser
 	// nutrient_injector
 
-	// aquaponic_base
-	// aquaponic_frame
-	// aquaponic_glass
+	val aquaponicBase = ModelBlock("aquaponic_base", hardness = 2f)
+	val aquaponicFrame = ModelBlock("aquaponic_frame", hardness = 2f)
+	val aquaponicGlass = GlassBlock("aquaponic_glass", hardness = 1f)
 
 	// Polymers
 	// processor
@@ -31,12 +38,12 @@ object ModBlocks {
 	// clear_plastic_block
 	// machine_case
 	// fabricator
-	// waste_collector
+	val wasteCollector = BlockWasteCollector()
 	// bioplastic_ladder
 
-	// shredded_plant_block
-	// shredded_plastic_block
-	// shredded_starch_block
+	val shreddedPlantBlock = ModelBlock("shredded_plant_block", Material.PLANTS, SoundType.PLANT, 1f)
+	val shreddedPlasticBlock = ModelBlock("shredded_plastic_block", hardness = 1f)
+	val shreddedStarchBlock = ModelBlock("shredded_starch_block", Material.PLANTS, SoundType.PLANT, 1f)
 
 	// Synthetics
 	// solar_cooker

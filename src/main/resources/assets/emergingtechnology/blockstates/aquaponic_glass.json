@@ -1,0 +1,10 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "emergingtechnology:aquaponic_glass"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

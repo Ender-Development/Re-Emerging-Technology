@@ -6,8 +6,12 @@ import net.minecraft.item.ItemBlock
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World
 
-class TooltipItemBlock(block: Block, val tooltip: String) : ItemBlock(block) {
+class TooltipItemBlock(block: Block, val tooltip: () -> Array<out String>) : ItemBlock(block) {
+	init {
+		registryName = block.registryName
+	}
+
 	override fun addInformation(stack: ItemStack, world: World?, tooltips: List<String>, flag: ITooltipFlag) {
-		(tooltips as MutableList).add(tooltip)
+		(tooltips as MutableList).addAll(tooltip())
 	}
 }

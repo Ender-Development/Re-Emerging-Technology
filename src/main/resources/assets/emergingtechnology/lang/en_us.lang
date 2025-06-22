@@ -1,3 +1,4 @@
+# Hydroponics
 item.emergingtechnology:bulb_red.name=Red Bulb
 item.emergingtechnology:bulb_green.name=Green Bulb
 item.emergingtechnology:bulb_blue.name=Blue Bulb
@@ -16,6 +17,11 @@ item.emergingtechnology:nozzles.desc=Used by the Diffuser
 
 item.emergingtechnology:fertilizer.name=Fertilizer
 
+tile.emergingtechnology:aquaponic_base.name=Aquaponic Base
+tile.emergingtechnology:aquaponic_frame.name=Aquaponic Frame
+tile.emergingtechnology:aquaponic_glass.name=Aquaponic Glass
+
+# Polymers
 item.emergingtechnology:shredded_plastic.name=Shredded Plastic
 item.emergingtechnology:shredded_plant.name=Shredded Plant
 item.emergingtechnology:shredded_starch.name=Shredded Starch
@@ -31,6 +37,11 @@ item.emergingtechnology:plastic_sheet.name=Bioplastic Sheet
 item.emergingtechnology:plastic_tissue_scaffold.name=Bioplastic Tissue Scaffold
 item.emergingtechnology:turbine.name=Turbine
 
+tile.emergingtechnology:shredded_plant_block.name=Shredded Plant Block
+tile.emergingtechnology:shredded_plastic_block.name=Shredded Plastic Block
+tile.emergingtechnology:shredded_starch_block.name=Shredded Starch Block
+
+# Synthetics
 item.emergingtechnology:syringe_empty.name=Empty Syringe
 item.emergingtechnology:syringe_empty.desc=Used for collecting tissue samples from animals
 item.emergingtechnology:syringe_full.name=Syringe of %s Tissue
@@ -49,6 +60,7 @@ item.emergingtechnology:algae.name=Algae
 item.emergingtechnology:algae_bar.name=Algae Bar
 item.emergingtechnology:algae_bar_cooked.name=Cooked Algae Bar
 
+# Electrics
 item.emergingtechnology:biomass.name=Biomass
 item.emergingtechnology:biochar.name=Biochar
 
@@ -58,6 +70,7 @@ item.emergingtechnology:circuit_advanced.name=Advanced Circuit
 item.emergingtechnology:circuit_superior.name=Superior Circuit
 item.emergingtechnology:circuits.desc=Used in the Optimiser, provides %d cores
 
+# Miscellaneous
 itemGroup.emergingtechnology=Re-emerging Technology
 
 info.emergingtechnology.energy.required=Requires %d RF/t

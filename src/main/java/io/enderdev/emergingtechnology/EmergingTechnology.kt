@@ -2,10 +2,9 @@ package io.enderdev.emergingtechnology
 
 import io.enderdev.catalyx.CatalyxSettings
 import io.enderdev.catalyx.blocks.BaseBlock
-import io.enderdev.catalyx.items.BaseItem
+import io.enderdev.catalyx.client.gui.CatalyxGuiHandler
 import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
-import io.enderdev.emergingtechnology.items.ItemBase
 import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.proxy.CommonProxy
 import net.minecraft.block.Block
@@ -43,6 +42,7 @@ object EmergingTechnology {
 	}
 
 	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it) })
+	val guiHandler = CatalyxGuiHandler()
 
 	//https://github.com/jaredlll08/ModTweaker/blob/1.12/src/main/java/com/blamejared/ModTweaker.java
 	//val LATE_REMOVALS: LinkedList<IAction> = LinkedList()
