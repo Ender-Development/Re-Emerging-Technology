@@ -1,10 +1,12 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.items.BaseItem
+import io.enderdev.catalyx.items.IItemProvider
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
+import io.enderdev.emergingtechnology.config.hydroponics.HydroponicsModule
+import io.enderdev.emergingtechnology.config.synthetics.SyntheticsModule
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.Item
@@ -15,25 +17,28 @@ import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
 object ModItems {
-	val items = ArrayList<BaseItem>()
+	val items = ArrayList<IItemProvider>()
+
+	val hydroponics: HydroponicsModule = EmergingTechnologyConfig.HYDROPONICS_MODULE
+	val synthetics: SyntheticsModule = EmergingTechnologyConfig.SYNTHETICS_MODULE
 
 	// TODO: we should keep "Press SHIFT" consistent across items, or, ideally, just remove it altogether, it's stupid
 
 	// Hydroponics
 	// roz: it's 02:13 and I'm gonna go insane with this stupid config being so long and annoying to work with
-	val bulbRed = ItemBulb("red", EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.energyRedBulbModifier, EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.growthRedBulbModifier)
-	val bulbGreen = ItemBulb("green", EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.energyGreenBulbModifier, EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.growthGreenBulbModifier)
-	val bulbBlue = ItemBulb("blue", EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.energyBlueBulbModifier, EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.growthBlueBulbModifier)
-	val bulbPurple = ItemBulb("purple", EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.energyPurpleBulbModifier, EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.growthPurpleBulbModifier)
+	val bulbRed = ItemBulb("red", hydroponics.GROWLIGHT.energyRedBulbModifier, hydroponics.GROWLIGHT.growthRedBulbModifier)
+	val bulbGreen = ItemBulb("green", hydroponics.GROWLIGHT.energyGreenBulbModifier, hydroponics.GROWLIGHT.growthGreenBulbModifier)
+	val bulbBlue = ItemBulb("blue", hydroponics.GROWLIGHT.energyBlueBulbModifier, hydroponics.GROWLIGHT.growthBlueBulbModifier)
+	val bulbPurple = ItemBulb("purple", hydroponics.GROWLIGHT.energyPurpleBulbModifier, hydroponics.GROWLIGHT.growthPurpleBulbModifier)
 
 	val nozzleComponent = object : ItemBase("nozzle_component") {
 		override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 			(tooltip as MutableList).addAll(ItemUtils.extendedTooltip("item.${Tags.MODID}:nozzle_component.desc".translate()))
 		}
 	}
-	val nozzleSmart = ItemNozzle("smart", EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.SMART.rangeMultiplier, EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.SMART.boostMultiplier)
-	val nozzleLong = ItemNozzle("long", EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.LONG.rangeMultiplier, EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.LONG.boostMultiplier)
-	val nozzlePrecise = ItemNozzle("precise", EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.PRECISE.rangeMultiplier, EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.PRECISE.boostMultiplier)
+	val nozzleSmart = ItemNozzle("smart", hydroponics.DIFFUSER.SMART.rangeMultiplier, hydroponics.DIFFUSER.SMART.boostMultiplier)
+	val nozzleLong = ItemNozzle("long", hydroponics.DIFFUSER.LONG.rangeMultiplier, hydroponics.DIFFUSER.LONG.boostMultiplier)
+	val nozzlePrecise = ItemNozzle("precise", hydroponics.DIFFUSER.PRECISE.rangeMultiplier, hydroponics.DIFFUSER.PRECISE.boostMultiplier)
 
 	val fertilizer = ItemBase("fertilizer")
 
@@ -56,25 +61,25 @@ object ModItems {
 	val turbine = ItemBase("turbine")
 
 	// Synthetics
-	// syringe_empty // weird!
-	// syringe_full // weird!
-	// sample // weird!
+	val syringeEmpty = ItemEmptySyringe()
+	val syringeFull = ItemFullSyringe()
+	// sample // TODO; if sample is just syringeFull but with a different texture, abstract away the itemid from ItemFullSyringe to a separate class and re-use it
 
-	// synthetic_cow_raw // rename to steak?
-	// synthetic_chicken_raw
-	// synthetic_pig_raw // rename to porkchop?
+	val synthetic_steak = ItemRawSyntheticMeat("steak", "minecraft:cow")
+	val synthetic_chicken = ItemRawSyntheticMeat("chicken", "minecraft:chicken")
+	val synthetic_porkchop = ItemRawSyntheticMeat("porkchop", "minecraft:pig")
 
-	// synthetic_cow_cooked // rename to steak?
-	// synthetic_chicken_cooked
-	// synthetic_pig_cooked // rename to porkchop?
+	val synthetic_steak_cooked = ItemCookedSyntheticMeat("steak", "minecraft:cow", synthetics.beefHunger, synthetics.beefHungerSaturation.toFloat())
+	val synthetic_chicken_cooked = ItemCookedSyntheticMeat("chicken", "minecraft:chicken", synthetics.chickenHunger, synthetics.chickenHungerSaturation.toFloat())
+	val synthetic_porkchop_cooked = ItemCookedSyntheticMeat("porkchop", "minecraft:pig", synthetics.porkchopHunger, synthetics.porkchopHungerSaturation.toFloat())
 
-	// synthetic_leather
-	// synthetic_slime
-	// synthetic_silk
+	val syntheticLeather = ItemBase("synthetic_leather")
+	val syntheticSlime = ItemBase("synthetic_slime")
+	val syntheticSilk = ItemBase("synthetic_silk")
 
-	// algae
-	// algae_bar_raw
-	// algae_bar_cooked
+	val algae = ItemBase("algae")
+	val algaeBar = ItemBase("algae_bar")
+	val algaeBarCooked = BaseFoodItem("algae_bar_cooked", synthetics.algaeHunger, synthetics.algaeHungerSaturation.toFloat())
 	
 	// Electrics
 	val biomass = object : ItemBase("biomass") {

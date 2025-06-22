@@ -31,6 +31,24 @@ item.emergingtechnology:plastic_sheet.name=Bioplastic Sheet
 item.emergingtechnology:plastic_tissue_scaffold.name=Bioplastic Tissue Scaffold
 item.emergingtechnology:turbine.name=Turbine
 
+item.emergingtechnology:syringe_empty.name=Empty Syringe
+item.emergingtechnology:syringe_empty.desc=Used for collecting tissue samples from animals
+item.emergingtechnology:syringe_full.name=Syringe of %s Tissue
+item.emergingtechnology:syringe_full.desc=A syringe containing %s tissue
+
+item.emergingtechnology:synthetic_meat.name=Raw Synthetic %s
+item.emergingtechnology:synthetic_meat.desc=Looks like %s
+item.emergingtechnology:synthetic_meat_cooked.name=Cooked Synthetic %s Meat
+item.emergingtechnology:synthetic_meat_cooked.desc=Tastes like %s
+
+item.emergingtechnology:synthetic_silk.name=Synthetic Silk
+item.emergingtechnology:synthetic_slime.name=Synthetic Slime Ball
+item.emergingtechnology:synthetic_leather.name=Synthetic Leather
+
+item.emergingtechnology:algae.name=Algae
+item.emergingtechnology:algae_bar.name=Algae Bar
+item.emergingtechnology:algae_bar_cooked.name=Cooked Algae Bar
+
 item.emergingtechnology:biomass.name=Biomass
 item.emergingtechnology:biochar.name=Biochar
 
@@ -47,3 +65,4 @@ info.emergingtechnology.energy.required=Requires %d RF/t
 info.emergingtechnology.growth.generated=Provides a %s%% chance of growth boost per tick
 
 info.emergingtechnology.interaction.shift=Press SHIFT for more details
+info.emergingtechnology.interaction.rmb=Right-click to use

@@ -42,7 +42,7 @@ object EmergingTechnology {
 		override fun createIcon() = Items.DIAMOND.toStack()//ModBlocks.chemical_combiner.toStack()
 	}
 
-	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it as BaseItem) })
+	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it) })
 
 	//https://github.com/jaredlll08/ModTweaker/blob/1.12/src/main/java/com/blamejared/ModTweaker.java
 	//val LATE_REMOVALS: LinkedList<IAction> = LinkedList()

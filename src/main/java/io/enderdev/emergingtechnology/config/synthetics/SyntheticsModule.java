@@ -54,4 +54,16 @@ public class SyntheticsModule {
     @Name("Algae Food Saturation")
     @RangeDouble(min = 0, max = 25)
     public double algaeHungerSaturation = 6.4;
+
+	// roz
+	@Name("RMT Syringe Whitelist")
+	public String[] syringeWhitelist = new String[] {
+			"minecraft:cow",
+			"minecraft:chicken",
+			"minecraft:pig",
+			"minecraft:horse",
+			"minecraft:spider",
+			"minecraft:slime",
+			"minecraft:zombie"
+	};
 }
