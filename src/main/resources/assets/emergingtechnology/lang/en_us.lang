@@ -1,3 +1,22 @@
+item.emergingtechnology:bulb_red.name=Red Bulb
+item.emergingtechnology:bulb_green.name=Green Bulb
+item.emergingtechnology:bulb_blue.name=Blue Bulb
+item.emergingtechnology:bulb_purple.name=UV Bulb
+item.emergingtechnology:bulb.desc=Used in the Hydroponic Grow Light
+
+item.emergingtechnology:nozzle_component.name=Nozzle Component
+item.emergingtechnology:nozzle_component.desc=A crafting ingredient used to create nozzles
+item.emergingtechnology:nozzle_smart.name=Smart Spray Nozzle
+item.emergingtechnology:nozzle_smart.desc=Multiplies the range and effectiveness of the Diffuser by %d and %d respectively
+item.emergingtechnology:nozzle_long.name=Long Spray Nozzle
+item.emergingtechnology:nozzle_long.desc=Multiplies the range of the Diffuser by %d
+item.emergingtechnology:nozzle_precise.name=Precise Spray Nozzle
+item.emergingtechnology:nozzle_precise.desc=Multiplies the effectivesness of the Diffuser by %2$d
+item.emergingtechnology:nozzles.desc=Used by the Diffuser
+
+item.emergingtechnology:biomass.name=Biomass
+item.emergingtechnology:biochar.name=Biochar
+
 item.emergingtechnology:circuit.name=Circuit
 item.emergingtechnology:circuit_basic.name=Basic Circuit
 item.emergingtechnology:circuit_advanced.name=Advanced Circuit
@@ -5,3 +24,9 @@ item.emergingtechnology:circuit_superior.name=Superior Circuit
 item.emergingtechnology:circuits.desc=Used in the Optimiser, provides %d cores
 
 itemGroup.emergingtechnology=Re-emerging Technology
+
+info.emergingtechnology.energy.required=Requires %d RF/t
+
+info.emergingtechnology.growth.generated=Provides a %s%% chance of growth boost per tick
+
+info.emergingtechnology.interaction.shift=Press SHIFT for more details
