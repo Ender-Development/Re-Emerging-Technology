@@ -35,23 +35,25 @@ object ModItems {
 	val nozzleLong = ItemNozzle("long", EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.LONG.rangeMultiplier, EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.LONG.boostMultiplier)
 	val nozzlePrecise = ItemNozzle("precise", EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.PRECISE.rangeMultiplier, EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.PRECISE.boostMultiplier)
 
-	// fertilizer
+	val fertilizer = ItemBase("fertilizer")
 
 	// Polymers
-	// shredded_plastic
-	// shredded_plant
-	// shredded_starch
-	// shredded_paper
+	val shreddedPlastic = ItemBase("shredded_plastic")
+	val shreddedPlant = object : ItemBase("shredded_plant") {
+		override fun getItemBurnTime(itemStack: ItemStack) = 800
+	}
+	val shreddedStarch = ItemBase("shredded_starch")
+	val shreddedPaper = ItemBase("shredded_paper")
 	
-	// plastic_waste
-	// paper_waste
-	// paper_pulp
+	val plasticWaste = ItemBase("plastic_waste")
+	val paperWaste = ItemBase("paper_waste")
+	val paperPulp = ItemBase("paper_pulp")
 	
-	// filament
-	// plastic_rod
-	// plastic_sheet
-	// plastic_tissue_scaffold
-	// turbine
+	val filament = ItemBase("filament")
+	val plasticRod = ItemBase("plastic_rod")
+	val plasticSheet = ItemBase("plastic_sheet")
+	val plasticTissueScaffold = ItemBase("plastic_tissue_scaffold")
+	val turbine = ItemBase("turbine")
 
 	// Synthetics
 	// syringe_empty // weird!
