@@ -37,6 +37,9 @@ item.emergingtechnology:plastic_sheet.name=Bioplastic Sheet
 item.emergingtechnology:plastic_tissue_scaffold.name=Bioplastic Tissue Scaffold
 item.emergingtechnology:turbine.name=Turbine
 
+tile.emergingtechnology:shredder.name=Shredder
+tile.emergingtechnology:shredder.desc=Shreds plants and plastic items into raw materials for the Processor
+
 tile.emergingtechnology:waste_collector.name=Waste Collector
 tile.emergingtechnology:waste_collector.desc=Slowly collects waste plastic and other items when placed in water
 tile.emergingtechnology:waste_collector.req.biome=Only functions in Ocean, Deep Ocean and Beach biomes
