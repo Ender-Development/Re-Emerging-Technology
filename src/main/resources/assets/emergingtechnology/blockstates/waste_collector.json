@@ -1,0 +1,16 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "emergingtechnology:waste_collector_empty"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}],
+		"full": {
+			"true": {
+				"model": "emergingtechnology:waste_collector"
+			},
+			"false": {}
+		}
+	}
+}

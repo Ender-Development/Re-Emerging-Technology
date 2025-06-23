@@ -6,7 +6,7 @@ import net.minecraft.item.ItemBlock
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World
 
-class TooltipItemBlock(block: Block, val tooltip: () -> Array<out String>) : ItemBlock(block) {
+class TooltipItemBlock(block: Block, val tooltip: () -> Collection<String>) : ItemBlock(block) {
 	init {
 		registryName = block.registryName
 	}

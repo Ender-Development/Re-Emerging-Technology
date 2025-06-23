@@ -37,6 +37,12 @@ item.emergingtechnology:plastic_sheet.name=Bioplastic Sheet
 item.emergingtechnology:plastic_tissue_scaffold.name=Bioplastic Tissue Scaffold
 item.emergingtechnology:turbine.name=Turbine
 
+tile.emergingtechnology:waste_collector.name=Waste Collector
+tile.emergingtechnology:waste_collector.desc=Slowly collects waste plastic and other items when placed in water
+tile.emergingtechnology:waste_collector.req.biome=Only functions in Ocean, Deep Ocean and Beach biomes
+tile.emergingtechnology:waste_collector.req.water=Requires at least %d surrounding water blocks
+tile.emergingtechnology:waste_collector.req.surface=Cannot be submerged underwater
+
 tile.emergingtechnology:shredded_plant_block.name=Shredded Plant Block
 tile.emergingtechnology:shredded_plastic_block.name=Shredded Plastic Block
 tile.emergingtechnology:shredded_starch_block.name=Shredded Starch Block
