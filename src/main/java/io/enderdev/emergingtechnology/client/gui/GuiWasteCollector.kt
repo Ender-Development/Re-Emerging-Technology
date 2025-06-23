@@ -8,6 +8,6 @@ import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
 
-class GuiWasteCollector(playerInv: IInventory, tile: TileWasteCollector) : BaseGui<TileWasteCollector>(ContainerWasteCollector(playerInv, tile), tile, "waste_collector") {
-	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/${guiName}_gui.png")
+class GuiWasteCollector(playerInv: IInventory, tile: TileWasteCollector) : BaseGui(ContainerWasteCollector(playerInv, tile), tile) {
+	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/waste_collector_gui.png")
 }

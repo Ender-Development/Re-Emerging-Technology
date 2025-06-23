@@ -6,7 +6,7 @@ import net.minecraft.entity.player.InventoryPlayer
 import net.minecraft.inventory.IInventory
 import net.minecraftforge.items.SlotItemHandler
 
-class ContainerWasteCollector(playerInv: IInventory, tile: TileWasteCollector) : BaseContainer<TileWasteCollector>(playerInv, tile) {
+class ContainerWasteCollector(playerInv: IInventory, tile: TileWasteCollector) : BaseContainer(playerInv, tile) {
 	override fun addOwnSlots() {
 		addSlotArray(44, 42, 1, 5, tile.output)
 	}

@@ -1,6 +1,7 @@
 package io.enderdev.emergingtechnology.blocks
 
 import io.enderdev.catalyx.blocks.BaseBlock
+import io.enderdev.catalyx.blocks.IBlockProvider
 import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import io.enderdev.emergingtechnology.items.GlassBlock

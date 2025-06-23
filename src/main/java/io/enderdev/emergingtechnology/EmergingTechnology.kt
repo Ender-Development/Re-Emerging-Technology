@@ -2,6 +2,7 @@ package io.enderdev.emergingtechnology
 
 import io.enderdev.catalyx.CatalyxSettings
 import io.enderdev.catalyx.blocks.BaseBlock
+import io.enderdev.catalyx.blocks.IBlockProvider
 import io.enderdev.catalyx.client.gui.CatalyxGuiHandler
 import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
@@ -38,7 +39,7 @@ object EmergingTechnology {
 	val DECIMAL_FORMAT = DecimalFormat("#0.00")
 
 	val creativeTab = object : CreativeTabs(Tags.MODID) {
-		override fun createIcon() = Items.DIAMOND.toStack()//ModBlocks.chemical_combiner.toStack()
+		override fun createIcon() = Items.DIAMOND.toStack()//ModBlocks.algaeBioreactor.toStack()
 	}
 
 	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it) })
