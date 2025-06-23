@@ -79,6 +79,9 @@ item.emergingtechnology:circuit_advanced.name=Advanced Circuit
 item.emergingtechnology:circuit_superior.name=Superior Circuit
 item.emergingtechnology:circuits.desc=Used in the Optimiser, provides %d cores
 
+tile.emergingtechnology:solar_panel.name=Solar Panel
+tile.emergingtechnology:solar_panel.desc=Generates %d RF/t when in sunlight
+
 # Miscellaneous
 itemGroup.emergingtechnology=Re-emerging Technology
 

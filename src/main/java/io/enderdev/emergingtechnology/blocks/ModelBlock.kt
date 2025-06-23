@@ -11,7 +11,7 @@ import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 
-open class ModelBlock(name: String, material: Material = Material.ROCK, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BaseBlock(EmergingTechnology.catalyxSettings, name, material), IHasModel {
+open class ModelBlock(val name: String, material: Material = Material.ROCK, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BaseBlock(EmergingTechnology.catalyxSettings, name, material), IHasModel {
 	init {
 		this.soundType = soundType
 		blockHardness = hardness
