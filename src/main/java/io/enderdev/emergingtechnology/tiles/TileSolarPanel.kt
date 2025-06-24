@@ -3,10 +3,13 @@ package io.enderdev.emergingtechnology.tiles
 import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
+import io.enderdev.emergingtechnology.utils.EnergyUtils
+import net.minecraft.block.BlockHorizontal
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
+import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.energy.CapabilityEnergy
 
 class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(5000) {
@@ -14,6 +17,9 @@ class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(50
 		generate()
 		spread()
 	}
+
+	val outputDirection: EnumFacing
+		get() = world.getBlockState(pos).getValue(BlockHorizontal.FACING).opposite
 
 	fun generate() {
 		if(!world.isDaytime || (false && !world.canBlockSeeSky(pos))) // TODO idk why this doesn't really work (maybe just superflat quirkyness)
@@ -26,20 +32,19 @@ class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(50
 		energyStorage.receiveEnergy(generated, false)
 	}
 
-	fun spread() {
-		for(direction in EnumFacing.VALUES) {
-			val te = world.getTileEntity(pos.offset(direction)) ?: continue
-			if(!te.hasCapability(CapabilityEnergy.ENERGY, direction))
-				continue
-			val cap = te.getCapability(CapabilityEnergy.ENERGY, direction)!!
-			energyStorage.extractEnergy(cap.receiveEnergy(energyStorage.energyStored, false), false)
-			if(energyStorage.energyStored == 0)
-				break
-		}
-	}
+	fun spread() = EnergyUtils.spreadEnergy(world, pos, energyStorage, outputDirection)
 
-	// TODO overwrite getcap to disable receiving energy
-	// TODO abstract away/put in a helper spread() and only send energy to the dedicated output side we have on the model
+	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
+
+	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
+		capability == CapabilityEnergy.ENERGY && (facing == null || facing == outputDirection)
+
+	override fun <T : Any?> getCapability(capability: Capability<T?>, facing: EnumFacing?): T? {
+		if(capability != CapabilityEnergy.ENERGY || (facing != null && facing != outputDirection))
+			return null
+
+		return CapabilityEnergy.ENERGY.cast(energyStorageWrapper)
+	}
 
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
