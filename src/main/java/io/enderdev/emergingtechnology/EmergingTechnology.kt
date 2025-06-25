@@ -2,7 +2,6 @@ package io.enderdev.emergingtechnology
 
 import io.enderdev.catalyx.CatalyxSettings
 import io.enderdev.catalyx.blocks.BaseBlock
-import io.enderdev.catalyx.blocks.IBlockProvider
 import io.enderdev.catalyx.client.gui.CatalyxGuiHandler
 import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
@@ -42,7 +41,7 @@ object EmergingTechnology {
 		override fun createIcon() = Items.DIAMOND.toStack()//ModBlocks.algaeBioreactor.toStack()
 	}
 
-	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it) })
+ 	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it) })
 	val guiHandler = CatalyxGuiHandler()
 
 	//https://github.com/jaredlll08/ModTweaker/blob/1.12/src/main/java/com/blamejared/ModTweaker.java

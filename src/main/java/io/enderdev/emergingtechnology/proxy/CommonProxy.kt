@@ -38,7 +38,7 @@ open class CommonProxy {
 
 	open fun init(e: FMLInitializationEvent) {
 		stage = LoadingStage.INIT
-		//ModRecipes.initOredict()
+		ModRecipes.initOredict()
 		NetworkRegistry.INSTANCE.registerGuiHandler(EmergingTechnology, EmergingTechnology.guiHandler)
 		MinecraftForge.EVENT_BUS.register(CommonEventHandler())
 

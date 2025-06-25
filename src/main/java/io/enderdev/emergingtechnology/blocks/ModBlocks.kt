@@ -6,7 +6,8 @@ import io.enderdev.emergingtechnology.blocks.machine.BlockShredder
 import io.enderdev.emergingtechnology.blocks.machine.BlockSolarPanel
 import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
-import io.enderdev.emergingtechnology.items.GlassBlock
+import io.enderdev.emergingtechnology.blocks.GlassBlock
+import io.enderdev.emergingtechnology.blocks.machine.BlockProcessor
 import net.minecraft.block.Block
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
@@ -35,14 +36,15 @@ object ModBlocks {
 	val aquaponicGlass = GlassBlock("aquaponic_glass", hardness = 1f)
 
 	// Polymers
-	// processor
+	val processor = BlockProcessor()
 	val shredder = BlockShredder()
-	// plastic_block
-	// clear_plastic_block
 	// machine_case
 	// fabricator
 	val wasteCollector = BlockWasteCollector()
 	// bioplastic_ladder
+
+	val plasticBlock = ModelBlock("plastic_block", hardness = 2f)
+	val clearPlasticBlock = GlassBlock("clear_plastic_block")
 
 	val shreddedPlantBlock = ModelBlock("shredded_plant_block", Material.PLANTS, SoundType.PLANT, 1f)
 	val shreddedPlasticBlock = ModelBlock("shredded_plastic_block", hardness = 1f)
@@ -62,7 +64,7 @@ object ModBlocks {
 	val solarPanel = BlockSolarPanel()
 	// solar_glass
 	// battery
-	// biochar_block
+	val biocharBlock = ModelBlock("biochar_block", Material.WOOD, SoundType.WOOD, 1f)
 	// algorithmic_optimiser
 	// guide_light
 

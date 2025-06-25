@@ -1,6 +1,5 @@
-package io.enderdev.emergingtechnology.items
+package io.enderdev.emergingtechnology.blocks
 
-import io.enderdev.emergingtechnology.blocks.ModelBlock
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState

@@ -1,0 +1,10 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "emergingtechnology:biochar_block"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

@@ -38,6 +38,7 @@ class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.catalyxS
 
 	override fun onWorkTick() {
 		energyStorage.extractEnergy(energyPerTick, false)
+		markDirtyGUI() // looks cool
 	}
 
 	override fun shouldTick() = true

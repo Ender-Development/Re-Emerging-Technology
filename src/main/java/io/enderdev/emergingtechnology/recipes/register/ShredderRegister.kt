@@ -1,6 +1,7 @@
 package io.enderdev.emergingtechnology.recipes.register
 
 import io.enderdev.catalyx.utils.extensions.toIngredient
+import io.enderdev.catalyx.utils.extensions.toOre
 import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ModItems
@@ -24,7 +25,7 @@ class ShredderRegister : AbstractRecipeRegister<ShredderRecipe>() {
 
 		arrayOf("sheetPlastic", "rodPlastic", "stickPlastic", "platePlastic", "blockPlastic", "itemPlastic", "bioplastic").forEach {
 			if(oreNotEmpty(it))
-				recipes.add(ShredderRecipe(it.toIngredient(), ModItems.shreddedPlastic.toStack()))
+				recipes.add(ShredderRecipe(it.toOre(), ModItems.shreddedPlastic.toStack()))
 		}
 
 		arrayOf("dumpsterdiving:scrap_plastic", "dumpsterdiving:scrap_rubber").forEach {
@@ -60,10 +61,10 @@ class ShredderRegister : AbstractRecipeRegister<ShredderRecipe>() {
 		}
 
 		if(oreNotEmpty("paper"))
-			recipes.add(ShredderRecipe("paper".toIngredient(), ModItems.shreddedPaper.toStack()))
+			recipes.add(ShredderRecipe("paper".toOre(), ModItems.shreddedPaper.toStack()))
 
 		if(oreNotEmpty("book"))
-			recipes.add(ShredderRecipe("book".toIngredient(), ModItems.shreddedPaper.toStack(4)))
+			recipes.add(ShredderRecipe("book".toOre(), ModItems.shreddedPaper.toStack(4)))
 	}
 
 	fun toIngredient(thing: Any?): Ingredient? {

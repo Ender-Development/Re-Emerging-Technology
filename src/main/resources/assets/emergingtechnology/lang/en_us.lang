@@ -37,6 +37,9 @@ item.emergingtechnology:plastic_sheet.name=Bioplastic Sheet
 item.emergingtechnology:plastic_tissue_scaffold.name=Bioplastic Tissue Scaffold
 item.emergingtechnology:turbine.name=Turbine
 
+tile.emergingtechnology:processor.name=Processor
+tile.emergingtechnology:processor.desc=Processes raw materials into usable plastics
+
 tile.emergingtechnology:shredder.name=Shredder
 tile.emergingtechnology:shredder.desc=Shreds plants and plastic items into raw materials for the Processor
 
@@ -45,6 +48,9 @@ tile.emergingtechnology:waste_collector.desc=Slowly collects waste plastic and o
 tile.emergingtechnology:waste_collector.req.biome=Only functions in Ocean, Deep Ocean and Beach biomes
 tile.emergingtechnology:waste_collector.req.water=Requires at least %d surrounding water blocks
 tile.emergingtechnology:waste_collector.req.surface=Cannot be submerged underwater
+
+tile.emergingtechnology:plastic_block.name=Block of Bioplastic
+tile.emergingtechnology:clear_plastic_block.name=Block of Clear Bioplastic
 
 tile.emergingtechnology:shredded_plant_block.name=Shredded Plant Block
 tile.emergingtechnology:shredded_plastic_block.name=Shredded Plastic Block
@@ -82,12 +88,15 @@ item.emergingtechnology:circuits.desc=Used in the Optimiser, provides %d cores
 tile.emergingtechnology:solar_panel.name=Solar Panel
 tile.emergingtechnology:solar_panel.desc=Generates %d RF/t when in sunlight
 
+tile.emergingtechnology:biochar_block.name=Biochar Block
+
 # Miscellaneous
 itemGroup.emergingtechnology=Re-emerging Technology
 
 info.emergingtechnology.energy.required=Requires %d RF/t
+info.emergingtechnology.water.required=Requires %d mB/t of Water
 
-info.emergingtechnology.growth.generated=Provides a %s%% chance of growth boost per tick
+info.emergingtechnology.growth.generated=Provides a %d%% chance of growth boost per tick
 
 info.emergingtechnology.interaction.shift=Press SHIFT for more details
 info.emergingtechnology.interaction.rmb=Right-click to use

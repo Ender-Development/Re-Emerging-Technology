@@ -1,0 +1,10 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "emergingtechnology:plastic_block"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

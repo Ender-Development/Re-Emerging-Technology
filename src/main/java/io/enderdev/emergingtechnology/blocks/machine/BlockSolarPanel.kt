@@ -2,6 +2,7 @@ package io.enderdev.emergingtechnology.blocks.machine
 
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
+import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.TooltipItemBlock
 import io.enderdev.emergingtechnology.tiles.TileSolarPanel
 import io.enderdev.emergingtechnology.utils.ItemUtils
@@ -19,7 +20,7 @@ class BlockSolarPanel() : RotatableModelBlock("solar_panel"), ITileEntityProvide
 	}
 
 	override fun registerItem(event: RegistryEvent.Register<Item>) {
-		event.registry.register(TooltipItemBlock(this) { ItemUtils.extendedTooltip("tile.emergingtechnology:solar_panel.desc".translate()) })
+		event.registry.register(TooltipItemBlock(this) { ItemUtils.extendedTooltip("tile.emergingtechnology:solar_panel.desc".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.SOLAR.solarEnergyGenerated)) })
 	}
 
 	override fun hasTileEntity(state: IBlockState) = true

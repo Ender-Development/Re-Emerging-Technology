@@ -65,13 +65,13 @@ object ModItems {
 	val syringeFull = ItemFullSyringe()
 	// sample // TODO; if sample is just syringeFull but with a different texture, abstract away the itemid from ItemFullSyringe to a separate class and re-use it
 
-	val synthetic_steak = ItemRawSyntheticMeat("steak", "minecraft:cow")
-	val synthetic_chicken = ItemRawSyntheticMeat("chicken", "minecraft:chicken")
-	val synthetic_porkchop = ItemRawSyntheticMeat("porkchop", "minecraft:pig")
+	val syntheticSteak = ItemRawSyntheticMeat("steak", "minecraft:cow")
+	val syntheticChicken = ItemRawSyntheticMeat("chicken", "minecraft:chicken")
+	val syntheticPorkchop = ItemRawSyntheticMeat("porkchop", "minecraft:pig")
 
-	val synthetic_steak_cooked = ItemCookedSyntheticMeat("steak", "minecraft:cow", synthetics.beefHunger, synthetics.beefHungerSaturation.toFloat())
-	val synthetic_chicken_cooked = ItemCookedSyntheticMeat("chicken", "minecraft:chicken", synthetics.chickenHunger, synthetics.chickenHungerSaturation.toFloat())
-	val synthetic_porkchop_cooked = ItemCookedSyntheticMeat("porkchop", "minecraft:pig", synthetics.porkchopHunger, synthetics.porkchopHungerSaturation.toFloat())
+	val syntheticSteakCooked = ItemCookedSyntheticMeat("steak", "minecraft:cow", synthetics.beefHunger, synthetics.beefHungerSaturation.toFloat())
+	val syntheticChickenCooked = ItemCookedSyntheticMeat("chicken", "minecraft:chicken", synthetics.chickenHunger, synthetics.chickenHungerSaturation.toFloat())
+	val syntheticPorkchopCooked = ItemCookedSyntheticMeat("porkchop", "minecraft:pig", synthetics.porkchopHunger, synthetics.porkchopHungerSaturation.toFloat())
 
 	val syntheticLeather = ItemBase("synthetic_leather")
 	val syntheticSlime = ItemBase("synthetic_slime")
