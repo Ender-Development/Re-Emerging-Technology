@@ -46,6 +46,8 @@ tile.emergingtechnology:processor.desc=Processes raw materials into usable plast
 tile.emergingtechnology:shredder.name=Shredder
 tile.emergingtechnology:shredder.desc=Shreds plants and plastic items into raw materials for the Processor
 
+tile.emergingtechnology:fabricator.name=Fabricator
+
 tile.emergingtechnology:waste_collector.name=Waste Collector
 tile.emergingtechnology:waste_collector.desc=Slowly collects waste plastic and other items when placed in water
 tile.emergingtechnology:waste_collector.req.biome=Only functions in Ocean, Deep Ocean and Beach biomes

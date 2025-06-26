@@ -167,14 +167,13 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 		var count = 0
 		lateinit var resource: OptimiserResource
 
-		override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/algorithmic_optimiser_gui.png")
-
 		override fun drawButton(mc: Minecraft, mouseX: Int, mouseY: Int, partialTicks: Float) {
 			if(visible) {
-				mc.textureManager.bindTexture(textureLocation)
+				mc.textureManager.bindTexture(ResourceLocation(Tags.MODID, "textures/gui/container/algorithmic_optimiser_gui.png"))
 				GlStateManager.color(1F, 1F, 1F)
 				val v = if(count > 0) 16 else 0
 				drawTexturedModalRect(x, y, 175, v, 16, 16)
+				super.drawButton(mc, mouseX, mouseY, partialTicks)
 			}
 		}
 

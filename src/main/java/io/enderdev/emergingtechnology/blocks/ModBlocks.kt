@@ -32,9 +32,10 @@ object ModBlocks {
 	// Polymers
 	val processor = BlockProcessor()
 	val shredder = BlockShredder()
-	// machine_case
-	// fabricator
+	val fabricator = BlockFabricator()
 	val wasteCollector = BlockWasteCollector()
+
+	// machine_case
 	// bioplastic_ladder
 
 	val plasticBlock = ModelBlock("plastic_block", hardness = 2f)
