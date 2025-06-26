@@ -3,6 +3,7 @@ package io.enderdev.emergingtechnology.tiles
 import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
+import io.enderdev.emergingtechnology.utils.CapabilityUtils
 import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.block.BlockHorizontal
 import net.minecraft.nbt.NBTTagCompound
@@ -32,7 +33,7 @@ class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(50
 		energyStorage.receiveEnergy(generated, false)
 	}
 
-	fun spread() = EnergyUtils.spreadEnergy(world, pos, energyStorage, outputDirection)
+	fun spread() = CapabilityUtils.spreadEnergy(world, pos, energyStorage, outputDirection)
 
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 

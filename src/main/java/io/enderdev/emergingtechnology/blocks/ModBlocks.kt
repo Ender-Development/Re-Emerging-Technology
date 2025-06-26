@@ -1,14 +1,7 @@
 package io.enderdev.emergingtechnology.blocks
 
 import io.enderdev.catalyx.blocks.BaseBlock
-import io.enderdev.catalyx.blocks.IBlockProvider
-import io.enderdev.emergingtechnology.blocks.machine.BlockShredder
-import io.enderdev.emergingtechnology.blocks.machine.BlockSolarPanel
-import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector
-import io.enderdev.emergingtechnology.blocks.machine.IHasModel
-import io.enderdev.emergingtechnology.blocks.GlassBlock
-import io.enderdev.emergingtechnology.blocks.machine.BlockAlgorithmicOptimiser
-import io.enderdev.emergingtechnology.blocks.machine.BlockProcessor
+import io.enderdev.emergingtechnology.blocks.machine.*
 import net.minecraft.block.Block
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
@@ -27,7 +20,7 @@ object ModBlocks {
 	// hydroponic_grow_bed
 	// hydroponic_grow_light
 	// harvester
-	// water_filler
+	val waterFiller = BlockWaterFiller()
 	// co2_scrubber
 	// co2_diffuser
 	// nutrient_injector

@@ -2,6 +2,7 @@ package io.enderdev.emergingtechnology.blocks.machine
 
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
+import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerProcessor
 import io.enderdev.emergingtechnology.client.gui.GuiProcessor
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -20,7 +21,7 @@ class BlockProcessor() : RotatableMachineBlock("processor", TileProcessor::class
 	override fun registerItem(event: RegistryEvent.Register<Item>) {
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
-				"tile.emergingtechnology:processor.desc".translate(),
+				"tile.${Tags.MODID}:processor.desc".translate(),
 				"info.emergingtechnology.energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorEnergyBaseUsage),
 				"info.emergingtechnology.water.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorWaterBaseUsage)
 			)

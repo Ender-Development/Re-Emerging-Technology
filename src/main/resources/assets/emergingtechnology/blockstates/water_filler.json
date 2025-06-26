@@ -1,0 +1,10 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "emergingtechnology:water_filler"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

@@ -2,6 +2,7 @@ package io.enderdev.emergingtechnology.blocks.machine
 
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
+import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerShredder
 import io.enderdev.emergingtechnology.client.gui.GuiShredder
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -20,7 +21,7 @@ class BlockShredder() : RotatableMachineBlock("shredder", TileShredder::class.ja
 	override fun registerItem(event: RegistryEvent.Register<Item>) {
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
-				"tile.emergingtechnology:shredder.desc".translate(),
+				"tile.${Tags.MODID}:shredder.desc".translate(),
 				"info.emergingtechnology.energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.SHREDDER.shredderEnergyBaseUsage)
 			)
 		})

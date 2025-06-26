@@ -2,13 +2,13 @@ package io.enderdev.emergingtechnology.blocks.machine
 
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
+import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerWasteCollector
 import io.enderdev.emergingtechnology.client.gui.GuiWasteCollector
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.TooltipItemBlock
 import io.enderdev.emergingtechnology.tiles.TileWasteCollector
 import io.enderdev.emergingtechnology.utils.ItemUtils
-import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.properties.PropertyBool
 import net.minecraft.block.state.BlockStateContainer
 import net.minecraft.block.state.IBlockState
@@ -42,10 +42,10 @@ class BlockWasteCollector() : ModelMachineBlock("waste_collector", TileWasteColl
 	override fun registerItem(event: RegistryEvent.Register<Item>) {
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
-				"tile.emergingtechnology:waste_collector.desc".translate(),
-				if(EmergingTechnologyConfig.POLYMERS_MODULE.COLLECTOR.biomeRequirementDisabled) "" else "tile.emergingtechnology:waste_collector.req.biome".translate(),
-				"tile.emergingtechnology:waste_collector.req.water".translate(EmergingTechnologyConfig.POLYMERS_MODULE.COLLECTOR.minimumWaterBlocks),
-				"tile.emergingtechnology:waste_collector.req.surface".translate()
+				"tile.${Tags.MODID}:waste_collector.desc".translate(),
+				if(EmergingTechnologyConfig.POLYMERS_MODULE.COLLECTOR.biomeRequirementDisabled) "" else "tile.${Tags.MODID}:waste_collector.req.biome".translate(),
+				"tile.${Tags.MODID}:waste_collector.req.water".translate(EmergingTechnologyConfig.POLYMERS_MODULE.COLLECTOR.minimumWaterBlocks),
+				"tile.${Tags.MODID}:waste_collector.req.surface".translate()
 			)
 		})
 	}

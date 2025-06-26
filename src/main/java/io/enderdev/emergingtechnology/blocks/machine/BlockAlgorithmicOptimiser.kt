@@ -2,6 +2,7 @@ package io.enderdev.emergingtechnology.blocks.machine
 
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
+import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerAlgorithmicOptimiser
 import io.enderdev.emergingtechnology.client.gui.GuiAlgorithmicOptimiser
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -20,7 +21,7 @@ class BlockAlgorithmicOptimiser() : RotatableMachineBlock("algorithmic_optimiser
 	override fun registerItem(event: RegistryEvent.Register<Item>) {
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
-				"tile.emergingtechnology:algorithmic_optimiser.desc".translate(),
+				"tile.${Tags.MODID}:algorithmic_optimiser.desc".translate(),
 				"info.emergingtechnology.energy.required".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.OPTIMISER.energyUsage),
 				"info.emergingtechnology.water.required".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.OPTIMISER.waterUsage)
 			)
