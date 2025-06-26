@@ -88,8 +88,11 @@ item.emergingtechnology:circuit_advanced.name=Advanced Circuit
 item.emergingtechnology:circuit_superior.name=Superior Circuit
 item.emergingtechnology:circuits.desc=Used in the Optimiser, provides %d cores
 
+tile.emergingtechnology:biomass_generator.name=Biomass Generator
+tile.emergingtechnology:biomass_generator.desc=Burns Biomass to generate %d FE/t
+
 tile.emergingtechnology:solar_panel.name=Solar Panel
-tile.emergingtechnology:solar_panel.desc=Generates %d RF/t when in sunlight
+tile.emergingtechnology:solar_panel.desc=Generates %d FE/t when in sunlight
 
 tile.emergingtechnology:biochar_block.name=Biochar Block
 
@@ -102,7 +105,7 @@ tile.emergingtechnology:algorithmic_optimiser.tooltip.recipe_time=Reduces proces
 # Miscellaneous/Generic
 itemGroup.emergingtechnology=Re-emerging Technology
 
-info.emergingtechnology.energy.required=Requires %d RF/t
+info.emergingtechnology.energy.required=Requires %d FE/t
 info.emergingtechnology.water.required=Requires %d mB/t of Water
 
 info.emergingtechnology.energy.name=energy

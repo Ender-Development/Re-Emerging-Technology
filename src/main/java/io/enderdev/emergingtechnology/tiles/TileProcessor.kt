@@ -38,7 +38,7 @@ class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.cataly
 	override fun initInventoryInputCapability() {
 		input = object : TileStackHandler(inputSlots, this) {
 			override fun isItemValid(slot: Int, stack: ItemStack) =
-				ModRecipes.processorRecipe.recipes.any { it.input.test(stack) }
+				ModRecipes.processorRecipes.recipes.any { it.input.test(stack) }
 		}
 	}
 
@@ -55,7 +55,7 @@ class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.cataly
 	}
 
 	override fun updateRecipe() {
-		currentRecipe = if(input[0].isEmpty) null else ModRecipes.processorRecipe.recipes.firstOrNull { it.inputCount <= input[0].count && it.input.test(input[0]) }
+		currentRecipe = if(input[0].isEmpty) null else ModRecipes.processorRecipes.recipes.firstOrNull { it.inputCount <= input[0].count && it.input.test(input[0]) }
 	}
 
 	override fun onProcessComplete() {
