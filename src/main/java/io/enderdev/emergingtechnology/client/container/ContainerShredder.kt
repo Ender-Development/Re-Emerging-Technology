@@ -8,7 +8,7 @@ import net.minecraft.inventory.IInventory
 import net.minecraftforge.items.SlotItemHandler
 
 class ContainerShredder(playerInv: IInventory, tile: TileShredder) : BaseContainer(playerInv, tile) {
-	override fun addOwnSlots() {
+	init {
 		addSlotToContainer(SlotItemHandler(tile.input, 0, 17, 51))
 		addSlotToContainer(SlotItemHandler(tile.output, 0, 77, 51))
 	}

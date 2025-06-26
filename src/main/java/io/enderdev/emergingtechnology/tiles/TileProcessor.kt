@@ -19,18 +19,17 @@ import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 
-class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.catalyxSettings), IFluidTile, IEnergyTile by EnergyTileImpl(10000) {
-	val inputTank: FluidTank
-
+class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.catalyxSettings), IFluidTile, IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
+	}
 
-		inputTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-			override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == FluidRegistry.WATER
-		}
-		inputTank.setTileEntity(this@TileProcessor)
-		inputTank.setCanFill(true)
-		inputTank.setCanDrain(false)
+	val inputTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
+		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == FluidRegistry.WATER
+	}.apply {
+		setTileEntity(this@TileProcessor)
+		setCanFill(true)
+		setCanDrain(false)
 	}
 
 	override val fluidTanks: FluidHandlerConcatenate
@@ -43,9 +42,17 @@ class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.cataly
 		}
 	}
 
-	override val recipeTime = EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorBaseTimeTaken
-	override val energyPerTick = EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorEnergyBaseUsage
-	val fluidPerTick = EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorWaterBaseUsage
+	override val recipeTime: Int
+		get() = getEffectiveRecipeTime(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorBaseTimeTaken)
+	override val energyPerTick: Int
+		get() = getEffectiveEnergyUsage(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorEnergyBaseUsage)
+	val fluidPerTick: Int
+		get() = getEffectiveWaterUsage(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorWaterBaseUsage)
+
+	override fun onIdleTick() {
+		updateRecipe()
+		optimisationTick()
+	}
 
 	override fun updateRecipe() {
 		currentRecipe = if(input[0].isEmpty) null else ModRecipes.processorRecipe.recipes.firstOrNull { it.inputCount <= input[0].count && it.input.test(input[0]) }

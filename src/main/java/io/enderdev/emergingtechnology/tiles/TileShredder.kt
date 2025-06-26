@@ -12,7 +12,7 @@ import io.enderdev.emergingtechnology.recipes.ModRecipes
 import io.enderdev.emergingtechnology.recipes.ShredderRecipe
 import net.minecraft.item.ItemStack
 
-class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000) {
+class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
 	}
@@ -24,8 +24,15 @@ class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.catalyxS
 		}
 	}
 
-	override val recipeTime = EmergingTechnologyConfig.POLYMERS_MODULE.SHREDDER.shredderBaseTimeTaken
-	override val energyPerTick = EmergingTechnologyConfig.POLYMERS_MODULE.SHREDDER.shredderEnergyBaseUsage
+	override val recipeTime: Int
+		get() = getEffectiveRecipeTime(EmergingTechnologyConfig.POLYMERS_MODULE.SHREDDER.shredderBaseTimeTaken)
+	override val energyPerTick: Int
+		get() = getEffectiveEnergyUsage(EmergingTechnologyConfig.POLYMERS_MODULE.SHREDDER.shredderEnergyBaseUsage)
+
+	override fun onIdleTick() {
+		updateRecipe()
+		optimisationTick()
+	}
 
 	override fun updateRecipe() {
 		currentRecipe = if(input[0].isEmpty) null else ModRecipes.shredderRecipes.recipes.firstOrNull { it.input.test(input[0]) }

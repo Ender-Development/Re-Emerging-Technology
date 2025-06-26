@@ -90,11 +90,21 @@ tile.emergingtechnology:solar_panel.desc=Generates %d RF/t when in sunlight
 
 tile.emergingtechnology:biochar_block.name=Biochar Block
 
-# Miscellaneous
+tile.emergingtechnology:algorithmic_optimiser.name=Algorithmic Optimiser
+tile.emergingtechnology:algorithmic_optimiser.name.short=Optimiser
+tile.emergingtechnology:algorithmic_optimiser.desc=Decreases the resource consumption of surrounding machines
+tile.emergingtechnology:algorithmic_optimiser.tooltip.resource=Reduces %s usage in nearby machines by %d%%
+tile.emergingtechnology:algorithmic_optimiser.tooltip.recipe_time=Reduces processing time in nearby machines by %d%%
+
+# Miscellaneous/Generic
 itemGroup.emergingtechnology=Re-emerging Technology
 
 info.emergingtechnology.energy.required=Requires %d RF/t
 info.emergingtechnology.water.required=Requires %d mB/t of Water
+
+info.emergingtechnology.energy.name=energy
+info.emergingtechnology.water.name=water
+info.emergingtechnology.gas.name=gas
 
 info.emergingtechnology.growth.generated=Provides a %d%% chance of growth boost per tick
 

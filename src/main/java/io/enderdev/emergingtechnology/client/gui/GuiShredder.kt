@@ -7,7 +7,7 @@ import io.enderdev.emergingtechnology.tiles.TileShredder
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
 
-class GuiShredder(playerInv: IInventory, tile: TileShredder) : BaseGui(ContainerShredder(playerInv, tile), tile) {
+class GuiShredder(playerInv: IInventory, tile: TileShredder) : BaseETGui(ContainerShredder(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/shredder_gui.png")
 
 	init {

@@ -7,6 +7,7 @@ import io.enderdev.emergingtechnology.blocks.machine.BlockSolarPanel
 import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import io.enderdev.emergingtechnology.blocks.GlassBlock
+import io.enderdev.emergingtechnology.blocks.machine.BlockAlgorithmicOptimiser
 import io.enderdev.emergingtechnology.blocks.machine.BlockProcessor
 import net.minecraft.block.Block
 import net.minecraft.block.SoundType
@@ -65,7 +66,7 @@ object ModBlocks {
 	// solar_glass
 	// battery
 	val biocharBlock = ModelBlock("biochar_block", Material.WOOD, SoundType.WOOD, 1f)
-	// algorithmic_optimiser
+	val algorithmicOptimiser = BlockAlgorithmicOptimiser()
 	// guide_light
 
 	// Fluids
