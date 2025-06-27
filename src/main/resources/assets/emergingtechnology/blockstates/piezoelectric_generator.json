@@ -1,0 +1,10 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "emergingtechnology:piezoelectric_generator"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

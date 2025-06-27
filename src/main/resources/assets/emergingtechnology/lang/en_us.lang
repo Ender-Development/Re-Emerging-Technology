@@ -101,6 +101,9 @@ item.emergingtechnology:circuit_advanced.name=Advanced Circuit
 item.emergingtechnology:circuit_superior.name=Superior Circuit
 item.emergingtechnology:circuits.desc=Used in the Optimiser, provides %d cores
 
+tile.emergingtechnology:piezoelectric_generator.name=Piezoelectric Generator
+tile.emergingtechnology:piezoelectric_generator.desc=Generates %d FE every %.2fs (%.2f FE/t) while stepped on
+
 tile.emergingtechnology:biomass_generator.name=Biomass Generator
 tile.emergingtechnology:biomass_generator.desc=Burns Biomass to generate %d FE/t
 

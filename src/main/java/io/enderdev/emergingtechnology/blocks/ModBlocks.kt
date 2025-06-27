@@ -59,7 +59,7 @@ object ModBlocks {
 	// algae_bioreactor
 
 	// Electrics
-	// piezoelectric_generator
+	val piezoelectricGenerator = BlockPiezoelectricGenerator()
 	// tidal_generator
 	// wind_generator
 	val biomassGenerator = BlockBiomassGenerator()
