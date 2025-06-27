@@ -1,0 +1,10 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "emergingtechnology:machine_case"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

@@ -54,6 +54,9 @@ tile.emergingtechnology:waste_collector.req.biome=Only functions in Ocean, Deep 
 tile.emergingtechnology:waste_collector.req.water=Requires at least %d surrounding water blocks
 tile.emergingtechnology:waste_collector.req.surface=Cannot be submerged underwater
 
+tile.emergingtechnology:machine_case.name=Basic Machine Case
+tile.emergingtechnology:bioplastic_ladder.name=Bioplastic Ladder
+
 tile.emergingtechnology:plastic_block.name=Block of Bioplastic
 tile.emergingtechnology:clear_plastic_block.name=Block of Clear Bioplastic
 
