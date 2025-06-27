@@ -62,8 +62,8 @@ object ModItems {
 
 	// Synthetics
 	val syringeEmpty = ItemEmptySyringe()
-	val syringeFull = ItemFullSyringe()
-	// sample // TODO; if sample is just syringeFull but with a different texture, abstract away the itemid from ItemFullSyringe to a separate class and re-use it
+	val syringeFull = ItemEntityThing("syringe_full")
+	val sample = ItemEntityThing("sample")
 
 	val syntheticSteak = ItemRawSyntheticMeat("steak", "minecraft:cow")
 	val syntheticChicken = ItemRawSyntheticMeat("chicken", "minecraft:chicken")

@@ -10,28 +10,31 @@ import net.minecraft.util.ResourceLocation
 import net.minecraft.world.World
 import net.minecraftforge.fml.common.registry.ForgeRegistries
 
-/** This is a completely different system than used by EMT */
-class ItemFullSyringe : ItemBase("syringe_full") {
+class ItemEntityThing(name: String) : ItemBase(name) {
 	companion object {
-		const val syringeNBT = "${Tags.MODID}:syringe"
+		const val ENTITY_NBT = "${Tags.MODID}:entity_id"
 	}
 
+	fun getEntityId(stack: ItemStack) = stack.tagCompound?.getString(ENTITY_NBT) ?: "Invalid"
+
 	fun getEntityName(stack: ItemStack): String {
-		val entityId = stack.tagCompound?.getString(syringeNBT) ?: return "Invalid"
-		return ForgeRegistries.ENTITIES.getValue(ResourceLocation(entityId))?.name ?: entityId
+		val entityId = getEntityId(stack)
+		return if(entityId == "Invalid")
+			entityId
+		else
+			ForgeRegistries.ENTITIES.getValue(ResourceLocation(entityId))?.name ?: entityId
 	}
 
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
-		(tooltip as MutableList).add("item.${Tags.MODID}:syringe_full.desc".translate(getEntityName(stack)))
+		(tooltip as MutableList).add("item.${Tags.MODID}:$name.desc".translate(getEntityName(stack)))
 	}
 
 	override fun getItemStackDisplayName(stack: ItemStack) =
-		"item.${Tags.MODID}:syringe_full.name".translate(getEntityName(stack))
+		"item.${Tags.MODID}:$name.name".translate(getEntityName(stack))
 
 	fun getFor(entityId: String) =
 		toStack().apply {
-			if(tagCompound == null)
-				tagCompound = NBTTagCompound()
-			tagCompound!!.setString(syringeNBT, entityId)
+			tagCompound = tagCompound ?: NBTTagCompound()
+			tagCompound!!.setString(ENTITY_NBT, entityId)
 		}
 }
