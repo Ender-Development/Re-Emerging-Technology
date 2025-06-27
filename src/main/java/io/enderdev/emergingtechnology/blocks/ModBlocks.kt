@@ -1,21 +1,14 @@
 package io.enderdev.emergingtechnology.blocks
 
 import io.enderdev.catalyx.IBothProvider
-import io.enderdev.catalyx.blocks.BaseBlock
-import io.enderdev.emergingtechnology.EmergingTechnology
-import io.enderdev.emergingtechnology.Tags
-import io.enderdev.emergingtechnology.blocks.ModBlocks.blocks
 import io.enderdev.emergingtechnology.blocks.machine.*
 import net.minecraft.block.Block
-import net.minecraft.block.BlockLadder
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.item.Item
-import net.minecraft.util.ResourceLocation
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
-import scala.reflect.macros.contexts.`Infrastructure$class`.settings
 
 object ModBlocks {
 	val blocks = mutableListOf<IBothProvider>()

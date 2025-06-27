@@ -3,9 +3,7 @@ package io.enderdev.emergingtechnology.client.gui
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerBiomassGenerator
-import io.enderdev.emergingtechnology.client.container.ContainerShredder
 import io.enderdev.emergingtechnology.tiles.TileBiomassGenerator
-import io.enderdev.emergingtechnology.tiles.TileShredder
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
 

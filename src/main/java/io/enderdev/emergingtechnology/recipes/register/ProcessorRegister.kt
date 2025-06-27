@@ -6,11 +6,7 @@ import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.recipes.ProcessorRecipe
-import io.enderdev.emergingtechnology.recipes.ShredderRecipe
-import net.minecraft.block.Block
 import net.minecraft.init.Items
-import net.minecraft.item.Item
-import net.minecraft.item.crafting.Ingredient
 
 class ProcessorRegister : AbstractRecipeRegister<ProcessorRecipe>() {
 	companion object {

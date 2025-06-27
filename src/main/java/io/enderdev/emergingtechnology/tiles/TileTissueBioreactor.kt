@@ -5,7 +5,6 @@ import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.catalyx.tiles.helper.IFluidTile
 import io.enderdev.catalyx.tiles.helper.TileStackHandler
-import io.enderdev.catalyx.utils.extensions.canMergeWith
 import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig

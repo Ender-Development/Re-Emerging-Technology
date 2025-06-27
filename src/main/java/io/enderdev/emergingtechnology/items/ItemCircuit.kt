@@ -1,8 +1,6 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.items.BaseItem
 import io.enderdev.catalyx.utils.extensions.translate
-import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack

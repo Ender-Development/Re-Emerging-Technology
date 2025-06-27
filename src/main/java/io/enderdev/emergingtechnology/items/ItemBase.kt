@@ -1,8 +1,8 @@
 package io.enderdev.emergingtechnology.items
 
+import io.enderdev.catalyx.items.BaseItem
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
-import io.enderdev.catalyx.items.BaseItem
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.fml.relauncher.Side

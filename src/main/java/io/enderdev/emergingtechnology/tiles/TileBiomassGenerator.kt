@@ -10,7 +10,6 @@ import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.recipes.BiomassGeneratorRecipe
 import io.enderdev.emergingtechnology.recipes.ModRecipes
-import io.enderdev.emergingtechnology.recipes.ShredderRecipe
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
 import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.item.ItemStack

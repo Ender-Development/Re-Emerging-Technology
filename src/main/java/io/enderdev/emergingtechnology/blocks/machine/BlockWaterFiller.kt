@@ -5,7 +5,6 @@ import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.ModelBlock
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.TooltipItemBlock
-import io.enderdev.emergingtechnology.tiles.TileSolarPanel
 import io.enderdev.emergingtechnology.tiles.TileWaterFiller
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.ITileEntityProvider

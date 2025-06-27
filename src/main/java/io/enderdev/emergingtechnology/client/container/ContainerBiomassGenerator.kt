@@ -2,7 +2,6 @@ package io.enderdev.emergingtechnology.client.container
 
 import io.enderdev.catalyx.client.container.BaseContainer
 import io.enderdev.emergingtechnology.tiles.TileBiomassGenerator
-import io.enderdev.emergingtechnology.tiles.TileProcessor
 import net.minecraft.inventory.IInventory
 import net.minecraftforge.items.SlotItemHandler
 

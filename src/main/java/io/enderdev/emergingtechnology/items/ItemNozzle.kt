@@ -2,7 +2,6 @@ package io.enderdev.emergingtechnology.items
 
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
-import io.enderdev.emergingtechnology.config.hydroponics.diffuser.HydroponicsModuleDiffuser
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack

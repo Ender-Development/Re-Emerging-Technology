@@ -1,14 +1,13 @@
 package io.enderdev.emergingtechnology.blocks
 
+import io.enderdev.catalyx.blocks.BaseBlock
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
-import io.enderdev.catalyx.blocks.BaseBlock
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
-import net.minecraft.util.BlockRenderLayer
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess

@@ -2,11 +2,7 @@ package io.enderdev.emergingtechnology.recipes
 
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ModItems
-import io.enderdev.emergingtechnology.recipes.register.BiomassGeneratorRegister
-import io.enderdev.emergingtechnology.recipes.register.FabricatorRegister
-import io.enderdev.emergingtechnology.recipes.register.ProcessorRegister
-import io.enderdev.emergingtechnology.recipes.register.ShredderRegister
-import io.enderdev.emergingtechnology.recipes.register.TissueScaffolderRegister
+import io.enderdev.emergingtechnology.recipes.register.*
 import net.minecraft.block.Block
 import net.minecraft.init.Blocks
 import net.minecraft.item.Item

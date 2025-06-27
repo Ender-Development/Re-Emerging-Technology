@@ -4,7 +4,6 @@ import io.enderdev.catalyx.tiles.BaseMachineTile
 import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.EmergingTechnology
-import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector
 import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector.Companion.FULL
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import net.minecraft.init.Biomes
