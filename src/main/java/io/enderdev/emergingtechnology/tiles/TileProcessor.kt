@@ -74,6 +74,8 @@ class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.cataly
 	override fun shouldProcess() =
 		currentRecipe!!.output.canMergeWith(output[0], true) && energyStorage.energyStored >= energyPerTick && inputTank.fluidAmount >= fluidPerTick
 
+	override fun shouldResetProgress() = false
+
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
 		compound.setTag("InputTankNBT", inputTank.writeToNBT(NBTTagCompound()))

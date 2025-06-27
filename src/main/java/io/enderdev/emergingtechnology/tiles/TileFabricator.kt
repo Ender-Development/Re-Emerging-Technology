@@ -62,6 +62,8 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 
 	override fun shouldProcess() = !stopped && input[0].count >= currentRecipe!!.filamentCount && currentRecipe!!.output.canMergeWith(output[0], true) && energyStorage.energyStored >= energyPerTick
 
+	override fun shouldResetProgress() = false
+
 	override fun handleButtonPress(button: AbstractButton) {
 		if(button is UpdateButton) {
 			recipeId = button.recipeId

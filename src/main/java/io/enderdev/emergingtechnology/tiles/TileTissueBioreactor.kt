@@ -65,9 +65,11 @@ class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 
 	override fun shouldProcess() =
 		!input[0].isEmpty
-		&& (output[0].isEmpty || (output[0].item as ItemEntityThing).getEntityId(output[0]) == (input[0].item as ItemEntityThing).getEntityId(input[0]))
+		&& (output[0].isEmpty || ItemEntityThing.getEntityId(output[0]) == ItemEntityThing.getEntityId(input[0]))
 		&& energyStorage.energyStored >= energyPerTick
 		&& inputTank.fluidAmount >= fluidPerTick
+
+	override fun shouldResetProgress() = false
 
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
@@ -84,5 +86,5 @@ class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 		if(input[0].isEmpty || input[0].item !is ItemEntityThing) // sanity check
 			ItemStack.EMPTY
 		else
-			ModItems.sample.getFor((input[0].item as ItemEntityThing).getEntityId(input[0]))
+			ModItems.sample.getFor(ItemEntityThing.getEntityId(input[0]))
 }

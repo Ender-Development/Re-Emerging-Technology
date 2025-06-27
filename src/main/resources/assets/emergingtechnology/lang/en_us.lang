@@ -88,6 +88,9 @@ item.emergingtechnology:algae_bar_cooked.name=Cooked Algae Bar
 tile.emergingtechnology:tissue_bioreactor.name=Tissue Bioreactor
 tile.emergingtechnology:tissue_bioreactor.desc=Processes animal tissues into usable samples
 
+tile.emergingtechnology:tissue_scaffolder.name=Tissue Scaffolder
+tile.emergingtechnology:tissue_scaffolder.desc=Forms tissue samples into usable products
+
 # Electrics
 item.emergingtechnology:biomass.name=Biomass
 item.emergingtechnology:biochar.name=Biochar

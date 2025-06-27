@@ -6,6 +6,7 @@ import io.enderdev.emergingtechnology.recipes.register.BiomassGeneratorRegister
 import io.enderdev.emergingtechnology.recipes.register.FabricatorRegister
 import io.enderdev.emergingtechnology.recipes.register.ProcessorRegister
 import io.enderdev.emergingtechnology.recipes.register.ShredderRegister
+import io.enderdev.emergingtechnology.recipes.register.TissueScaffolderRegister
 import net.minecraft.block.Block
 import net.minecraft.init.Blocks
 import net.minecraft.item.Item
@@ -16,12 +17,14 @@ object ModRecipes {
 	val processorRecipes = ProcessorRegister.INSTANCE
 	val biomassGeneratorRecipes = BiomassGeneratorRegister.INSTANCE
 	val fabricatorRecipes = FabricatorRegister.INSTANCE
+	val tissueScaffolderRecipes = TissueScaffolderRegister.INSTANCE
 
 	fun init() {
 		shredderRecipes.registerRecipes()
 		processorRecipes.registerRecipes()
 		biomassGeneratorRecipes.registerRecipes()
 		fabricatorRecipes.registerRecipes()
+		tissueScaffolderRecipes.registerRecipes()
 	}
 
 	// copy of the OreRegistrationHandler in original EMT

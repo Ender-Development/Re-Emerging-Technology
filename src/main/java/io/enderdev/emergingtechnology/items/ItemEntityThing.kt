@@ -13,16 +13,16 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries
 class ItemEntityThing(name: String) : ItemBase(name) {
 	companion object {
 		const val ENTITY_NBT = "${Tags.MODID}:entity_id"
-	}
 
-	fun getEntityId(stack: ItemStack) = stack.tagCompound?.getString(ENTITY_NBT) ?: "Invalid"
+		fun getEntityId(stack: ItemStack) = stack.tagCompound?.getString(ENTITY_NBT) ?: "Invalid"
 
-	fun getEntityName(stack: ItemStack): String {
-		val entityId = getEntityId(stack)
-		return if(entityId == "Invalid")
-			entityId
-		else
-			ForgeRegistries.ENTITIES.getValue(ResourceLocation(entityId))?.name ?: entityId
+		fun getEntityName(stack: ItemStack): String {
+			val entityId = getEntityId(stack)
+			return if(entityId == "Invalid")
+				entityId
+			else
+				ForgeRegistries.ENTITIES.getValue(ResourceLocation(entityId))?.name ?: entityId
+		}
 	}
 
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
