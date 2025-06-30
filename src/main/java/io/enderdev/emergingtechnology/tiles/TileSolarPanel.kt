@@ -23,7 +23,7 @@ class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(50
 		get() = world.getBlockState(pos).getValue(BlockHorizontal.FACING).opposite
 
 	fun generate() {
-		if(!world.isDaytime || (false && !world.canBlockSeeSky(pos))) // TODO idk why this doesn't really work (maybe just superflat quirkyness)
+		if(!world.isDaytime || (false && !world.canSeeSky(pos))) // TODO idk why this doesn't really work (maybe just superflat quirkyness)
 			return
 
 		var generated = EmergingTechnologyConfig.ELECTRICS_MODULE.SOLAR.solarEnergyGenerated

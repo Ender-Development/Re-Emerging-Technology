@@ -110,6 +110,10 @@ tile.emergingtechnology:biomass_generator.desc=Burns Biomass to generate %d FE/t
 tile.emergingtechnology:solar_panel.name=Solar Panel
 tile.emergingtechnology:solar_panel.desc=Generates %d FE/t when in sunlight
 
+tile.emergingtechnology:solar_glass.name=Solar Glass
+tile.emergingtechnology:solar_glass.desc=Generates %d FE/t if at least one of two blocks directly in front of it are empty and can see sunlight
+tile.emergingtechnology:solar_glass.desc.spread_down=Spreads energy to another Solar Glass placed directly below it
+
 tile.emergingtechnology:biochar_block.name=Biochar Block
 
 tile.emergingtechnology:algorithmic_optimiser.name=Algorithmic Optimiser
