@@ -61,7 +61,7 @@ object ModBlocks {
 	// battery
 	val biocharBlock = ModelBlock("biochar_block", Material.WOOD, SoundType.WOOD, 1f)
 	val algorithmicOptimiser = BlockAlgorithmicOptimiser()
-	// guide_light
+	val guideLight = BlockGuideLight()
 
 	// Fluids
 	// carbon_dioxide_block

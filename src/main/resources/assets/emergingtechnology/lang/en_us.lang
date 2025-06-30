@@ -122,6 +122,8 @@ tile.emergingtechnology:algorithmic_optimiser.desc=Decreases the resource consum
 tile.emergingtechnology:algorithmic_optimiser.tooltip.resource=Reduces %s usage in nearby machines by %d%%
 tile.emergingtechnology:algorithmic_optimiser.tooltip.recipe_time=Reduces processing time in nearby machines by %d%%
 
+tile.emergingtechnology:guide_light.name=Guide Light
+
 # Miscellaneous/Generic
 itemGroup.emergingtechnology=Re-emerging Technology
 
