@@ -33,7 +33,7 @@ class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(50
 		energyStorage.receiveEnergy(generated, false)
 	}
 
-	fun spread() = CapabilityUtils.spreadEnergy(world, pos, energyStorage, outputDirection)
+	fun spread() = CapabilityUtils.spreadEnergy(world, pos, energyStorage, outputDirection, EnumFacing.DOWN)
 
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 

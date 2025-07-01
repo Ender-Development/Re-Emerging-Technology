@@ -58,7 +58,7 @@ object ModBlocks {
 	val biomassGenerator = BlockBiomassGenerator()
 	val solarPanel = BlockSolarPanel()
 	val solarGlass = BlockSolarGlass()
-	// battery
+	val battery = BlockBattery()
 	val biocharBlock = ModelBlock("biochar_block", Material.WOOD, SoundType.WOOD, 1f)
 	val algorithmicOptimiser = BlockAlgorithmicOptimiser()
 	val guideLight = BlockGuideLight()

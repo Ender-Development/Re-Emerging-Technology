@@ -114,6 +114,11 @@ tile.emergingtechnology:solar_glass.name=Solar Glass
 tile.emergingtechnology:solar_glass.desc=Generates %d FE/t if at least one of two blocks directly in front of it are empty and can see sunlight
 tile.emergingtechnology:solar_glass.desc.spread_down=Spreads energy to another Solar Glass placed directly below it
 
+tile.emergingtechnology:battery.name=Battery
+tile.emergingtechnology:battery.desc=Takes in energy on the red side, outputs it on the yellow sides, stores up to 100 kFE
+tile.emergingtechnology:battery.input=Input
+tile.emergingtechnology:battery.output=Output
+
 tile.emergingtechnology:biochar_block.name=Biochar Block
 
 tile.emergingtechnology:algorithmic_optimiser.name=Algorithmic Optimiser

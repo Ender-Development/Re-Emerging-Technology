@@ -14,9 +14,9 @@ object CapabilityUtils {
 		val ret = mutableListOf<T>()
 		for(direction in directions) {
 			val te = world.getTileEntity(pos.offset(direction)) ?: continue
-			if(!te.hasCapability(cap, direction))
+			if(!te.hasCapability(cap, direction.opposite))
 				continue
-			ret.add(te.getCapability(cap, direction)!!)
+			ret.add(te.getCapability(cap, direction.opposite)!!)
 		}
 		return ret
 	}
