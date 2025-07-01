@@ -3,16 +3,12 @@ package io.enderdev.emergingtechnology.blocks.machine
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.GlassBlock
-import io.enderdev.emergingtechnology.blocks.ModelBlock
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.TooltipItemBlock
-import io.enderdev.emergingtechnology.tiles.TilePiezoelectricGenerator
 import io.enderdev.emergingtechnology.tiles.TileSolarGlass
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.ITileEntityProvider
 import net.minecraft.block.state.IBlockState
-import net.minecraft.entity.Entity
-import net.minecraft.entity.EntityLivingBase
 import net.minecraft.item.Item
 import net.minecraft.util.BlockRenderLayer
 import net.minecraft.util.EnumFacing
