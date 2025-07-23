@@ -40,6 +40,7 @@ class TileHydroponicGrowLight : BaseMachineTile<Any>(EmergingTechnology.catalyxS
 			override fun isItemValid(slot: Int, stack: ItemStack) = stack.item is ItemBulb || stack.item == Item.getItemFromBlock(Blocks.GLOWSTONE)
 
 			override fun getStackLimit(slot: Int, stack: ItemStack) = 1
+			override fun getSlotLimit(slot: Int) = 1
 
 			// update colour handler
 			override fun insertItem(slot: Int, stack: ItemStack, simulate: Boolean): ItemStack {
