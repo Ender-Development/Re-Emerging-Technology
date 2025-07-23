@@ -8,13 +8,19 @@ import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.config.hydroponics.HydroponicsModule
 import io.enderdev.emergingtechnology.config.synthetics.SyntheticsModule
 import io.enderdev.emergingtechnology.utils.ItemUtils
+import net.minecraft.block.state.IBlockState
+import net.minecraft.client.Minecraft
+import net.minecraft.client.renderer.color.IBlockColor
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
+import net.minecraft.util.math.BlockPos
+import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+import java.awt.Color
 
 object ModItems {
 	val items = ArrayList<IItemProvider>()
@@ -26,10 +32,10 @@ object ModItems {
 
 	// Hydroponics
 	// roz: it's 02:13 and I'm gonna go insane with this stupid config being so long and annoying to work with
-	val bulbRed = ItemBulb("red", hydroponics.GROWLIGHT.energyRedBulbModifier, hydroponics.GROWLIGHT.growthRedBulbModifier)
-	val bulbGreen = ItemBulb("green", hydroponics.GROWLIGHT.energyGreenBulbModifier, hydroponics.GROWLIGHT.growthGreenBulbModifier)
-	val bulbBlue = ItemBulb("blue", hydroponics.GROWLIGHT.energyBlueBulbModifier, hydroponics.GROWLIGHT.growthBlueBulbModifier)
-	val bulbPurple = ItemBulb("purple", hydroponics.GROWLIGHT.energyPurpleBulbModifier, hydroponics.GROWLIGHT.growthPurpleBulbModifier)
+	val bulbRed = ItemBulb("red", hydroponics.GROWLIGHT.energyRedBulbModifier, hydroponics.GROWLIGHT.growthRedBulbModifier, Color.red.brighter().rgb)
+	val bulbGreen = ItemBulb("green", hydroponics.GROWLIGHT.energyGreenBulbModifier, hydroponics.GROWLIGHT.growthGreenBulbModifier, Color.green.darker().rgb)
+	val bulbBlue = ItemBulb("blue", hydroponics.GROWLIGHT.energyBlueBulbModifier, hydroponics.GROWLIGHT.growthBlueBulbModifier, Color(64, 64, 255).rgb)
+	val bulbPurple = ItemBulb("purple", hydroponics.GROWLIGHT.energyPurpleBulbModifier, hydroponics.GROWLIGHT.growthPurpleBulbModifier, Color.pink.darker().rgb)
 
 	val nozzleComponent = object : ItemBase("nozzle_component") {
 		override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
@@ -97,8 +103,4 @@ object ModItems {
 
 	@SideOnly(Side.CLIENT)
 	fun registerModels() = items.forEach { if(it is IHasModel) it.registerModel() }
-
-	@SideOnly(Side.CLIENT)
-	fun initColors() = 1
-		//Minecraft.getMinecraft().itemColors.registerItemColorHandler(ItemColorHandler(), compounds, ingots, elements)
 }

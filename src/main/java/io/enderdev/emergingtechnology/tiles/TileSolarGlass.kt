@@ -23,10 +23,16 @@ class TileSolarGlass : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile
 		generate()
 
 		// funnily enough, original EMT didn't even implement this
-		if(EmergingTechnologyConfig.ELECTRICS_MODULE.SOLARGLASS.pushEnergyDown && world.getBlockState(pos.down()).block === ModBlocks.solarGlass)
-			(world.getTileEntity(pos.down())?.getCapability(CapabilityEnergy.ENERGY, EnumFacing.UP)!! as? EnergyUtils.ExtractOnlyEnergyStorage)?.let {
-				energyStorage.extractEnergy(it.energyStorage.receiveEnergy(energyStorage.energyStored, false), false)
+		if(EmergingTechnologyConfig.ELECTRICS_MODULE.SOLARGLASS.pushEnergyDown) {
+			// instead of just pushing energy to the solar glass below (it behaved weirdly), just push it to the TE max below
+			var pos = pos.down()
+			while(world.getBlockState(pos).block === ModBlocks.solarGlass)
+				pos = pos.down()
+
+			world.getTileEntity(pos)?.getCapability(CapabilityEnergy.ENERGY, EnumFacing.UP)?.let {
+				energyStorage.extractEnergy(it.receiveEnergy(energyStorage.energyStored, false), false)
 			}
+		}
 
 		CapabilityUtils.spreadEnergy(world, pos, energyStorage, EnumFacing.UP, EnumFacing.DOWN)
 	}

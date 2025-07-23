@@ -1,7 +1,7 @@
 package io.enderdev.emergingtechnology.proxy
 
 import io.enderdev.emergingtechnology.Tags
-import io.enderdev.emergingtechnology.items.ModItems
+import io.enderdev.emergingtechnology.blocks.ModBlocks
 import net.minecraftforge.client.model.obj.OBJLoader
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
@@ -19,7 +19,7 @@ class ClientProxy : CommonProxy() {
 
 	override fun postInit(e: FMLPostInitializationEvent) {
 		super.postInit(e)
-		ModItems.initColors()
+		ModBlocks.initColours()
 		MinecraftForge.EVENT_BUS.register(ClientEventHandler())
 	}
 }

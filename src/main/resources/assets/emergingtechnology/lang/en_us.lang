@@ -17,6 +17,10 @@ item.emergingtechnology:nozzles.desc=Used by the Diffuser
 
 item.emergingtechnology:fertilizer.name=Fertilizer
 
+tile.emergingtechnology:hydroponic_grow_light.name=Hydroponic Grow Light
+tile.emergingtechnology:hydroponic_grow_light.desc=Provides a growth boost to plants planted up to %d blocks below
+tile.emergingtechnology:hydroponic_grow_light.growth=Growth: %d%%/t
+
 tile.emergingtechnology:water_filler.name=Water Filler
 tile.emergingtechnology:water_filler.desc=Provides %d mB/t of Water to surrounding machines and tanks
 

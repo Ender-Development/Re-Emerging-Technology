@@ -8,7 +8,7 @@ import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World
 
-class ItemBulb(type: String, val energyMult: Int, val growthMult: Int) : ItemBase("bulb_$type") {
+class ItemBulb(type: String, val energyMult: Int, val growthMult: Int, val colour: Int) : ItemBase("bulb_$type") {
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 		(tooltip as MutableList).addAll(ItemUtils.extendedTooltip(
 			"item.${Tags.MODID}:bulb.desc".translate(),

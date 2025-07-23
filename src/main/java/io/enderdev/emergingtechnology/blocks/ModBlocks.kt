@@ -2,10 +2,13 @@ package io.enderdev.emergingtechnology.blocks
 
 import io.enderdev.catalyx.IBothProvider
 import io.enderdev.emergingtechnology.blocks.machine.*
+import io.enderdev.emergingtechnology.tiles.TileHydroponicGrowLight
 import net.minecraft.block.Block
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
+import net.minecraft.client.Minecraft
 import net.minecraft.item.Item
+import net.minecraft.util.math.BlockPos
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
@@ -17,8 +20,8 @@ object ModBlocks {
 	// TODO - run optipng once finished :3
 
 	// Hydroponics
-	// hydroponic_grow_bed
-	// hydroponic_grow_light
+	//val hydroponicGrowBed = BlockHydroponicGrowBed()
+	val hydroponicGrowLight = BlockHydroponicGrowLight()
 	// harvester
 	val waterFiller = BlockWaterFiller()
 	// co2_scrubber
@@ -78,4 +81,12 @@ object ModBlocks {
 
 	@SideOnly(Side.CLIENT)
 	fun registerModels() = blocks.forEach { if(it is IHasModel) it.registerModel() }
+
+	@SideOnly(Side.CLIENT)
+	fun initColours() {
+		// original EMT did this by changing texture in blockstate, but this felt like a better solution
+		Minecraft.getMinecraft().blockColors.registerBlockColorHandler({ state, world, pos, tintIndex ->
+			(world?.getTileEntity(pos ?: BlockPos.ORIGIN) as? TileHydroponicGrowLight)?.getColour() ?: -1
+		}, hydroponicGrowLight)
+	}
 }
