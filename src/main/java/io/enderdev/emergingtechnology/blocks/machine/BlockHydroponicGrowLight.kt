@@ -22,7 +22,7 @@ import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 
 class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light", TileHydroponicGrowLight::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerHydroponicGrowLight::class.java, GuiHydroponicGrowLight::class.java, TileHydroponicGrowLight::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileHydroponicGrowLight::class.java, ContainerHydroponicGrowLight::class.java) { GuiHydroponicGrowLight::class.java }) {
 	companion object {
 		val LIT: PropertyBool = PropertyBool.create("lit")
 	}

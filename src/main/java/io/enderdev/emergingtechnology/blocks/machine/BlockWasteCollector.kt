@@ -21,7 +21,7 @@ import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 
 class BlockWasteCollector() : ModelMachineBlock("waste_collector", TileWasteCollector::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerWasteCollector::class.java, GuiWasteCollector::class.java, TileWasteCollector::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileWasteCollector::class.java, ContainerWasteCollector::class.java) { GuiWasteCollector::class.java }) {
 	init {
 		blockHardness = 1f
 		defaultState = blockState.baseState.withProperty(FULL, false)

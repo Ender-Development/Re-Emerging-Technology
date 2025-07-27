@@ -13,7 +13,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 
 class BlockAlgorithmicOptimiser() : RotatableMachineBlock("algorithmic_optimiser", TileAlgorithmicOptimiser::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerAlgorithmicOptimiser::class.java, GuiAlgorithmicOptimiser::class.java, TileAlgorithmicOptimiser::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileAlgorithmicOptimiser::class.java, ContainerAlgorithmicOptimiser::class.java) { GuiAlgorithmicOptimiser::class.java }) {
 	init {
 		blockHardness = 1f
 	}

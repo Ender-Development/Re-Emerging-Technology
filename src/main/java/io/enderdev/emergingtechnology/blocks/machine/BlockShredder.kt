@@ -13,7 +13,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 
 class BlockShredder() : RotatableMachineBlock("shredder", TileShredder::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerShredder::class.java, GuiShredder::class.java, TileShredder::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileShredder::class.java, ContainerShredder::class.java) { GuiShredder::class.java }) {
 	init {
 		blockHardness = 1f
 	}

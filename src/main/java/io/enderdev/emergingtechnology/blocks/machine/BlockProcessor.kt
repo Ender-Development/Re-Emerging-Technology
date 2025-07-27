@@ -13,7 +13,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 
 class BlockProcessor() : RotatableMachineBlock("processor", TileProcessor::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerProcessor::class.java, GuiProcessor::class.java, TileProcessor::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileProcessor::class.java, ContainerProcessor::class.java) { GuiProcessor::class.java }) {
 	init {
 		blockHardness = 1f
 	}

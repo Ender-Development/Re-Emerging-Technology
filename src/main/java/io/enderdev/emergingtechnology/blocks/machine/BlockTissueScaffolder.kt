@@ -13,7 +13,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 
 class BlockTissueScaffolder() : RotatableMachineBlock("tissue_scaffolder", TileTissueScaffolder::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerTissueScaffolder::class.java, GuiTissueScaffolder::class.java, TileTissueScaffolder::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileTissueScaffolder::class.java, ContainerTissueScaffolder::class.java) { GuiTissueScaffolder::class.java }) {
 	init {
 		blockHardness = 1f
 	}

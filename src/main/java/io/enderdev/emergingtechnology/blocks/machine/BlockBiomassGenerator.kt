@@ -13,7 +13,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 
 class BlockBiomassGenerator() : RotatableMachineBlock("biomass_generator", TileBiomassGenerator::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerBiomassGenerator::class.java, GuiBiomassGenerator::class.java, TileBiomassGenerator::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileBiomassGenerator::class.java, ContainerBiomassGenerator::class.java) { GuiBiomassGenerator::class.java }) {
 	init {
 		blockHardness = 1f
 	}

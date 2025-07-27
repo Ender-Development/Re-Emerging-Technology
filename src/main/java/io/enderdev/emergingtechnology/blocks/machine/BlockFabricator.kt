@@ -13,7 +13,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 
 class BlockFabricator : RotatableMachineBlock("fabricator", TileFabricator::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerFabricator::class.java, GuiFabricator::class.java, TileFabricator::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileFabricator::class.java, ContainerFabricator::class.java) { GuiFabricator::class.java }) {
 	init {
 		blockHardness = 1f
 	}

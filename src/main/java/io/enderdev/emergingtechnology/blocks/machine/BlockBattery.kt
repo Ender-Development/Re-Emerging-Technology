@@ -20,7 +20,7 @@ import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 
 class BlockBattery() : ModelMachineBlock("battery", TileBattery::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerBattery::class.java, GuiBattery::class.java, TileBattery::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileBattery::class.java, ContainerBattery::class.java) { GuiBattery::class.java }) {
 	init {
 		blockHardness = 1f
 		defaultState = blockState.baseState.withProperty(BlockDirectional.FACING, EnumFacing.NORTH)

@@ -13,7 +13,7 @@ import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
 
 class BlockTissueBioreactor() : RotatableMachineBlock("tissue_bioreactor", TileTissueBioreactor::class.java,
-	EmergingTechnology.guiHandler.registerId(ContainerTissueBioreactor::class.java, GuiTissueBioreactor::class.java, TileTissueBioreactor::class.java)) {
+	EmergingTechnology.guiHandler.registerId(TileTissueBioreactor::class.java, ContainerTissueBioreactor::class.java) { GuiTissueBioreactor::class.java }) {
 	init {
 		blockHardness = 1f
 	}
