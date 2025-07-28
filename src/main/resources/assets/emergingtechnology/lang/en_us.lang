@@ -108,9 +108,14 @@ item.emergingtechnology:circuits.desc=Used in the Optimiser, provides %d cores
 tile.emergingtechnology:piezoelectric_generator.name=Piezoelectric Generator
 tile.emergingtechnology:piezoelectric_generator.desc=Generates %d FE every %.2fs (%.2f FE/t) while stepped on
 
+tile.emergingtechnology:tidal_generator.name=Tidal Generator
+tile.emergingtechnology:tidal_generator.desc=Generates %d FE/t using the power of water, 2x when on a Y-level between %d and %d
+tile.emergingtechnology:tidal_generator.desc.req.water=Requires at least %d surrounding water blocks
+tile.emergingtechnology:tidal_generator.desc.req.biome=Only works in the following biomes: %s
+
 tile.emergingtechnology:wind_generator.name=Wind Generator
 tile.emergingtechnology:wind_generator.desc=Generates %d FE/t using the power of wind, 2x when on a Y-level between %d and %d
-tile.emergingtechnology:wind_generator.desc.req=Requires %d surrounding air blocks
+tile.emergingtechnology:wind_generator.desc.req=Requires at least %d surrounding air blocks
 
 tile.emergingtechnology:biomass_generator.name=Biomass Generator
 tile.emergingtechnology:biomass_generator.desc=Burns Biomass to generate %d FE/t

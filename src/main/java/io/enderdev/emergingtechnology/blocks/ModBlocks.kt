@@ -56,7 +56,7 @@ object ModBlocks {
 
 	// Electrics
 	val piezoelectricGenerator = BlockPiezoelectricGenerator()
-	// tidal_generator
+	val tidalGenerator = BlockTidalGenerator()
 	val windGenerator = BlockWindGenerator()
 	val biomassGenerator = BlockBiomassGenerator()
 	val solarPanel = BlockSolarPanel()

@@ -1,0 +1,24 @@
+{
+	"parameters": {
+		"slowed_anim_time": [
+			"/",
+			4
+		]
+	},
+	"clips": {
+		"off": "emergingtechnology:block/tidal_generator@off",
+		"slow": [ "apply", "emergingtechnology:block/tidal_generator@slow", "#slowed_anim_time" ],
+		"fast": "emergingtechnology:block/tidal_generator@fast"
+	},
+	"states": [
+		"off",
+		"slow",
+		"fast"
+	],
+	"transitions": {
+		"off": [ "slow", "fast" ],
+		"slow": [ "off", "fast" ],
+		"fast": [ "off", "slow" ]
+	},
+	"start_state": "off"
+}
