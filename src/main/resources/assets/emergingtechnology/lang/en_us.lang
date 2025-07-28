@@ -142,6 +142,13 @@ tile.emergingtechnology:algorithmic_optimiser.tooltip.recipe_time=Reduces proces
 
 tile.emergingtechnology:guide_light.name=Guide Light
 
+# Ores
+tile.emergingtechnology:polluted_dirt.name=Polluted Dirt
+
+tile.emergingtechnology:polluted_sand.name=Polluted Sand
+
+tile.emergingtechnology:polluted_gravel.name=Polluted Gravel
+
 # Miscellaneous/Generic
 itemGroup.emergingtechnology=Re-emerging Technology
 

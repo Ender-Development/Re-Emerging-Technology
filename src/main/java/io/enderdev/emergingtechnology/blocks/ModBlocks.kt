@@ -7,6 +7,7 @@ import net.minecraft.block.Block
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.client.Minecraft
+import net.minecraft.init.Blocks
 import net.minecraft.item.Item
 import net.minecraft.util.math.BlockPos
 import net.minecraftforge.event.RegistryEvent
@@ -71,9 +72,9 @@ object ModBlocks {
 	// nutrient_block
 
 	// Ores
-	// polluted_dirt
-	// polluted_sand
-	// polluted_gravel
+	val pollutedDirt = PollutedBlock("dirt", Blocks.DIRT)
+	val pollutedSand = PollutedBlock("sand", Blocks.SAND)
+	val pollutedGravel = PollutedBlock("gravel", Blocks.GRAVEL)
 
 	fun registerBlocks(event: RegistryEvent.Register<Block>) = blocks.forEach { it.registerBlock(event) }
 

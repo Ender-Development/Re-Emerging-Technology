@@ -2,25 +2,26 @@ package io.enderdev.emergingtechnology.proxy
 
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.recipes.ModRecipes
+import io.enderdev.emergingtechnology.worldgen.OreGeneration
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.network.NetworkRegistry
+import net.minecraftforge.fml.common.registry.GameRegistry
 
 open class CommonProxy {
 
 	companion object {
-		private var stage: LoadingStage = LoadingStage.PRE_INIT
-
-		fun getStage(): LoadingStage {
-			return stage
-		}
+		var stage: LoadingStage = LoadingStage.PRE_INIT
+			private set
 	}
 
 	open fun preInit(e: FMLPreInitializationEvent) {
 		stage = LoadingStage.PRE_INIT
 		EmergingTechnology.logger = e.modLog
+
+		GameRegistry.registerWorldGenerator(OreGeneration.instance, 10)
 
 		//registerCapabilities()
 		//if(ElementRegistry.getAllElements().isEmpty()) {
