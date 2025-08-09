@@ -54,7 +54,7 @@ object ModBlocks {
 	// solar_cooker
 	val tissueBioreactor = BlockTissueBioreactor()
 	val tissueScaffolder = BlockTissueScaffolder()
-	// algae_bioreactor
+	val algaeBioreactor = BlockAlgaeBioreactor()
 
 	// Electrics
 	val piezoelectricGenerator = BlockPiezoelectricGenerator()

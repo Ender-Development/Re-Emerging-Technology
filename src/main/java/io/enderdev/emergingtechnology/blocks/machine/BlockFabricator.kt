@@ -22,7 +22,7 @@ class BlockFabricator : RotatableMachineBlock("fabricator", TileFabricator::clas
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:fabricator.desc".translate(),
-				"info.emergingtechnology.energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.FABRICATOR.fabricatorEnergyBaseUsage)
+				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.FABRICATOR.fabricatorEnergyBaseUsage)
 			)
 		})
 	}

@@ -9,6 +9,7 @@ import io.enderdev.catalyx.tiles.BaseTile
 import io.enderdev.catalyx.tiles.helper.IGuiTile
 import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.Tags
+import io.enderdev.emergingtechnology.fluids.ModFluids
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.inventory.Container
 import net.minecraft.util.ResourceLocation
@@ -24,7 +25,7 @@ abstract class BaseETGuiTyped<T>(container: Container, tile: T) : BaseGuiTyped<T
 		val x = storage.x + ((width - xSize) shr 1)
 		val y = storage.y + ((height - ySize) shr 1)
 		val w = getBarScaled(storage.width, storage.getStored(), storage.getCapacity())
-		val v = if(storage is CapabilityFluidDisplayWrapper) 9 else 0
+		val v = if(storage is CapabilityFluidDisplayWrapper) if(storage.fluidTank().fluid?.fluid == ModFluids.co2) 18 else 9 else 0
 		mc.textureManager.bindTexture(powerBarTexture)
 		drawTexturedModalRect(x, y, 0, v, w, storage.height)
 		mc.textureManager.bindTexture(textureLocation)

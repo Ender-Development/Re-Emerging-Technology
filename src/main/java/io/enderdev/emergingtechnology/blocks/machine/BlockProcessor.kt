@@ -22,8 +22,8 @@ class BlockProcessor() : RotatableMachineBlock("processor", TileProcessor::class
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:processor.desc".translate(),
-				"info.emergingtechnology.energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorEnergyBaseUsage),
-				"info.emergingtechnology.water.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorWaterBaseUsage)
+				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorEnergyBaseUsage),
+				"info.${Tags.MODID}.water.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.PROCESSOR.processorWaterBaseUsage)
 			)
 		})
 	}

@@ -22,8 +22,8 @@ class BlockAlgorithmicOptimiser() : RotatableMachineBlock("algorithmic_optimiser
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:algorithmic_optimiser.desc".translate(),
-				"info.emergingtechnology.energy.required".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.OPTIMISER.energyUsage),
-				"info.emergingtechnology.water.required".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.OPTIMISER.waterUsage)
+				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.OPTIMISER.energyUsage),
+				"info.${Tags.MODID}.water.required".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.OPTIMISER.waterUsage)
 			)
 		})
 	}

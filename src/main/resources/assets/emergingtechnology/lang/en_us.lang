@@ -95,6 +95,9 @@ tile.emergingtechnology:tissue_bioreactor.desc=Processes animal tissues into usa
 tile.emergingtechnology:tissue_scaffolder.name=Tissue Scaffolder
 tile.emergingtechnology:tissue_scaffolder.desc=Forms tissue samples into usable products
 
+tile.emergingtechnology:algae_bioreactor.name=Algae Bioreactor
+tile.emergingtechnology:algae_bioreactor.desc=Uses CO₂ to produce Algae, produces faster with a Grow Light with a bulb overtop
+
 # Electrics
 item.emergingtechnology:biomass.name=Biomass
 item.emergingtechnology:biochar.name=Biochar
@@ -158,6 +161,7 @@ itemGroup.emergingtechnology=Re-emerging Technology
 
 info.emergingtechnology.energy.required=Requires %d FE/t
 info.emergingtechnology.water.required=Requires %d mB/t of Water
+info.emergingtechnology.co2.required=Requires %d mB/t of CO₂
 
 info.emergingtechnology.energy.name=energy
 info.emergingtechnology.water.name=water
