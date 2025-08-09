@@ -13,6 +13,7 @@ import net.minecraft.init.Items
 import net.minecraft.item.Item
 import net.minecraftforge.client.event.ModelRegistryEvent
 import net.minecraftforge.event.RegistryEvent
+import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.SidedProxy
@@ -61,6 +62,10 @@ object EmergingTechnology {
 
 	@EventHandler
 	fun postInit(e: FMLPostInitializationEvent) = proxy!!.postInit(e)
+
+	init {
+		FluidRegistry.enableUniversalBucket()
+	}
 
 	//@EventHandler
 	//fun loadComplete(e: FMLLoadCompleteEvent) {

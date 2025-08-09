@@ -2,6 +2,7 @@ package io.enderdev.emergingtechnology.blocks
 
 import io.enderdev.catalyx.IBothProvider
 import io.enderdev.emergingtechnology.blocks.machine.*
+import io.enderdev.emergingtechnology.fluids.ModFluids
 import io.enderdev.emergingtechnology.tiles.TileHydroponicGrowLight
 import net.minecraft.block.Block
 import net.minecraft.block.SoundType
@@ -67,14 +68,15 @@ object ModBlocks {
 	val algorithmicOptimiser = BlockAlgorithmicOptimiser()
 	val guideLight = BlockGuideLight()
 
-	// Fluids
-	// carbon_dioxide_block
-	// nutrient_block
-
 	// Ores
 	val pollutedDirt = PollutedBlock("dirt", Blocks.DIRT)
 	val pollutedSand = PollutedBlock("sand", Blocks.SAND)
 	val pollutedGravel = PollutedBlock("gravel", Blocks.GRAVEL)
+
+	// Fluids
+	val nutrientBlock = BaseFluidBlock(ModFluids.nutrient, Material.WATER)
+	val co2Block = BaseFluidBlock(ModFluids.co2, Material.WATER)
+
 
 	fun registerBlocks(event: RegistryEvent.Register<Block>) = blocks.forEach { it.registerBlock(event) }
 

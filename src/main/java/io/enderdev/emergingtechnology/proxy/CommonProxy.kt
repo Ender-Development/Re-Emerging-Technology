@@ -1,6 +1,7 @@
 package io.enderdev.emergingtechnology.proxy
 
 import io.enderdev.emergingtechnology.EmergingTechnology
+import io.enderdev.emergingtechnology.fluids.ModFluids
 import io.enderdev.emergingtechnology.recipes.ModRecipes
 import io.enderdev.emergingtechnology.worldgen.OreGeneration
 import net.minecraftforge.common.MinecraftForge
@@ -22,6 +23,7 @@ open class CommonProxy {
 		EmergingTechnology.logger = e.modLog
 
 		GameRegistry.registerWorldGenerator(OreGeneration.instance, 10)
+		ModFluids.registerFluids()
 
 		//registerCapabilities()
 		//if(ElementRegistry.getAllElements().isEmpty()) {

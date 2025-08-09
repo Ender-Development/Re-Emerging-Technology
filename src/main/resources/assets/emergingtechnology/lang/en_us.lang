@@ -149,6 +149,10 @@ tile.emergingtechnology:polluted_sand.name=Polluted Sand
 
 tile.emergingtechnology:polluted_gravel.name=Polluted Gravel
 
+# Fluids
+fluid.emergingtechnology:nutrient=Nutrient
+fluid.emergingtechnology:co2=CO₂
+
 # Miscellaneous/Generic
 itemGroup.emergingtechnology=Re-emerging Technology
 
