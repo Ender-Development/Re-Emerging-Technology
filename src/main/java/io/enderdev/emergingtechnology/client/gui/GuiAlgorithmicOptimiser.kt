@@ -38,11 +38,11 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 		val halfY = ((height - ySize) shr 1)
 		minusButtons.clear()
 		plusButtons.clear()
-		for(resource in arrayOf(OptimiserResource.WATER, OptimiserResource.ENERGY, OptimiserResource.GAS, OptimiserResource.RECIPE_TIME)) {
-			val minus = TileAlgorithmicOptimiser.AssignButton(halfX + 49, halfY + 28 + resource.ordinal * 16, -1, resource)
+		arrayOf(OptimiserResource.WATER, OptimiserResource.ENERGY, OptimiserResource.GAS, OptimiserResource.RECIPE_TIME).forEachIndexed { idx, resource ->
+			val minus = TileAlgorithmicOptimiser.AssignButton(halfX + 49, halfY + 28 + idx * 16, -1, resource)
 			buttonList.add(minus)
 			minusButtons.add(minus)
-			val plus = TileAlgorithmicOptimiser.AssignButton(halfX + 92, halfY + 28 + resource.ordinal * 16, 1, resource)
+			val plus = TileAlgorithmicOptimiser.AssignButton(halfX + 92, halfY + 28 + idx * 16, 1, resource)
 			buttonList.add(plus)
 			plusButtons.add(plus)
 		}
