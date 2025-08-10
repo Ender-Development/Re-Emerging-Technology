@@ -77,6 +77,9 @@ object ModBlocks {
 	val nutrientBlock = BaseFluidBlock(ModFluids.nutrient, Material.WATER)
 	val co2Block = BaseFluidBlock(ModFluids.co2, Material.WATER)
 
+	// Creative
+	val creativeFiller = BlockCreativeFiller()
+
 
 	fun registerBlocks(event: RegistryEvent.Register<Block>) = blocks.forEach { it.registerBlock(event) }
 

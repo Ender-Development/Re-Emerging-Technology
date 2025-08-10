@@ -156,6 +156,10 @@ tile.emergingtechnology:polluted_gravel.name=Polluted Gravel
 fluid.emergingtechnology:nutrient=Nutrient
 fluid.emergingtechnology:co2=CO₂
 
+# Creative
+tile.emergingtechnology:creative_filler.name=Creative Filler
+tile.emergingtechnology:creative_filler.desc=Creative-only block for spreading exact amounts of resources around itself
+
 # Miscellaneous/Generic
 itemGroup.emergingtechnology=Re-emerging Technology
 

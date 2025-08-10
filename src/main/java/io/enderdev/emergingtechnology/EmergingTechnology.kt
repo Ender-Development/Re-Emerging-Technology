@@ -39,7 +39,7 @@ object EmergingTechnology {
 	val DECIMAL_FORMAT = DecimalFormat("#0.00")
 
 	val creativeTab = object : CreativeTabs(Tags.MODID) {
-		override fun createIcon() = Items.DIAMOND.toStack()//ModBlocks.algaeBioreactor.toStack()
+		override fun createIcon() = ModBlocks.algaeBioreactor.toStack()
 	}
 
  	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it) })
