@@ -18,7 +18,7 @@ import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 
-class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile {
+class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
 		currentRecipe = 1
@@ -41,9 +41,12 @@ class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 	override val fluidTanks: FluidHandlerConcatenate
 		get() = FluidHandlerConcatenate(inputTank)
 
-	override val recipeTime = EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorBaseTimeTaken
-	override val energyPerTick = EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorEnergyUsage
-	val fluidPerTick = EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorWaterUsage
+	override val recipeTime: Int
+		get() = getEffectiveRecipeTime(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorBaseTimeTaken)
+	override val energyPerTick: Int
+		get() = getEffectiveEnergyUsage(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorEnergyUsage)
+	val fluidPerTick: Int
+		get() = getEffectiveWaterUsage(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorWaterUsage)
 
 	override fun updateRecipe() {}
 
@@ -58,7 +61,9 @@ class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 		markDirtyGUI() // looks cool
 	}
 
-	override fun onIdleTick() {}
+	override fun onIdleTick() {
+		optimisationTick()
+	}
 
 	override fun shouldTick() = true
 
@@ -73,12 +78,14 @@ class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
 		compound.setTag("InputTankNBT", inputTank.writeToNBT(NBTTagCompound()))
+		compound.setTag("OptimiserData", getOptimisation()?.writeToNBT(NBTTagCompound()) ?: NBTTagCompound())
 		return compound
 	}
 
 	override fun readFromNBT(compound: NBTTagCompound) {
 		super.readFromNBT(compound)
 		inputTank.readFromNBT(compound.getCompoundTag("InputTankNBT"))
+		optimise(OptimiserData.readFromNBT(compound.getCompoundTag("OptimiserData")))
 	}
 
 	fun createOutput(): ItemStack =

@@ -83,12 +83,14 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 		recipeId = compound.getInteger("RecipeId")
 		if(compound.hasKey("Stopped"))
 			stopped = compound.getBoolean("Stopped")
+		optimise(OptimiserData.readFromNBT(compound.getCompoundTag("OptimiserData")))
 	}
 
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
 		compound.setInteger("RecipeId", recipeId)
 		compound.setBoolean("Stopped", stopped)
+		compound.setTag("OptimiserData", getOptimisation()?.writeToNBT(NBTTagCompound()) ?: NBTTagCompound())
 		return compound
 	}
 

@@ -13,6 +13,7 @@ import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.recipes.ModRecipes
 import io.enderdev.emergingtechnology.recipes.TissueScaffolderRecipe
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NBTTagCompound
 
 class TileTissueScaffolder : BaseMachineTile<TissueScaffolderRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
@@ -55,4 +56,15 @@ class TileTissueScaffolder : BaseMachineTile<TissueScaffolderRecipe>(EmergingTec
 	override fun shouldProcess() = !input[0].isEmpty && currentRecipe!!.output.canMergeWith(output[0], true) && energyStorage.energyStored >= energyPerTick
 
 	override fun shouldResetProgress() = false
+
+	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
+		super.writeToNBT(compound)
+		compound.setTag("OptimiserData", getOptimisation()?.writeToNBT(NBTTagCompound()) ?: NBTTagCompound())
+		return compound
+	}
+
+	override fun readFromNBT(compound: NBTTagCompound) {
+		super.readFromNBT(compound)
+		optimise(OptimiserData.readFromNBT(compound.getCompoundTag("OptimiserData")))
+	}
 }

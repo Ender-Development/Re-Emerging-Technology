@@ -79,11 +79,13 @@ class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.cataly
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
 		compound.setTag("InputTankNBT", inputTank.writeToNBT(NBTTagCompound()))
+		compound.setTag("OptimiserData", getOptimisation()?.writeToNBT(NBTTagCompound()) ?: NBTTagCompound())
 		return compound
 	}
 
 	override fun readFromNBT(compound: NBTTagCompound) {
 		super.readFromNBT(compound)
 		inputTank.readFromNBT(compound.getCompoundTag("InputTankNBT"))
+		optimise(OptimiserData.readFromNBT(compound.getCompoundTag("OptimiserData")))
 	}
 }

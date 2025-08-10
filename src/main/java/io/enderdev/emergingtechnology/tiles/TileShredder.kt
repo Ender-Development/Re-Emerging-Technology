@@ -11,6 +11,7 @@ import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.recipes.ModRecipes
 import io.enderdev.emergingtechnology.recipes.ShredderRecipe
 import net.minecraft.item.ItemStack
+import net.minecraft.nbt.NBTTagCompound
 
 class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
@@ -53,4 +54,15 @@ class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.catalyxS
 	override fun shouldProcess() = currentRecipe!!.output.canMergeWith(output[0], true) && energyStorage.energyStored >= energyPerTick
 
 	override fun shouldResetProgress() = false
+
+	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
+		super.writeToNBT(compound)
+		compound.setTag("OptimiserData", getOptimisation()?.writeToNBT(NBTTagCompound()) ?: NBTTagCompound())
+		return compound
+	}
+
+	override fun readFromNBT(compound: NBTTagCompound) {
+		super.readFromNBT(compound)
+		optimise(OptimiserData.readFromNBT(compound.getCompoundTag("OptimiserData")))
+	}
 }

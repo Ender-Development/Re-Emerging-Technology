@@ -197,6 +197,22 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 // per EMT, these all reduce their respective values by 10% per value, this is reflected in getEffectiveX
 class OptimiserData(val energy: Int, val water: Int, val gas: Int, val recipeTime: Int, val pos: BlockPos, var expiry: Int) {
 	fun clone() = OptimiserData(energy, water, gas, recipeTime, pos, expiry)
+
+	/**
+	 * This is not meant as a full save, this is only so the client-side progress bar doesn't glitch out
+	 */
+	fun writeToNBT(nbt: NBTTagCompound): NBTTagCompound {
+		nbt.setInteger("RecipeTimeModifier", recipeTime)
+		return nbt
+	}
+
+	companion object {
+		/**
+		 * This is not meant as a full load, this is only so the client-side progress bar doesn't glitch out
+		 */
+		fun readFromNBT(nbt: NBTTagCompound) =
+			OptimiserData(0, 0, 0, nbt.getInteger("RecipeTimeModifier"), BlockPos.ORIGIN, 2)
+	}
 }
 
 class MutableOptimiserData(var energy: Int, var water: Int, var gas: Int, var recipeTime: Int, val pos: BlockPos, val expiry: Int) {

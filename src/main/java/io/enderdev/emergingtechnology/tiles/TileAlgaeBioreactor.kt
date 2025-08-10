@@ -126,6 +126,7 @@ class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechn
 		super.writeToNBT(compound)
 		compound.setTag("WaterTankNBT", waterTank.writeToNBT(NBTTagCompound()))
 		compound.setTag("GasTankNBT", gasTank.writeToNBT(NBTTagCompound()))
+		compound.setTag("OptimiserData", getOptimisation()?.writeToNBT(NBTTagCompound()) ?: NBTTagCompound())
 		compound.setInteger("BulbRecipeTimeModifier", bulbRecipeTimeModifier) // this is here so the GUI renders the progress bar properly
 		return compound
 	}
@@ -134,6 +135,7 @@ class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechn
 		super.readFromNBT(compound)
 		waterTank.readFromNBT(compound.getCompoundTag("WaterTankNBT"))
 		gasTank.readFromNBT(compound.getCompoundTag("GasTankNBT"))
+		optimise(OptimiserData.readFromNBT(compound.getCompoundTag("OptimiserData")))
 		bulbRecipeTimeModifier = compound.getInteger("BulbRecipeTimeModifier")
 		if(bulbRecipeTimeModifier == 0) // just in case, sanity check
 			bulbRecipeTimeModifier = 1
