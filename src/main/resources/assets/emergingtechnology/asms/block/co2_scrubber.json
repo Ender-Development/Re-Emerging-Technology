@@ -1,0 +1,16 @@
+{
+	"parameters": {},
+	"clips": {
+		"off": "emergingtechnology:block/co2_scrubber@off",
+		"fast": "emergingtechnology:block/co2_scrubber@fast"
+	},
+	"states": [
+		"off",
+		"fast"
+	],
+	"transitions": {
+		"off": [ "fast" ],
+		"fast": [ "off" ]
+	},
+	"start_state": "off"
+}

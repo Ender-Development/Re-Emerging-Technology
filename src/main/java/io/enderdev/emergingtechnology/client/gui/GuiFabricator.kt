@@ -1,6 +1,9 @@
 package io.enderdev.emergingtechnology.client.gui
 
+import io.enderdev.catalyx.client.button.AbstractButtonWrapper
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import io.enderdev.catalyx.network.ButtonPacket
+import io.enderdev.catalyx.network.PacketHandler
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerFabricator
 import io.enderdev.emergingtechnology.recipes.ModRecipes
@@ -22,9 +25,9 @@ class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(Con
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 7, 39, 9, tile::energyStorage))
 	}
 
-	lateinit var leftBtn: TileFabricator.UpdateButton
-	lateinit var stopStartBtn: TileFabricator.UpdateButton
-	lateinit var rightBtn: TileFabricator.UpdateButton
+	lateinit var leftBtn: TileFabricator.UpdateButtonWrapper
+	lateinit var stopStartBtn: TileFabricator.UpdateButtonWrapper
+	lateinit var rightBtn: TileFabricator.UpdateButtonWrapper
 
 	var stopped = tile.stopped
 	var recipeId = tile.recipeId
@@ -35,18 +38,18 @@ class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(Con
 	override fun initGui() {
 		halfX = ((width - xSize) shr 1)
 		halfY = ((height - ySize) shr 1)
-		leftBtn = TileFabricator.UpdateButton(halfX + 54, halfY + 57).apply { drawStyle = TileFabricator.UpdateButton.DrawStyle.LEFT }
-		stopStartBtn = TileFabricator.UpdateButton(leftBtn.x + 16, leftBtn.y).apply { drawStyle = TileFabricator.UpdateButton.DrawStyle.STOPPED }
-		rightBtn = TileFabricator.UpdateButton(stopStartBtn.x + 16, stopStartBtn.y).apply { drawStyle = TileFabricator.UpdateButton.DrawStyle.RIGHT }
-		buttonList.addAll(arrayOf(leftBtn, stopStartBtn, rightBtn))
+		leftBtn = TileFabricator.UpdateButtonWrapper(halfX + 54, halfY + 57).apply { drawStyle = TileFabricator.UpdateButtonWrapper.DrawStyle.LEFT }
+		stopStartBtn = TileFabricator.UpdateButtonWrapper(leftBtn.x + 16, leftBtn.y).apply { drawStyle = TileFabricator.UpdateButtonWrapper.DrawStyle.STOPPED }
+		rightBtn = TileFabricator.UpdateButtonWrapper(stopStartBtn.x + 16, stopStartBtn.y).apply { drawStyle = TileFabricator.UpdateButtonWrapper.DrawStyle.RIGHT }
+		buttonList.addAll(arrayOf(leftBtn.button, stopStartBtn.button, rightBtn.button))
 		super.initGui()
 		updateButtonState()
 	}
 
 	fun updateButtonState() {
 		stopStartBtn.stopped = stopped
-		leftBtn.visible = stopped
-		rightBtn.visible = stopped
+		leftBtn.button!!.visible = stopped
+		rightBtn.button!!.visible = stopped
 	}
 
 	override fun drawGuiContainerForegroundLayer(mouseX: Int, mouseY: Int) {
@@ -78,7 +81,10 @@ class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(Con
 	}
 
 	override fun actionPerformed(button: GuiButton) {
-		if(button is TileFabricator.UpdateButton) {
+		val wrapper = AbstractButtonWrapper.getWrapper<TileFabricator.UpdateButtonWrapper>(button)
+		if(wrapper == null)
+			super.actionPerformed(button)
+		else {
 			if(button == leftBtn) {
 				if(--recipeId <= 0)
 					recipeId = lastRecipeId
@@ -86,10 +92,11 @@ class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(Con
 				recipeId = (recipeId + 1) % lastRecipeId
 			else if(button == stopStartBtn)
 				stopped = !stopped
+			wrapper.recipeId = recipeId
+			wrapper.stopped = stopped
 			updateButtonState()
-			super.actionPerformed(TileFabricator.UpdateButton(button.x, button.y, recipeId, stopped))
-		} else
-			super.actionPerformed(button)
+			PacketHandler.channel.sendToServer(ButtonPacket(tileEntity.pos, wrapper))
+		}
 	}
 
 	// TODO for me later, scrolling on the item selector should act like button clicks ;p

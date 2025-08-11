@@ -1,5 +1,6 @@
 package io.enderdev.emergingtechnology.client.gui
 
+import io.enderdev.catalyx.client.button.AbstractButtonWrapper
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
 import io.enderdev.catalyx.network.ButtonPacket
@@ -30,8 +31,8 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 	override val displayName = "tile.${Tags.MODID}:algorithmic_optimiser.name.short".translate()
 
 	val assignments = MutableOptimiserData(tile.assignments.energy, tile.assignments.water, tile.assignments.gas, tile.assignments.recipeTime, BlockPos.ORIGIN, 1)
-	val minusButtons = mutableListOf<TileAlgorithmicOptimiser.AssignButton>()
-	val plusButtons = mutableListOf<TileAlgorithmicOptimiser.AssignButton>()
+	val minusButtons = mutableListOf<TileAlgorithmicOptimiser.AssignButtonWrapper>()
+	val plusButtons = mutableListOf<TileAlgorithmicOptimiser.AssignButtonWrapper>()
 
 	override fun initGui() {
 		val halfX = ((width - xSize) shr 1)
@@ -39,11 +40,11 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 		minusButtons.clear()
 		plusButtons.clear()
 		arrayOf(OptimiserResource.WATER, OptimiserResource.ENERGY, OptimiserResource.GAS, OptimiserResource.RECIPE_TIME).forEachIndexed { idx, resource ->
-			val minus = TileAlgorithmicOptimiser.AssignButton(halfX + 49, halfY + 28 + idx * 16, -1, resource)
-			buttonList.add(minus)
+			val minus = TileAlgorithmicOptimiser.AssignButtonWrapper(halfX + 49, halfY + 28 + idx * 16, -1, resource)
+			buttonList.add(minus.button)
 			minusButtons.add(minus)
-			val plus = TileAlgorithmicOptimiser.AssignButton(halfX + 92, halfY + 28 + idx * 16, 1, resource)
-			buttonList.add(plus)
+			val plus = TileAlgorithmicOptimiser.AssignButtonWrapper(halfX + 92, halfY + 28 + idx * 16, 1, resource)
+			buttonList.add(plus.button)
 			plusButtons.add(plus)
 		}
 		super.initGui()
@@ -51,17 +52,18 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 	}
 
 	override fun actionPerformed(button: GuiButton) {
-		if(button is TileAlgorithmicOptimiser.AssignButton) {
+		var wrapper = AbstractButtonWrapper.getWrapper<TileAlgorithmicOptimiser.AssignButtonWrapper>(button)
+		if(wrapper == null)
+			super.actionPerformed(button)
+		else {
 			updateButtonVisibility()
-			var btn = button
 			// if shift key is down, set to 0 / max out
 			if(isShiftKeyDown())
-				btn = TileAlgorithmicOptimiser.AssignButton(button.x, button.y, if(button.count < 0) -assignments[button.resource] else (tile.getCores() - assignments.sum()).coerceAtMost(5), button.resource)
-			assignments.add(button.resource, btn.count)
+				wrapper = TileAlgorithmicOptimiser.AssignButtonWrapper(button.x, button.y, if(wrapper.count < 0) -assignments[wrapper.resource] else (tile.getCores() - assignments.sum()).coerceAtMost(5), wrapper.resource)
+			assignments.add(wrapper.resource, wrapper.count)
 			updateButtonVisibility()
-			PacketHandler.channel.sendToServer(ButtonPacket(tile.pos, btn))
-		} else
-			super.actionPerformed(button)
+			PacketHandler.channel.sendToServer(ButtonPacket(tile.pos, wrapper))
+		}
 	}
 
 	fun updateButtonVisibility() {
@@ -70,18 +72,18 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 		assignments.gas = tile.assignments.gas
 		assignments.recipeTime = tile.assignments.recipeTime
 
-		minusButtons[0].visible = assignments.water != 0
-		minusButtons[1].visible = assignments.energy != 0
-		minusButtons[2].visible = assignments.gas != 0
-		minusButtons[3].visible = assignments.recipeTime != 0
+		minusButtons[0].button!!.visible = assignments.water != 0
+		minusButtons[1].button!!.visible = assignments.energy != 0
+		minusButtons[2].button!!.visible = assignments.gas != 0
+		minusButtons[3].button!!.visible = assignments.recipeTime != 0
 
 		if(assignments.sum() >= tile.getCores()) {
-			plusButtons.forEach { it.visible = false }
+			plusButtons.forEach { it.button!!.visible = false }
 		} else {
-			plusButtons[0].visible = assignments.water != 5
-			plusButtons[1].visible = assignments.energy != 5
-			plusButtons[2].visible = assignments.gas != 5
-			plusButtons[3].visible = assignments.recipeTime != 5
+			plusButtons[0].button!!.visible = assignments.water != 5
+			plusButtons[1].button!!.visible = assignments.energy != 5
+			plusButtons[2].button!!.visible = assignments.gas != 5
+			plusButtons[3].button!!.visible = assignments.recipeTime != 5
 		}
 	}
 

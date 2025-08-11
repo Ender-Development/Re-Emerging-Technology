@@ -1,8 +1,8 @@
 package io.enderdev.emergingtechnology.client.gui
 
+import io.enderdev.catalyx.client.button.AbstractButtonWrapper
 import io.enderdev.catalyx.network.ButtonPacket
 import io.enderdev.catalyx.network.PacketHandler
-import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerCreativeFiller
 import io.enderdev.emergingtechnology.tiles.TileCreativeFiller
@@ -11,7 +11,6 @@ import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
-import net.minecraftforge.fml.client.config.GuiUtils.drawTexturedModalRect
 import org.lwjgl.input.Mouse
 import java.awt.Color
 import java.text.DecimalFormat
@@ -31,43 +30,42 @@ class GuiCreativeFiller(playerInv: IInventory, tile: TileCreativeFiller) : GuiCo
 		val halfX = ((width - xSize) shr 1)
 		val halfY = ((height - ySize) shr 1)
 		repeat(4) { idx ->
-			buttonList.add(TileCreativeFiller.UpdateButton(halfX + 132, halfY + 15 + idx * 16, idx, 0))
+			buttonList.add(TileCreativeFiller.UpdateButtonWrapper(halfX + 132, halfY + 15 + idx * 16, idx, 0).button)
 		}
 		repeat(4) { idx ->
-			buttonList.add(TileCreativeFiller.UpdateButton(halfX + 71, halfY + 15 + idx * 16, idx + 4, 0))
+			buttonList.add(TileCreativeFiller.UpdateButtonWrapper(halfX + 71, halfY + 15 + idx * 16, idx + 4, 0).button)
 		}
 		super.initGui()
 	}
 
 	override fun actionPerformed(button: GuiButton) { // fallback
-		if(button is TileCreativeFiller.UpdateButton)
-			buttonClick(button, 0)
-		else
+		val wrapper = AbstractButtonWrapper.getWrapper<TileCreativeFiller.UpdateButtonWrapper>(button)
+		if(wrapper == null)
 			super.actionPerformed(button)
+		else
+			buttonClick(wrapper, 0)
 	}
 
-	fun buttonClick(button: TileCreativeFiller.UpdateButton, mouseButton: Int) {
-		button.value = when {
+	fun buttonClick(wrapper: TileCreativeFiller.UpdateButtonWrapper, mouseButton: Int) {
+		wrapper.value = when {
 			!isShiftKeyDown() && mouseButton == 0 -> changeBy
 			!isShiftKeyDown() && mouseButton == 1 -> -changeBy
-			isShiftKeyDown() && mouseButton == 0 -> Int.MAX_VALUE - tile.getField(button.field)
-			isShiftKeyDown() && mouseButton == 1 -> -tile.getField(button.field)
+			isShiftKeyDown() && mouseButton == 0 -> Int.MAX_VALUE - tile.getField(wrapper.field)
+			isShiftKeyDown() && mouseButton == 1 -> -tile.getField(wrapper.field)
 			else -> 0
 		}
 
-		PacketHandler.channel.sendToServer(ButtonPacket(tile.pos, button))
+		PacketHandler.channel.sendToServer(ButtonPacket(tile.pos, wrapper))
 	}
 
 	override fun mouseClicked(mouseX: Int, mouseY: Int, mouseButton: Int) {
-		println(mouseButton)
 		buttonList.forEach {
-			if(it !is TileCreativeFiller.UpdateButton) // sanity check
-				return@forEach
+			val wrapper = AbstractButtonWrapper.getWrapper<TileCreativeFiller.UpdateButtonWrapper>(it) ?: return@forEach
 
 			if(it.mousePressed(mc, mouseX, mouseY)) {
 				selectedButton = it
 				it.playPressSound(mc.soundHandler)
-				buttonClick(it, mouseButton)
+				buttonClick(wrapper, mouseButton)
 			}
 		}
 	}
@@ -92,10 +90,8 @@ class GuiCreativeFiller(playerInv: IInventory, tile: TileCreativeFiller) : GuiCo
 		val halfX = (width - xSize) shr 1
 		val halfY = (height - ySize) shr 1
 		buttonList.forEach {
-			if(it !is TileCreativeFiller.UpdateButton) // sanity check
-				return@forEach
-
-			fontRenderer.drawString(tile.getField(it.field).stringify(), it.x - halfX - 32, it.y - halfY + 4, Color.gray.rgb)
+			val wrapper = AbstractButtonWrapper.getWrapper<TileCreativeFiller.UpdateButtonWrapper>(it) ?: return@forEach
+			fontRenderer.drawString(tile.getField(wrapper.field).stringify(), it.x - halfX - 32, it.y - halfY + 4, Color.gray.rgb)
 		}
 		fontRenderer.drawString(changeBy.toString(), 16, 84, Color.gray.rgb)
 	}

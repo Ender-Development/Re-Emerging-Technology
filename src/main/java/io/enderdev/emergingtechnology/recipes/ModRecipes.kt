@@ -16,6 +16,7 @@ object ModRecipes {
 	val tissueScaffolderRecipes = TissueScaffolderRegister.INSTANCE
 	val algaeBioreactorRecipes = AlgaeBioreactorRegister.INSTANCE
 	val nutrientInjectorRecipes = NutrientInjectorRegister.INSTANCE
+	val co2ScrubberRecipes = Co2ScrubberRegister.INSTANCE
 
 	fun init() {
 		shredderRecipes.registerRecipes()
@@ -25,6 +26,7 @@ object ModRecipes {
 		tissueScaffolderRecipes.registerRecipes()
 		algaeBioreactorRecipes.registerRecipes()
 		nutrientInjectorRecipes.registerRecipes()
+		co2ScrubberRecipes.registerRecipes()
 	}
 
 	// copy of the OreRegistrationHandler in original EMT

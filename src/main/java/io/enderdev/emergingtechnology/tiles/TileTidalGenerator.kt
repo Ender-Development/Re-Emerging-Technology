@@ -29,6 +29,9 @@ class TileTidalGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImp
 	var checkDelay = 20
 
 	fun generate() {
+		if(world.isRemote)
+			return
+
 		if(generated == -1 || checkDelay-- == 0) {
 			checkDelay = 20
 
@@ -85,11 +88,13 @@ class TileTidalGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImp
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
 		compound.setInteger("Energy", energyStorage.energyStored)
+		compound.setString("AnimationState", asm.currentState() ?: "off")
 		return compound
 	}
 
 	override fun readFromNBT(compound: NBTTagCompound) {
 		energyStorage.receiveEnergy(compound.getInteger("Energy"), false)
+		setAnimationState(AnimationState.valueOf(compound.getString("AnimationState").ifEmpty { "off" }.uppercase(Locale.ENGLISH)))
 		super.readFromNBT(compound)
 	}
 

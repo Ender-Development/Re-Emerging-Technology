@@ -49,7 +49,7 @@ class TileBattery : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile, B
 		}
 	}
 
-	override fun energyCapacity() = ENERGY_CAPACITY
+	override val energyCapacity = ENERGY_CAPACITY
 
 	override fun update() {
 		CapabilityUtils.spreadEnergy(world, pos, energyStorage, *EnumFacing.VALUES.filter { it != inputSide }.toTypedArray())

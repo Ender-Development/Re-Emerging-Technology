@@ -19,7 +19,7 @@
 		}
 	},
 	"clips": {
-		"default": {
+		"off": {
 			"loop": false,
 			"joint_clips": {},
 			"events": {}

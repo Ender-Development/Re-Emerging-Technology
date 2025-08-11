@@ -1,8 +1,8 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.client.button.AbstractButton
-import io.enderdev.catalyx.client.button.PauseButton
-import io.enderdev.catalyx.client.button.RedstoneButton
+import io.enderdev.catalyx.client.button.AbstractButtonWrapper
+import io.enderdev.catalyx.client.button.PauseButtonWrapper
+import io.enderdev.catalyx.client.button.RedstoneButtonWrapper
 import io.enderdev.catalyx.client.gui.BaseGuiTyped
 import io.enderdev.catalyx.tiles.BaseTile
 import io.enderdev.catalyx.tiles.helper.*
@@ -11,8 +11,10 @@ import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.ItemCircuit
+import io.enderdev.emergingtechnology.tiles.TileCreativeFiller.UpdateButtonWrapper
 import io.netty.buffer.ByteBuf
 import net.minecraft.client.Minecraft
+import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
@@ -25,6 +27,7 @@ import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
+import net.minecraftforge.fml.client.config.GuiUtils.drawTexturedModalRect
 
 class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables {
 	override var isPaused = false
@@ -130,11 +133,11 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 		assignments.recipeTime = compound.getInteger("RecipeTimeAssignment")
 	}
 
-	override fun handleButtonPress(button: AbstractButton) {
+	override fun handleButtonPress(button: AbstractButtonWrapper) {
 		when(button) {
-			is PauseButton -> isPaused = !isPaused
-			is RedstoneButton -> needsRedstonePower = !needsRedstonePower
-			is AssignButton -> {
+			is PauseButtonWrapper -> isPaused = !isPaused
+			is RedstoneButtonWrapper -> needsRedstonePower = !needsRedstonePower
+			is AssignButtonWrapper -> {
 				assignments.add(button.resource, button.count)
 				validateAssignments()
 			}
@@ -163,19 +166,16 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 			0
 	}
 
-	class AssignButton(x: Int, y: Int) : AbstractButton(x, y) {
+	class AssignButtonWrapper(x: Int, y: Int) : AbstractButtonWrapper(x, y) {
 		var count = 0
 		lateinit var resource: OptimiserResource
 
-		override fun drawButton(mc: Minecraft, mouseX: Int, mouseY: Int, partialTicks: Float) {
-			if(visible) {
-				mc.textureManager.bindTexture(ResourceLocation(Tags.MODID, "textures/gui/container/algorithmic_optimiser_gui.png"))
-				GlStateManager.color(1F, 1F, 1F)
-				val v = if(count > 0) 16 else 0
-				drawTexturedModalRect(x, y, 175, v, 16, 16)
-				super.drawButton(mc, mouseX, mouseY, partialTicks)
-			}
-		}
+		override val drawButton: () -> GuiButton.(Minecraft, Int, Int, Float) -> Unit = { { mc, mouseX, mouseY, partialTicks ->
+			mc.textureManager.bindTexture(ResourceLocation(Tags.MODID, "textures/gui/container/algorithmic_optimiser_gui.png"))
+			GlStateManager.color(1F, 1F, 1F)
+			val v = if(count > 0) 16 else 0
+			drawTexturedModalRect(x, y, 175, v, 16, 16)
+		} }
 
 		override fun readExtraData(buf: ByteBuf) {
 			count = buf.readInt()
@@ -191,6 +191,10 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 			this.count = count
 			this.resource = resource
 		}
+	}
+
+	init {
+		AbstractButtonWrapper.registerWrapper(UpdateButtonWrapper::class.java)
 	}
 }
 

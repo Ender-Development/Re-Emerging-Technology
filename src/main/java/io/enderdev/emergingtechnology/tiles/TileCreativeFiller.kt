@@ -1,9 +1,6 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.client.button.AbstractButton
-import io.enderdev.catalyx.client.button.PauseButton
-import io.enderdev.catalyx.client.button.RedstoneButton
-import io.enderdev.catalyx.client.gui.BaseGuiTyped
+import io.enderdev.catalyx.client.button.AbstractButtonWrapper
 import io.enderdev.catalyx.tiles.BaseTile
 import io.enderdev.catalyx.tiles.helper.IButtonTile
 import io.enderdev.catalyx.tiles.helper.IGuiTile
@@ -13,6 +10,7 @@ import io.enderdev.emergingtechnology.fluids.ModFluids
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
 import io.netty.buffer.ByteBuf
 import net.minecraft.client.Minecraft
+import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.EnumFacing
@@ -21,17 +19,12 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.energy.CapabilityEnergy
 import net.minecraftforge.energy.IEnergyStorage
-import net.minecraftforge.fluids.Fluid
-import net.minecraftforge.fluids.FluidRegistry
-import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.FluidTankInfo
-import net.minecraftforge.fluids.IFluidTank
+import net.minecraftforge.fluids.*
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler
 import net.minecraftforge.fluids.capability.FluidTankProperties
 import net.minecraftforge.fluids.capability.IFluidHandler
-import net.minecraftforge.fluids.capability.IFluidTankProperties
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
-import net.minecraftforge.fluids.capability.templates.FluidHandlerFluidMap
+import net.minecraftforge.fml.client.config.GuiUtils.drawTexturedModalRect
 
 class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IButtonTile {
 	init {
@@ -208,8 +201,8 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 		}
 
 	// this is dirty but idrc, this is a creative thing after all
-	override fun handleButtonPress(button: AbstractButton) {
-		if(button is UpdateButton)
+	override fun handleButtonPress(button: AbstractButtonWrapper) {
+		if(button is UpdateButtonWrapper)
 			when(button.field) {
 				0 -> energyOutput = (energyOutput + button.value).coerceAtLeast(0)
 				1 -> waterOutput = (waterOutput + button.value).coerceAtLeast(0)
@@ -236,18 +229,15 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 			else -> -1
 		}
 
-	class UpdateButton(x: Int, y: Int) : AbstractButton(x, y) {
+	class UpdateButtonWrapper(x: Int, y: Int) : AbstractButtonWrapper(x, y) {
 		var field = 0
 		var value = 0
 
-		override fun drawButton(mc: Minecraft, mouseX: Int, mouseY: Int, partialTicks: Float) {
-			if(visible) {
-				mc.textureManager.bindTexture(ResourceLocation(Tags.MODID, "textures/gui/container/creative_filler_gui.png"))
-				GlStateManager.color(1F, 1F, 1F)
-				drawTexturedModalRect(x, y, 175, 0, 16, 16)
-				super.drawButton(mc, mouseX, mouseY, partialTicks)
-			}
-		}
+		override val drawButton: () -> GuiButton.(Minecraft, Int, Int, Float) -> Unit = { { mc, mouseX, mouseY, partialTicks ->
+			mc.textureManager.bindTexture(ResourceLocation(Tags.MODID, "textures/gui/container/creative_filler_gui.png"))
+			GlStateManager.color(1F, 1F, 1F)
+			drawTexturedModalRect(x, y, 175, 0, 16, 16)
+		} }
 
 		override fun readExtraData(buf: ByteBuf) {
 			field = buf.readInt()
@@ -263,5 +253,9 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 			this.field = field
 			this.value = value
 		}
+	}
+
+	init {
+		AbstractButtonWrapper.registerWrapper(UpdateButtonWrapper::class.java)
 	}
 }

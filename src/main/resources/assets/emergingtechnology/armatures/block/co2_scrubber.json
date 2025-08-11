@@ -1,0 +1,55 @@
+{
+    "joints": {
+        "turbine": {
+            "0": [
+                1.0
+            ],
+            "1": [
+                1.0
+            ],
+            "2": [
+                1.0
+            ],
+            "3": [
+                1.0
+            ],
+            "4": [
+                1.0
+            ]
+        }
+    },
+    "clips": {
+        "off": {
+            "loop": false,
+            "joint_clips": {},
+            "events": {}
+        },
+        "fast": {
+            "loop": true,
+            "joint_clips": {
+                "turbine": [
+                    {
+                        "variable": "axis_z",
+                        "type": "uniform",
+                        "interpolation": "nearest",
+                        "samples": [
+                            1,
+                            2,
+                            1
+                        ]
+                    },
+                    {
+                        "variable": "angle",
+                        "type": "uniform",
+                        "interpolation": "linear",
+                        "samples": [
+                            0,
+                            180
+                        ]
+                    }
+                ]
+            },
+            "events": {}
+        }
+    }
+}

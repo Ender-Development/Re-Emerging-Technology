@@ -11,6 +11,7 @@ import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler
+import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 
 class TileWaterFiller : TileEntity(), ITickable, IFluidTile {
 	val fluidTank = object : FluidTank(EmergingTechnologyConfig.HYDROPONICS_MODULE.FILLER.fillerFluidTransferRate) {
@@ -20,6 +21,7 @@ class TileWaterFiller : TileEntity(), ITickable, IFluidTile {
 		setCanFill(false)
 		setCanDrain(true)
 	}
+	override val fluidTanks = FluidHandlerConcatenate(fluidTank)
 
 	override fun update() {
 		fluidTank.fillInternal(FluidStack(FluidRegistry.WATER, fluidTank.capacity), true)

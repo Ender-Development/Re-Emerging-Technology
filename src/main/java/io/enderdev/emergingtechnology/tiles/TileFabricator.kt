@@ -1,6 +1,6 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.client.button.AbstractButton
+import io.enderdev.catalyx.client.button.AbstractButtonWrapper
 import io.enderdev.catalyx.tiles.BaseMachineTile
 import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
@@ -15,10 +15,12 @@ import io.enderdev.emergingtechnology.recipes.FabricatorRecipe
 import io.enderdev.emergingtechnology.recipes.ModRecipes
 import io.netty.buffer.ByteBuf
 import net.minecraft.client.Minecraft
+import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.fml.client.config.GuiUtils.drawTexturedModalRect
 
 class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
@@ -64,8 +66,8 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 
 	override fun shouldResetProgress() = false
 
-	override fun handleButtonPress(button: AbstractButton) {
-		if(button is UpdateButton) {
+	override fun handleButtonPress(button: AbstractButtonWrapper) {
+		if(button is UpdateButtonWrapper) {
 			recipeId = button.recipeId
 			val lastId = ModRecipes.fabricatorRecipes.recipes.last().id // please ftlog be sequential
 			// sanity check
@@ -94,29 +96,26 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 		return compound
 	}
 
-	class UpdateButton(x: Int, y: Int) : AbstractButton(x, y) {
+	class UpdateButtonWrapper(x: Int, y: Int) : AbstractButtonWrapper(x, y) {
 		var recipeId = 0
 		var stopped = true
 
 		var drawStyle = DrawStyle.NONE
 
-		override fun drawButton(mc: Minecraft, mouseX: Int, mouseY: Int, partialTicks: Float) {
+		override val drawButton: () -> GuiButton.(Minecraft, Int, Int, Float) -> Unit = { drawButton@{ mc, mouseX, mouseY, partialTicks ->
 			if(drawStyle == DrawStyle.NONE)
-				return
+				return@drawButton
 
-			if(visible) {
-				mc.textureManager.bindTexture(ResourceLocation(Tags.MODID, "textures/gui/container/fabricator_gui.png"))
-				GlStateManager.color(1F, 1F, 1F)
-				val v = when(drawStyle) {
-					DrawStyle.LEFT -> 0
-					DrawStyle.RIGHT -> 16
-					DrawStyle.STOPPED -> if(stopped) 32 else 48
-					DrawStyle.NONE -> throw IllegalStateException()
-				}
-				drawTexturedModalRect(x, y, 175, v, 16, 16)
-				super.drawButton(mc, mouseX, mouseY, partialTicks)
+			mc.textureManager.bindTexture(ResourceLocation(Tags.MODID, "textures/gui/container/fabricator_gui.png"))
+			GlStateManager.color(1F, 1F, 1F)
+			val v = when(drawStyle) {
+				DrawStyle.LEFT -> 0
+				DrawStyle.RIGHT -> 16
+				DrawStyle.STOPPED -> if(stopped) 32 else 48
+				DrawStyle.NONE -> throw IllegalStateException()
 			}
-		}
+			drawTexturedModalRect(x, y, 175, v, 16, 16)
+		} }
 
 		override fun readExtraData(buf: ByteBuf) {
 			recipeId = buf.readInt()
@@ -136,5 +135,9 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 		enum class DrawStyle {
 			NONE, LEFT, RIGHT, STOPPED;
 		}
+	}
+
+	init {
+		AbstractButtonWrapper.registerWrapper(UpdateButtonWrapper::class.java)
 	}
 }
