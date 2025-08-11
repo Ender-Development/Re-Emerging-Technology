@@ -34,5 +34,5 @@ public class HydroponicsModuleInjector {
     @Name("Injector - Transfer rate")
     @Config.Comment("The amount of Nutrient Fluid transferred per tick.")
     @RangeInt(min = 1, max = Integer.MAX_VALUE)
-    public int injectorFluidTransferRate = 600;
+    public int injectorFluidTransferRate = 600; // roz: why
 }

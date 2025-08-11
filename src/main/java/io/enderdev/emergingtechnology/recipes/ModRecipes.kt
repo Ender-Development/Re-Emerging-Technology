@@ -15,6 +15,7 @@ object ModRecipes {
 	val fabricatorRecipes = FabricatorRegister.INSTANCE
 	val tissueScaffolderRecipes = TissueScaffolderRegister.INSTANCE
 	val algaeBioreactorRecipes = AlgaeBioreactorRegister.INSTANCE
+	val nutrientInjectorRecipes = NutrientInjectorRegister.INSTANCE
 
 	fun init() {
 		shredderRecipes.registerRecipes()
@@ -23,11 +24,12 @@ object ModRecipes {
 		fabricatorRecipes.registerRecipes()
 		tissueScaffolderRecipes.registerRecipes()
 		algaeBioreactorRecipes.registerRecipes()
+		nutrientInjectorRecipes.registerRecipes()
 	}
 
 	// copy of the OreRegistrationHandler in original EMT
 	fun initOredict() {
-		registerOres("machinePlastic",
+		registerOres("machinePlastic", // TODO
 			//ModBlocks.hydroponic,
 			//ModBlocks.light,
 			ModBlocks.shredder,

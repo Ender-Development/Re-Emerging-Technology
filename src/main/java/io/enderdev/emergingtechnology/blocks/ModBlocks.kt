@@ -28,7 +28,7 @@ object ModBlocks {
 	val waterFiller = BlockWaterFiller()
 	// co2_scrubber
 	// co2_diffuser
-	// nutrient_injector
+	val nutrientInjector = BlockNutrientInjector()
 
 	val aquaponicBase = ModelBlock("aquaponic_base", hardness = 2f)
 	val aquaponicFrame = ModelBlock("aquaponic_frame", hardness = 2f)

@@ -24,6 +24,9 @@ tile.emergingtechnology:hydroponic_grow_light.growth=Growth: %d%%/t
 tile.emergingtechnology:water_filler.name=Water Filler
 tile.emergingtechnology:water_filler.desc=Provides %d mB/t of Water to surrounding machines and tanks
 
+tile.emergingtechnology:nutrient_injector.name=Nutrient Injector
+tile.emergingtechnology:nutrient_injector.desc=Injects nutrients into water to produce Nutrient Fluid
+
 tile.emergingtechnology:aquaponic_base.name=Aquaponic Base
 tile.emergingtechnology:aquaponic_frame.name=Aquaponic Frame
 tile.emergingtechnology:aquaponic_glass.name=Aquaponic Glass

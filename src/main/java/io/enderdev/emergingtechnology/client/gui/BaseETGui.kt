@@ -3,6 +3,7 @@ package io.enderdev.emergingtechnology.client.gui
 import io.enderdev.catalyx.client.gui.BaseGuiTyped
 import io.enderdev.catalyx.client.gui.ButtonSide
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityDisplayWrapper
+import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
 import io.enderdev.catalyx.tiles.BaseMachineTile
 import io.enderdev.catalyx.tiles.BaseTile
@@ -13,6 +14,7 @@ import io.enderdev.emergingtechnology.fluids.ModFluids
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.inventory.Container
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.fluids.FluidRegistry
 
 abstract class BaseETGuiTyped<T>(container: Container, tile: T) : BaseGuiTyped<T>(container, tile) where T : IGuiTile, T : BaseTile, T : BaseGuiTyped.IDefaultButtonVariables {
 	override val powerBarTexture = ResourceLocation(Tags.MODID, "textures/gui/container/shared.png")
@@ -25,7 +27,16 @@ abstract class BaseETGuiTyped<T>(container: Container, tile: T) : BaseGuiTyped<T
 		val x = storage.x + ((width - xSize) shr 1)
 		val y = storage.y + ((height - ySize) shr 1)
 		val w = getBarScaled(storage.width, storage.getStored(), storage.getCapacity())
-		val v = if(storage is CapabilityFluidDisplayWrapper) if(storage.fluidTank().fluid?.fluid == ModFluids.co2) 18 else 9 else 0
+		val v = when(storage) {
+			is CapabilityFluidDisplayWrapper -> when(storage.getFluid()?.fluid) {
+				FluidRegistry.WATER -> 9
+				ModFluids.co2 -> 18
+				ModFluids.nutrient -> 27
+				else -> 100
+			}
+			is CapabilityEnergyDisplayWrapper -> 0
+			else -> 100
+		}
 		mc.textureManager.bindTexture(powerBarTexture)
 		drawTexturedModalRect(x, y, 0, v, w, storage.height)
 		mc.textureManager.bindTexture(textureLocation)
