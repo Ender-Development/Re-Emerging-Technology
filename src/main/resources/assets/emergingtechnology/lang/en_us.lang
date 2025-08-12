@@ -24,6 +24,9 @@ tile.emergingtechnology:hydroponic_grow_light.growth=Growth: %d%%/t
 tile.emergingtechnology:water_filler.name=Water Filler
 tile.emergingtechnology:water_filler.desc=Provides %d mB/t of Water to surrounding machines and tanks
 
+tile.emergingtechnology:co2_scrubber.name=CO₂ Scrubber
+tile.emergingtechnology:co2_scrubber.desc=Captures CO₂ from its surrounding atmosphere
+
 tile.emergingtechnology:nutrient_injector.name=Nutrient Injector
 tile.emergingtechnology:nutrient_injector.desc=Injects nutrients into water to produce Nutrient Fluid
 
@@ -54,6 +57,7 @@ tile.emergingtechnology:shredder.name=Shredder
 tile.emergingtechnology:shredder.desc=Shreds plants and plastic items into raw materials for the Processor
 
 tile.emergingtechnology:fabricator.name=Fabricator
+tile.emergingtechnology:fabricator.desc=Prints plastic components
 
 tile.emergingtechnology:waste_collector.name=Waste Collector
 tile.emergingtechnology:waste_collector.desc=Slowly collects waste plastic and other items when placed in water

@@ -85,13 +85,11 @@ class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(Con
 		if(wrapper == null)
 			super.actionPerformed(button)
 		else {
-			if(button == leftBtn) {
-				if(--recipeId <= 0)
-					recipeId = lastRecipeId
-			} else if(button == rightBtn)
-				recipeId = (recipeId + 1) % lastRecipeId
-			else if(button == stopStartBtn)
-				stopped = !stopped
+			when(wrapper) {
+				leftBtn -> if(--recipeId <= 0) recipeId = lastRecipeId
+				rightBtn -> recipeId = (recipeId + 1) % lastRecipeId
+				stopStartBtn -> stopped = !stopped
+			}
 			wrapper.recipeId = recipeId
 			wrapper.stopped = stopped
 			updateButtonState()

@@ -133,6 +133,8 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 	private val outputNutrientTank = OutputFluidTank(ModFluids.nutrient)
 
 	override fun update() {
+		if(world.isRemote)
+			return
 		markDirtyGUIEvery(5)
 
 		inputEnergyStorage.stored = 0

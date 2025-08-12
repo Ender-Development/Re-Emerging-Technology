@@ -52,14 +52,17 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 	}
 
 	override fun actionPerformed(button: GuiButton) {
-		var wrapper = AbstractButtonWrapper.getWrapper<TileAlgorithmicOptimiser.AssignButtonWrapper>(button)
+		val wrapper = AbstractButtonWrapper.getWrapper<TileAlgorithmicOptimiser.AssignButtonWrapper>(button)
 		if(wrapper == null)
 			super.actionPerformed(button)
 		else {
 			updateButtonVisibility()
 			// if shift key is down, set to 0 / max out
 			if(isShiftKeyDown())
-				wrapper = TileAlgorithmicOptimiser.AssignButtonWrapper(button.x, button.y, if(wrapper.count < 0) -assignments[wrapper.resource] else (tile.getCores() - assignments.sum()).coerceAtMost(5), wrapper.resource)
+				wrapper.count = if(wrapper.count < 0)
+					-assignments[wrapper.resource]
+				else
+					(tile.getCores() - assignments.sum()).coerceAtMost(5)
 			assignments.add(wrapper.resource, wrapper.count)
 			updateButtonVisibility()
 			PacketHandler.channel.sendToServer(ButtonPacket(tile.pos, wrapper))
