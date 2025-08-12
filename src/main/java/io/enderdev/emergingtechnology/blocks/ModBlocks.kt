@@ -28,7 +28,7 @@ object ModBlocks {
 	// harvester
 	val waterFiller = BlockWaterFiller()
 	val co2Scrubber = BlockCo2Scrubber()
-	// co2_diffuser
+	val co2Diffuser = BlockCo2Diffuser()
 	val nutrientInjector = BlockNutrientInjector()
 
 	val aquaponicBase = ModelBlock("aquaponic_base", hardness = 2f)

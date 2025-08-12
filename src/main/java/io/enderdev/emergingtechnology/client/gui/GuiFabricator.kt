@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.RenderHelper
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.lwjgl.input.Mouse
 import java.awt.Color
 
 class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(ContainerFabricator(playerInv, tile), tile) {
@@ -97,7 +98,21 @@ class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(Con
 		}
 	}
 
-	// TODO for me later, scrolling on the item selector should act like button clicks ;p
+	// on second thought, I'm not entirely sure this is a good idea, as scrolling would interfere with Mouse Tweaks/similar mods and Enter is just stupid
+	//// scrolling changes the recipe
+	//override fun handleMouseInput() {
+	//	super.handleMouseInput()
+	//	val scroll = Mouse.getEventDWheel()
+	//	if(scroll != 0)
+	//		actionPerformed((if(scroll > 0) rightBtn else leftBtn).button!!)
+	//}
+	//
+	//// pressing enter stops & starts the recipe
+	//override fun keyTyped(typedChar: Char, keyCode: Int) {
+	//	super.keyTyped(typedChar, keyCode)
+	//	if(typedChar == '\n')
+	//		actionPerformed(stopStartBtn.button!!)
+	//}
 
 	// have to do this since the synced tile doesn't tick and thus doesn't update its recipe
 	fun getRecipe() = ModRecipes.fabricatorRecipes.recipes.first { it.id == recipeId }

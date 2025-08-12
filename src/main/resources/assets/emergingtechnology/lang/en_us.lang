@@ -8,12 +8,12 @@ item.emergingtechnology:bulb.desc=Used in the Hydroponic Grow Light
 item.emergingtechnology:nozzle_component.name=Nozzle Component
 item.emergingtechnology:nozzle_component.desc=A crafting ingredient used to create nozzles
 item.emergingtechnology:nozzle_smart.name=Smart Spray Nozzle
-item.emergingtechnology:nozzle_smart.desc=Multiplies the range and effectiveness of the Diffuser by %d and %d respectively
+item.emergingtechnology:nozzle_smart.desc=Multiplies the range and effectiveness of the CO₂ Diffuser by %d and %d respectively
 item.emergingtechnology:nozzle_long.name=Long Spray Nozzle
-item.emergingtechnology:nozzle_long.desc=Multiplies the range of the Diffuser by %d
+item.emergingtechnology:nozzle_long.desc=Multiplies the range of the CO₂ Diffuser by %d
 item.emergingtechnology:nozzle_precise.name=Precise Spray Nozzle
-item.emergingtechnology:nozzle_precise.desc=Multiplies the effectivesness of the Diffuser by %2$d
-item.emergingtechnology:nozzles.desc=Used by the Diffuser
+item.emergingtechnology:nozzle_precise.desc=Multiplies the effectivesness of the CO₂ Diffuser by %2$d
+item.emergingtechnology:nozzles.desc=Used by the CO₂ Diffuser
 
 item.emergingtechnology:fertilizer.name=Fertilizer
 
@@ -26,6 +26,15 @@ tile.emergingtechnology:water_filler.desc=Provides %d mB/t of Water to surroundi
 
 tile.emergingtechnology:co2_scrubber.name=CO₂ Scrubber
 tile.emergingtechnology:co2_scrubber.desc=Captures CO₂ from its surrounding atmosphere
+
+tile.emergingtechnology:co2_diffuser.name=CO₂ Diffuser
+tile.emergingtechnology:co2_diffuser.desc=Uses CO₂ to boost the growth of surrounding plants
+tile.emergingtechnology:co2_diffuser.energy=Uses %d RF when a plant is boosted in a given tick
+tile.emergingtechnology:co2_diffuser.co2=Uses %d mB of CO₂ per boosted plant
+tile.emergingtechnology:co2_diffuser.no_nozzle=No Nozzle
+tile.emergingtechnology:co2_diffuser.range=Range: %d blocks
+tile.emergingtechnology:co2_diffuser.range.explanation.1=Scans for plants in every cardinal direction up to %d blocks
+tile.emergingtechnology:co2_diffuser.range.explanation.2=or until a non-plant block is hit, whichever comes first
 
 tile.emergingtechnology:nutrient_injector.name=Nutrient Injector
 tile.emergingtechnology:nutrient_injector.desc=Injects nutrients into water to produce Nutrient Fluid
