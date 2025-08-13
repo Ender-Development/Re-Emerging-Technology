@@ -12,8 +12,8 @@ class ItemBulb(type: String, val energyMult: Int, val growthMult: Int, val colou
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 		(tooltip as MutableList).addAll(ItemUtils.extendedTooltip(
 			"item.${Tags.MODID}:bulb.desc".translate(),
-			"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.lightEnergyBaseUsage * energyMult),
-			"info.${Tags.MODID}.growth.generated".translate(growthMult)
+			"info.${Tags.MODID}:energy.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.lightEnergyBaseUsage * energyMult),
+			"info.${Tags.MODID}:growth.generated".translate(growthMult)
 		))
 	}
 }

@@ -92,10 +92,7 @@ class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechn
 				if(state.block !== ModBlocks.hydroponicGrowLight)
 					break
 
-				val te = world.getTileEntity(pos)
-				if(te !is TileHydroponicGrowLight) // sanity check
-					break
-
+				val te = world.getTileEntity(pos) as? TileHydroponicGrowLight ?: break
 				if(!te.cachedLit)
 					break
 

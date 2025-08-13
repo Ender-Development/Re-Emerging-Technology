@@ -1,7 +1,10 @@
 package io.enderdev.emergingtechnology.tiles
 
 import io.enderdev.catalyx.animation.NoopAnimationStateMachine
+import io.enderdev.catalyx.tiles.BaseTile.Companion.ANIMATION_CAP
+import io.enderdev.catalyx.tiles.BaseTile.Companion.ENERGY_CAP
 import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
+import io.enderdev.catalyx.tiles.helper.IAnimatedTile
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -14,23 +17,61 @@ import net.minecraft.util.ITickable
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.common.model.animation.CapabilityAnimation
-import net.minecraftforge.energy.CapabilityEnergy
+import net.minecraftforge.common.model.animation.IAnimationStateMachine
 import java.util.*
 
-class TileWindGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(10000) {
+class TileWindGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(10000), IAnimatedTile {
 	override fun update() {
 		generate()
 		spread()
 	}
 
+
+	//var dirtyTicks = 0
+	//var dirtyTickss = 0
+	//
+	//open fun markDirtyClient() {
+	//	markDirty()
+	//	val state = world.getBlockState(getPos())
+	//	world.notifyBlockUpdate(getPos(), state, state, 3)
+	//}
+	//
+	//open fun markDirtyClientEvery(ticks: Int) {
+	//	dirtyTickss++
+	//	if(dirtyTickss >= ticks) {
+	//		markDirtyClient()
+	//		dirtyTickss = 0
+	//	}
+	//}
+	//
+	//open fun markDirtyEvery(ticks: Int) {
+	//	dirtyTicks++
+	//	if(dirtyTicks >= ticks) {
+	//		markDirty()
+	//		dirtyTicks = 0
+	//	}
+	//}
+	//
+	//open fun markDirtyGUI() {
+	//	markDirty()
+	//	world?.let {
+	//		val state = world.getBlockState(getPos())
+	//		world.notifyBlockUpdate(pos, state, state, 6)
+	//	}
+	//}
+	//
+	//open fun markDirtyGUIEvery(ticks: Int) {
+	//	dirtyTicks++
+	//	if(dirtyTicks >= ticks) {
+	//		markDirtyGUI()
+	//		dirtyTicks = 0
+	//	}
+	//}
+
 	var generated = -1
 	var checkDelay = 20
 
 	fun generate() {
-		if(world.isRemote)
-			return
-
 		if(generated == -1 || checkDelay-- == 0) {
 			checkDelay = 20
 
@@ -62,16 +103,16 @@ class TileWindGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		(capability == CapabilityEnergy.ENERGY && (facing == null || facing == EnumFacing.DOWN)) || capability == CapabilityAnimation.ANIMATION_CAPABILITY
+		(capability == ENERGY_CAP && (facing == null || facing == EnumFacing.DOWN)) || capability == ANIMATION_CAP
 
 	override fun <T : Any?> getCapability(capability: Capability<T?>, facing: EnumFacing?): T? {
-		if(capability == CapabilityAnimation.ANIMATION_CAPABILITY)
-			return CapabilityAnimation.ANIMATION_CAPABILITY.cast(asm)
+		if(capability == ANIMATION_CAP)
+			return ANIMATION_CAP.cast(asm)
 
-		if(capability != CapabilityEnergy.ENERGY || (facing != null && facing != EnumFacing.DOWN))
+		if(capability != ENERGY_CAP || (facing != null && facing != EnumFacing.DOWN))
 			return null
 
-		return CapabilityEnergy.ENERGY.cast(energyStorageWrapper)
+		return ENERGY_CAP.cast(energyStorageWrapper)
 	}
 
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
@@ -89,7 +130,7 @@ class TileWindGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl
 
 	// Rendering stuff
 	// ASM stands for Animation State Machine btw, not Assembly
-	val asm = NoopAnimationStateMachine.loadASM(ResourceLocation(Tags.MODID, "asms/block/wind_generator.json"), emptyMap())
+	override val asm: IAnimationStateMachine = NoopAnimationStateMachine.loadASM(ResourceLocation(Tags.MODID, "asms/block/wind_generator.json"), emptyMap())
 
 	override fun hasFastRenderer() = true
 

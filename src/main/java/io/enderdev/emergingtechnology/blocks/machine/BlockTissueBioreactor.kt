@@ -22,8 +22,8 @@ class BlockTissueBioreactor() : RotatableMachineBlock("tissue_bioreactor", TileT
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:tissue_bioreactor.desc".translate(),
-				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorEnergyUsage),
-				"info.${Tags.MODID}.water.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorWaterUsage)
+				"info.${Tags.MODID}:energy.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorEnergyUsage),
+				"info.${Tags.MODID}:water.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorWaterUsage)
 			)
 		})
 	}

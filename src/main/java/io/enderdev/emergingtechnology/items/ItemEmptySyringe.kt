@@ -15,7 +15,7 @@ class ItemEmptySyringe : ItemBase("syringe_empty") {
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 		tooltip as MutableList
 		tooltip.add("item.${Tags.MODID}:syringe_empty.desc".translate())
-		tooltip.add("info.${Tags.MODID}.interaction.rmb".translate())
+		tooltip.add("info.${Tags.MODID}:interaction.rmb".translate())
 	}
 
 	override fun itemInteractionForEntity(stack: ItemStack, player: EntityPlayer, target: EntityLivingBase, hand: EnumHand): Boolean {

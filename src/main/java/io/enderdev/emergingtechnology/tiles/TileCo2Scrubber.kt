@@ -2,10 +2,7 @@ package io.enderdev.emergingtechnology.tiles
 
 import io.enderdev.catalyx.animation.NoopAnimationStateMachine
 import io.enderdev.catalyx.tiles.BaseMachineTile
-import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
-import io.enderdev.catalyx.tiles.helper.IEnergyTile
-import io.enderdev.catalyx.tiles.helper.IFluidTile
-import io.enderdev.catalyx.tiles.helper.TileStackHandler
+import io.enderdev.catalyx.tiles.helper.*
 import io.enderdev.catalyx.utils.extensions.canMergeWith
 import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
@@ -23,7 +20,7 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.common.model.animation.CapabilityAnimation
+import net.minecraftforge.common.model.animation.IAnimationStateMachine
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
@@ -31,7 +28,7 @@ import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import java.util.*
 
-class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
+class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl(), IAnimatedTile {
 	init {
 		initInventoryCapability(1, 1)
 	}
@@ -142,16 +139,16 @@ class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.ca
 	}
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityAnimation.ANIMATION_CAPABILITY || super.hasCapability(capability, facing)
+		capability == ANIMATION_CAP || (facing == null || facing == EnumFacing.UP || facing == EnumFacing.DOWN) && super.hasCapability(capability, facing)
 
 	override fun <T : Any> getCapability(capability: Capability<T>, facing: EnumFacing?) =
-		if(capability == CapabilityAnimation.ANIMATION_CAPABILITY)
-			CapabilityAnimation.ANIMATION_CAPABILITY.cast<T>(asm)
-		else
+		if(capability == ANIMATION_CAP || facing == null || facing == EnumFacing.UP || facing == EnumFacing.DOWN)
 			super.getCapability(capability, facing)
+		else
+			null
 
 	// Rendering stuff
-	val asm = NoopAnimationStateMachine.loadASM(ResourceLocation(Tags.MODID, "asms/block/co2_scrubber.json"), emptyMap())
+	override val asm: IAnimationStateMachine = NoopAnimationStateMachine.loadASM(ResourceLocation(Tags.MODID, "asms/block/co2_scrubber.json"), emptyMap())
 
 	override fun hasFastRenderer() = true
 

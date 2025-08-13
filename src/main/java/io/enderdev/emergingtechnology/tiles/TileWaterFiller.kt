@@ -1,5 +1,6 @@
 package io.enderdev.emergingtechnology.tiles
 
+import io.enderdev.catalyx.tiles.BaseTile.Companion.FLUID_CAP
 import io.enderdev.catalyx.tiles.helper.IFluidTile
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
@@ -10,7 +11,6 @@ import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 
 class TileWaterFiller : TileEntity(), ITickable, IFluidTile {
@@ -29,12 +29,12 @@ class TileWaterFiller : TileEntity(), ITickable, IFluidTile {
 	}
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY
+		capability == FLUID_CAP
 
 	override fun <T : Any?> getCapability(capability: Capability<T?>, facing: EnumFacing?): T? {
-		if(capability != CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
+		if(capability != FLUID_CAP)
 			return null
 
-		return CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast(fluidTank)
+		return FLUID_CAP.cast(fluidTank)
 	}
 }

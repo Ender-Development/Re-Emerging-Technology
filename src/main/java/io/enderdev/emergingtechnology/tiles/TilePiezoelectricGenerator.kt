@@ -10,7 +10,6 @@ import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.energy.CapabilityEnergy
 
 class TilePiezoelectricGenerator : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(1000), ITickable {
 	val recipeTime = EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricStepCooldown
@@ -27,11 +26,11 @@ class TilePiezoelectricGenerator : BaseTile(EmergingTechnology.catalyxSettings),
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityEnergy.ENERGY || super.hasCapability(capability, facing)
+		capability == ENERGY_CAP || super.hasCapability(capability, facing)
 
 	override fun <T : Any> getCapability(capability: Capability<T>, facing: EnumFacing?) =
-		if(capability == CapabilityEnergy.ENERGY)
-			CapabilityEnergy.ENERGY.cast(energyStorageWrapper)
+		if(capability == ENERGY_CAP)
+			ENERGY_CAP.cast(energyStorageWrapper)
 		else
 			super.getCapability(capability, facing)
 

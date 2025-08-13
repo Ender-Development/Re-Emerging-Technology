@@ -17,14 +17,12 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.energy.CapabilityEnergy
 import net.minecraftforge.energy.IEnergyStorage
 import net.minecraftforge.fluids.*
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler
 import net.minecraftforge.fluids.capability.FluidTankProperties
 import net.minecraftforge.fluids.capability.IFluidHandler
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
-import net.minecraftforge.fml.client.config.GuiUtils.drawTexturedModalRect
 
 class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IButtonTile {
 	init {
@@ -193,12 +191,12 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 	}
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY || capability == CapabilityEnergy.ENERGY
+		capability == FLUID_CAP || capability == ENERGY_CAP
 
 	override fun <T : Any> getCapability(capability: Capability<T>, facing: EnumFacing?) =
 		when(capability) {
-			CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY -> CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.cast<T>(capabilityFluidHandler)
-			CapabilityEnergy.ENERGY -> CapabilityEnergy.ENERGY.cast<T>(inputEnergyStorage)
+			FLUID_CAP -> FLUID_CAP.cast<T>(capabilityFluidHandler)
+			ENERGY_CAP -> ENERGY_CAP.cast<T>(inputEnergyStorage)
 			else -> null
 		}
 

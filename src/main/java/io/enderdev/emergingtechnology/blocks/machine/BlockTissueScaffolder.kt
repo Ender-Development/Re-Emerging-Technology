@@ -22,7 +22,7 @@ class BlockTissueScaffolder() : RotatableMachineBlock("tissue_scaffolder", TileT
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:tissue_scaffolder.desc".translate(),
-				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.SCAFFOLDER.scaffolderEnergyUsage)
+				"info.${Tags.MODID}:energy.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.SCAFFOLDER.scaffolderEnergyUsage)
 			)
 		})
 	}

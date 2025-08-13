@@ -26,6 +26,6 @@ class GuiHydroponicGrowLight(playerInv: IInventory, tile: TileHydroponicGrowLigh
 	override fun drawGuiContainerForegroundLayer(mouseX: Int, mouseY: Int) {
 		super.drawGuiContainerForegroundLayer(mouseX, mouseY)
 		fontRenderer.drawString("tile.${Tags.MODID}:hydroponic_grow_light.growth".translate(tile.growthMult), 38, 34, Color.darkGray.rgb)
-		fontRenderer.drawString("info.${Tags.MODID}.energy.required".translate(tile.energyPerTick * tile.energyMult), 38, 34 + fontRenderer.FONT_HEIGHT, Color.darkGray.rgb)
+		fontRenderer.drawString("info.${Tags.MODID}:energy.required".translate(tile.energyPerTick * tile.energyMult), 38, 34 + fontRenderer.FONT_HEIGHT, Color.darkGray.rgb)
 	}
 }

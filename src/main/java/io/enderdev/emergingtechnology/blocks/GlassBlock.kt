@@ -23,5 +23,5 @@ class GlassBlock(name: String, hardness: Float = 1f) : ModelBlock(name, Material
 
 	@Deprecated("")
 	override fun shouldSideBeRendered(blockState: IBlockState, blockAccess: IBlockAccess, pos: BlockPos, side: EnumFacing) =
-		blockAccess.getBlockState(pos.add(side.directionVec)).block !is GlassBlock
+		blockAccess.getBlockState(pos.offset(side)).block !is GlassBlock
 }

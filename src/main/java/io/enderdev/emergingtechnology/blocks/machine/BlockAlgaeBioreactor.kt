@@ -22,9 +22,9 @@ class BlockAlgaeBioreactor() : RotatableMachineBlock("algae_bioreactor", TileAlg
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:algae_bioreactor.desc".translate(),
-				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.ALGAEBIOREACTOR.bioreactorEnergyUsage),
-				"info.${Tags.MODID}.water.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.ALGAEBIOREACTOR.bioreactorWaterUsage),
-				"info.${Tags.MODID}.co2.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.ALGAEBIOREACTOR.bioreactorGasUsage)
+				"info.${Tags.MODID}:energy.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.ALGAEBIOREACTOR.bioreactorEnergyUsage),
+				"info.${Tags.MODID}:water.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.ALGAEBIOREACTOR.bioreactorWaterUsage),
+				"info.${Tags.MODID}:co2.required".translate(EmergingTechnologyConfig.SYNTHETICS_MODULE.ALGAEBIOREACTOR.bioreactorGasUsage)
 			)
 		})
 	}

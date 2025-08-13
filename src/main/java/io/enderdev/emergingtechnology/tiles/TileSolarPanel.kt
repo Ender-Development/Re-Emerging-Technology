@@ -1,5 +1,6 @@
 package io.enderdev.emergingtechnology.tiles
 
+import io.enderdev.catalyx.tiles.BaseTile.Companion.ENERGY_CAP
 import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -11,7 +12,6 @@ import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.energy.CapabilityEnergy
 
 class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(5000) {
 	override fun update() {
@@ -38,13 +38,13 @@ class TileSolarPanel : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(50
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityEnergy.ENERGY && (facing == null || facing == outputDirection)
+		capability == ENERGY_CAP && (facing == null || facing == outputDirection)
 
 	override fun <T : Any?> getCapability(capability: Capability<T?>, facing: EnumFacing?): T? {
-		if(capability != CapabilityEnergy.ENERGY || (facing != null && facing != outputDirection))
+		if(capability != ENERGY_CAP || (facing != null && facing != outputDirection))
 			return null
 
-		return CapabilityEnergy.ENERGY.cast(energyStorageWrapper)
+		return ENERGY_CAP.cast(energyStorageWrapper)
 	}
 
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {

@@ -15,7 +15,6 @@ import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.item.ItemStack
 import net.minecraft.util.EnumFacing
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.energy.CapabilityEnergy
 
 class TileBiomassGenerator : BaseMachineTile<BiomassGeneratorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000) {
 	init {
@@ -54,11 +53,11 @@ class TileBiomassGenerator : BaseMachineTile<BiomassGeneratorRecipe>(EmergingTec
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityEnergy.ENERGY || super.hasCapability(capability, facing)
+		capability == ENERGY_CAP || super.hasCapability(capability, facing)
 
 	override fun <T : Any> getCapability(capability: Capability<T>, facing: EnumFacing?) =
-		if(capability == CapabilityEnergy.ENERGY)
-			CapabilityEnergy.ENERGY.cast(energyStorageWrapper)
+		if(capability == ENERGY_CAP)
+			ENERGY_CAP.cast(energyStorageWrapper)
 		else
 			super.getCapability(capability, facing)
 

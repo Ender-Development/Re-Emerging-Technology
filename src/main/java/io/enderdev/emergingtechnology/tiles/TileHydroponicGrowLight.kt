@@ -4,28 +4,17 @@ import io.enderdev.catalyx.tiles.BaseMachineTile
 import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.catalyx.tiles.helper.TileStackHandler
-import io.enderdev.catalyx.utils.extensions.canMergeWith
 import io.enderdev.catalyx.utils.extensions.get
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.blocks.machine.BlockHydroponicGrowLight.Companion.LIT
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.ItemBulb
-import io.enderdev.emergingtechnology.items.ModItems
-import io.enderdev.emergingtechnology.recipes.BiomassGeneratorRecipe
-import io.enderdev.emergingtechnology.recipes.ModRecipes
-import io.enderdev.emergingtechnology.utils.CapabilityUtils
-import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.IGrowable
 import net.minecraft.init.Blocks
-import net.minecraft.init.Items
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraft.util.EnumFacing
-import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.energy.CapabilityEnergy
 import java.awt.Color
 import kotlin.math.absoluteValue
 
@@ -95,7 +84,7 @@ class TileHydroponicGrowLight : BaseMachineTile<Any>(EmergingTechnology.catalyxS
 		// Equalise with neighbouring grow lights, slightly better logic than original EMT (which in my testing somehow duplicated energy lol)
 		// TODO try to improve this logic slightly, this puts a hard cap on how many grow lights can be in a row, after which the energy transfer just becomes way too slow to keep up with demand
 		if(world.getBlockState(pos.offset(facing)).block === ModBlocks.hydroponicGrowLight)
-			world.getTileEntity(pos.offset(facing))?.getCapability(CapabilityEnergy.ENERGY, facing.opposite)?.let {
+			world.getTileEntity(pos.offset(facing))?.getCapability(ENERGY_CAP, facing.opposite)?.let {
 				val toEqualise = ((energyStorage.energyStored - it.energyStored) shr 1).absoluteValue
 				if(it.energyStored > energyStorage.energyStored)
 					energyStorage.receiveEnergy(it.extractEnergy(toEqualise, false), false)

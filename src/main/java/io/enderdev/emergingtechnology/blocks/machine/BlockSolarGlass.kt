@@ -45,5 +45,5 @@ class BlockSolarGlass() : RotatableModelBlock("solar_glass"), ITileEntityProvide
 
 	@Deprecated("")
 	override fun shouldSideBeRendered(blockState: IBlockState, blockAccess: IBlockAccess, pos: BlockPos, side: EnumFacing) =
-		blockAccess.getBlockState(pos.add(side.directionVec)).block.let { it !is GlassBlock && it !== this }
+		blockAccess.getBlockState(pos.offset(side)).block.let { it !is GlassBlock && it !== this }
 }

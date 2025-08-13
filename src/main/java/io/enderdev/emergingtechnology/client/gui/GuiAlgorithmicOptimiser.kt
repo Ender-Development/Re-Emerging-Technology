@@ -118,7 +118,7 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 				val text = if(minus.resource == OptimiserResource.RECIPE_TIME)
 					"tile.${Tags.MODID}:algorithmic_optimiser.tooltip.recipe_time".translate(value)
 				else
-					"tile.${Tags.MODID}:algorithmic_optimiser.tooltip.resource".translate("info.${Tags.MODID}.${minus.resource.name.lowercase()}.name".translate(), value)
+					"tile.${Tags.MODID}:algorithmic_optimiser.tooltip.resource".translate("info.${Tags.MODID}:${minus.resource.name.lowercase()}.name".translate(), value)
 				drawHoveringText(text, mouseX, mouseY)
 			}
 		}

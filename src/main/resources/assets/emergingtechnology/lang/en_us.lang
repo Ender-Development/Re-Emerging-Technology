@@ -179,15 +179,15 @@ tile.emergingtechnology:creative_filler.desc=Creative-only block for spreading e
 # Miscellaneous/Generic
 itemGroup.emergingtechnology=Re-emerging Technology
 
-info.emergingtechnology.energy.required=Requires %d FE/t
-info.emergingtechnology.water.required=Requires %d mB/t of Water
-info.emergingtechnology.co2.required=Requires %d mB/t of CO₂
+info.emergingtechnology:energy.required=Requires %d FE/t
+info.emergingtechnology:water.required=Requires %d mB/t of Water
+info.emergingtechnology:co2.required=Requires %d mB/t of CO₂
 
-info.emergingtechnology.energy.name=energy
-info.emergingtechnology.water.name=water
-info.emergingtechnology.gas.name=gas
+info.emergingtechnology:energy.name=energy
+info.emergingtechnology:water.name=water
+info.emergingtechnology:gas.name=gas
 
-info.emergingtechnology.growth.generated=Provides a %d%% chance of growth boost per tick
+info.emergingtechnology:growth.generated=Provides a %d%% chance of growth boost per tick
 
-info.emergingtechnology.interaction.shift=Press SHIFT for more details
-info.emergingtechnology.interaction.rmb=Right-click to use
+info.emergingtechnology:interaction.shift=Press SHIFT for more details
+info.emergingtechnology:interaction.rmb=Right-click to use

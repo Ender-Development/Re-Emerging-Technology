@@ -1,7 +1,10 @@
 package io.enderdev.emergingtechnology.tiles
 
 import io.enderdev.catalyx.animation.NoopAnimationStateMachine
+import io.enderdev.catalyx.tiles.BaseTile.Companion.ANIMATION_CAP
+import io.enderdev.catalyx.tiles.BaseTile.Companion.ENERGY_CAP
 import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
+import io.enderdev.catalyx.tiles.helper.IAnimatedTile
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -15,11 +18,10 @@ import net.minecraft.util.ITickable
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.common.model.animation.CapabilityAnimation
-import net.minecraftforge.energy.CapabilityEnergy
+import net.minecraftforge.common.model.animation.IAnimationStateMachine
 import java.util.*
 
-class TileTidalGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(10000) {
+class TileTidalGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(10000), IAnimatedTile {
 	override fun update() {
 		generate()
 		spread()
@@ -29,9 +31,6 @@ class TileTidalGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImp
 	var checkDelay = 20
 
 	fun generate() {
-		if(world.isRemote)
-			return
-
 		if(generated == -1 || checkDelay-- == 0) {
 			checkDelay = 20
 
@@ -73,16 +72,16 @@ class TileTidalGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImp
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		(capability == CapabilityEnergy.ENERGY && (facing == null || facing == EnumFacing.DOWN || facing == EnumFacing.UP)) || capability == CapabilityAnimation.ANIMATION_CAPABILITY
+		(capability == ENERGY_CAP && (facing == null || facing == EnumFacing.DOWN || facing == EnumFacing.UP)) || capability == ANIMATION_CAP
 
 	override fun <T : Any?> getCapability(capability: Capability<T?>, facing: EnumFacing?): T? {
-		if(capability == CapabilityAnimation.ANIMATION_CAPABILITY)
-			return CapabilityAnimation.ANIMATION_CAPABILITY.cast(asm)
+		if(capability == ANIMATION_CAP)
+			return ANIMATION_CAP.cast(asm)
 
-		if(capability != CapabilityEnergy.ENERGY || (facing != null && facing != EnumFacing.DOWN && facing != EnumFacing.UP))
+		if(capability != ENERGY_CAP || (facing != null && facing != EnumFacing.DOWN && facing != EnumFacing.UP))
 			return null
 
-		return CapabilityEnergy.ENERGY.cast(energyStorageWrapper)
+		return ENERGY_CAP.cast(energyStorageWrapper)
 	}
 
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
@@ -99,7 +98,7 @@ class TileTidalGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImp
 	}
 
 	// Rendering stuff
-	val asm = NoopAnimationStateMachine.loadASM(ResourceLocation(Tags.MODID, "asms/block/tidal_generator.json"), emptyMap())
+	override val asm: IAnimationStateMachine = NoopAnimationStateMachine.loadASM(ResourceLocation(Tags.MODID, "asms/block/tidal_generator.json"), emptyMap())
 
 	override fun hasFastRenderer() = true
 

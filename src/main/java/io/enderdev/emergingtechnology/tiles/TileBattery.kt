@@ -2,19 +2,15 @@ package io.enderdev.emergingtechnology.tiles
 
 import io.enderdev.catalyx.client.gui.BaseGuiTyped
 import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
 import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.EmergingTechnology
-import io.enderdev.emergingtechnology.blocks.machine.BlockBattery
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
 import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.block.BlockDirectional
-import net.minecraft.block.BlockDirt
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.energy.CapabilityEnergy
 import net.minecraftforge.energy.EnergyStorage
 import net.minecraftforge.energy.IEnergyStorage
 
@@ -63,14 +59,14 @@ class TileBattery : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile, B
 		get() = world.getBlockState(pos).getValue(BlockDirectional.FACING)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityEnergy.ENERGY || super.hasCapability(capability, facing)
+		capability == ENERGY_CAP || super.hasCapability(capability, facing)
 
 	val extractOnlyWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 	val receiveOnlyWrapper = EnergyUtils.ReceiveOnlyEnergyStorage(energyStorage)
 
 	override fun <T : Any> getCapability(capability: Capability<T>, facing: EnumFacing?) =
-		if(capability == CapabilityEnergy.ENERGY)
-			CapabilityEnergy.ENERGY.cast(if(facing == inputSide) receiveOnlyWrapper else extractOnlyWrapper)
+		if(capability == ENERGY_CAP)
+			ENERGY_CAP.cast(if(facing == inputSide) receiveOnlyWrapper else extractOnlyWrapper)
 		else
 			super.getCapability(capability, facing)
 

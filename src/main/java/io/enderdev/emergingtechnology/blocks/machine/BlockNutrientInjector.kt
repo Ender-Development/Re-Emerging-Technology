@@ -22,8 +22,8 @@ class BlockNutrientInjector() : RotatableMachineBlock("nutrient_injector", TileN
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:nutrient_injector.desc".translate(),
-				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.INJECTOR.injectorEnergyBaseUsage),
-				"info.${Tags.MODID}.water.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.INJECTOR.injectorWaterBaseUsage)
+				"info.${Tags.MODID}:energy.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.INJECTOR.injectorEnergyBaseUsage),
+				"info.${Tags.MODID}:water.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.INJECTOR.injectorWaterBaseUsage)
 			)
 		})
 	}

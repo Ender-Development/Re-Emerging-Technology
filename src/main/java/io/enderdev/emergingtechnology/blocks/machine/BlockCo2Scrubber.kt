@@ -27,8 +27,8 @@ class BlockCo2Scrubber() : RotatableMachineBlock("co2_scrubber", TileCo2Scrubber
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:co2_scrubber.desc".translate(),
-				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.SCRUBBER.scrubberEnergyBaseUsage),
-				"info.${Tags.MODID}.water.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.SCRUBBER.scrubberWaterBaseUsage)
+				"info.${Tags.MODID}:energy.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.SCRUBBER.scrubberEnergyBaseUsage),
+				"info.${Tags.MODID}:water.required".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.SCRUBBER.scrubberWaterBaseUsage)
 			)
 		})
 	}

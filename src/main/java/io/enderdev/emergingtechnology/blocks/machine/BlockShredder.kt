@@ -22,7 +22,7 @@ class BlockShredder() : RotatableMachineBlock("shredder", TileShredder::class.ja
 		event.registry.register(TooltipItemBlock(this) {
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:shredder.desc".translate(),
-				"info.${Tags.MODID}.energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.SHREDDER.shredderEnergyBaseUsage)
+				"info.${Tags.MODID}:energy.required".translate(EmergingTechnologyConfig.POLYMERS_MODULE.SHREDDER.shredderEnergyBaseUsage)
 			)
 		})
 	}

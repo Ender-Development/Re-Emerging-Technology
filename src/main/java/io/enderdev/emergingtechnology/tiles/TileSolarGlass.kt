@@ -9,12 +9,9 @@ import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
 import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.block.BlockHorizontal
-import net.minecraft.init.Blocks
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
-import net.minecraftforge.energy.CapabilityEnergy
-import org.apache.logging.log4j.core.tools.picocli.CommandLine.Help.Ansi.Style.off
 
 class TileSolarGlass : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(2500), ITickable {
 	val energyPerTick = EmergingTechnologyConfig.ELECTRICS_MODULE.SOLARGLASS.solarEnergyGenerated
@@ -29,7 +26,7 @@ class TileSolarGlass : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile
 			while(world.getBlockState(pos).block === ModBlocks.solarGlass)
 				pos = pos.down()
 
-			world.getTileEntity(pos)?.getCapability(CapabilityEnergy.ENERGY, EnumFacing.UP)?.let {
+			world.getTileEntity(pos)?.getCapability(ENERGY_CAP, EnumFacing.UP)?.let {
 				energyStorage.extractEnergy(it.receiveEnergy(energyStorage.energyStored, false), false)
 			}
 		}
@@ -55,11 +52,11 @@ class TileSolarGlass : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile
 	val energyStorageWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 
 	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == CapabilityEnergy.ENERGY || super.hasCapability(capability, facing)
+		capability == ENERGY_CAP || super.hasCapability(capability, facing)
 
 	override fun <T : Any> getCapability(capability: Capability<T>, facing: EnumFacing?) =
-		if(capability == CapabilityEnergy.ENERGY)
-			CapabilityEnergy.ENERGY.cast(energyStorageWrapper)
+		if(capability == ENERGY_CAP)
+			ENERGY_CAP.cast(energyStorageWrapper)
 		else
 			super.getCapability(capability, facing)
 }
