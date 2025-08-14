@@ -35,6 +35,7 @@ abstract class BaseETGuiTyped<T>(container: Container, tile: T) : BaseGuiTyped<T
 				else -> 100
 			}
 			is CapabilityEnergyDisplayWrapper -> 0
+			is GuiSolarCooker.HeatDisplayWrapper -> 36
 			else -> 100
 		}
 		mc.textureManager.bindTexture(powerBarTexture)

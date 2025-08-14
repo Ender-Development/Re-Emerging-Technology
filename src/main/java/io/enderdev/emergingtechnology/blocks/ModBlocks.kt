@@ -52,7 +52,7 @@ object ModBlocks {
 	val shreddedStarchBlock = ModelBlock("shredded_starch_block", Material.PLANTS, SoundType.PLANT, 1f)
 
 	// Synthetics
-	// solar_cooker
+	val solarCooker = BlockSolarCooker()
 	val tissueBioreactor = BlockTissueBioreactor()
 	val tissueScaffolder = BlockTissueScaffolder()
 	val algaeBioreactor = BlockAlgaeBioreactor()

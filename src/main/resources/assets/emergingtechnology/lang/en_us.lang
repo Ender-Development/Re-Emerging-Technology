@@ -105,6 +105,11 @@ item.emergingtechnology:algae.name=Algae
 item.emergingtechnology:algae_bar.name=Algae Bar
 item.emergingtechnology:algae_bar_cooked.name=Cooked Algae Bar
 
+tile.emergingtechnology:solar_cooker.name=Solar Cooker
+tile.emergingtechnology:solar_cooker.desc=Uses the power of the sun to cook food
+tile.emergingtechnology:solar_cooker.heat.heating=Gains %d °C/t while in direct sunlight
+tile.emergingtechnology:solar_cooker.heat.dissipation=Dissipates %d °C/t while not in the sun
+
 tile.emergingtechnology:tissue_bioreactor.name=Tissue Bioreactor
 tile.emergingtechnology:tissue_bioreactor.desc=Processes animal tissues into usable samples
 
