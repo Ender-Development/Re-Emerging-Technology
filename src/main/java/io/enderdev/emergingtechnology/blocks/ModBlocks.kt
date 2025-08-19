@@ -25,7 +25,7 @@ object ModBlocks {
 	// Hydroponics
 	//val hydroponicGrowBed = BlockHydroponicGrowBed()
 	val hydroponicGrowLight = BlockHydroponicGrowLight()
-	// harvester
+	val harvester = BlockHarvester()
 	val waterFiller = BlockWaterFiller()
 	val co2Scrubber = BlockCo2Scrubber()
 	val co2Diffuser = BlockCo2Diffuser()

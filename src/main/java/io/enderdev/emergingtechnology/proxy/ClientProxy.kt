@@ -3,6 +3,7 @@ package io.enderdev.emergingtechnology.proxy
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.tiles.TileCo2Scrubber
+import io.enderdev.emergingtechnology.tiles.TileHarvester
 import io.enderdev.emergingtechnology.tiles.TileTidalGenerator
 import io.enderdev.emergingtechnology.tiles.TileWindGenerator
 import net.minecraftforge.client.model.animation.AnimationTESR
@@ -30,5 +31,6 @@ class ClientProxy : CommonProxy() {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileWindGenerator::class.java, AnimationTESR())
 		ClientRegistry.bindTileEntitySpecialRenderer(TileTidalGenerator::class.java, AnimationTESR())
 		ClientRegistry.bindTileEntitySpecialRenderer(TileCo2Scrubber::class.java, AnimationTESR())
+		ClientRegistry.bindTileEntitySpecialRenderer(TileHarvester::class.java, AnimationTESR())
 	}
 }

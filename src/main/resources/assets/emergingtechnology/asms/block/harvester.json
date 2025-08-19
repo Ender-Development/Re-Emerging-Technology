@@ -1,0 +1,18 @@
+{
+	"parameters": {
+		"slowed_anim_time": [
+			"/",
+			4
+		]
+	},
+	"clips": {
+		"idle": "emergingtechnology:block/harvester@idle",
+		"harvest": [ "apply", "emergingtechnology:block/harvester@harvest", "#slowed_anim_time" ]
+	},
+	"states": [ "idle", "idle_wait", "harvest" ],
+	"transitions": {
+		"idle": "harvest",
+		"harvest": "idle"
+	},
+	"start_state": "idle"
+}

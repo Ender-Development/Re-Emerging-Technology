@@ -21,6 +21,9 @@ tile.emergingtechnology:hydroponic_grow_light.name=Hydroponic Grow Light
 tile.emergingtechnology:hydroponic_grow_light.desc=Provides a growth boost to plants planted up to %d blocks below
 tile.emergingtechnology:hydroponic_grow_light.growth=Growth: %d%%/t
 
+tile.emergingtechnology:harvester.name=Harvester
+tile.emergingtechnology:harvester.desc=Harvests crops around it automatically
+
 tile.emergingtechnology:water_filler.name=Water Filler
 tile.emergingtechnology:water_filler.desc=Provides %d mB/t of Water to surrounding machines and tanks
 

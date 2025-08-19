@@ -11,6 +11,7 @@ import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.fluids.ModFluids
 import io.enderdev.emergingtechnology.items.ItemNozzle
+import io.enderdev.emergingtechnology.utils.PlantUtils
 import net.minecraft.block.BlockCactus
 import net.minecraft.block.BlockCrops
 import net.minecraft.block.BlockReed
@@ -81,18 +82,7 @@ class TileCo2Diffuser : BaseTile(EmergingTechnology.catalyxSettings), ITickable,
 					else
 						break
 
-				var plantAlreadyGrown = false
-				if(state.block is BlockReed || state.block is BlockCactus)
-					plantAlreadyGrown = world.getBlockState(pos.up()).let { it.block.isAir(it, world, pos.up()) }
-				else if(state.block.registryName?.let { it.namespace == "immersiveengineering" && it.path == "hemp" } == true)
-					plantAlreadyGrown = state.block.getMetaFromState(state) > 3
-				else if(state.block is BlockCrops)
-					state.properties.entries.firstOrNull { it.key == BlockCrops.AGE }?.let {
-						val maxAge = it.key.allowedValues.last()
-						plantAlreadyGrown = maxAge != 0 && maxAge == it.value
-					}
-
-				if(plantAlreadyGrown)
+				if(PlantUtils.isPlantGrown(state, world, pos))
 					continue
 
 				if(world.rand.nextInt(101) < probability) {
