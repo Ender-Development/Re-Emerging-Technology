@@ -18,8 +18,8 @@ class ShredderRegister : AbstractRecipeRegister<ShredderRecipe>() {
 
 	override fun registerRecipes() {
 		// Plastic
-		// TODO - ModBlocks.frame, plasticBlock, clearPlasticBlock, light, hydroponic, machineCase, processor
-		arrayOf<Any?>(ModItems.plasticSheet, ModItems.plasticRod, ModItems.plasticWaste, ModItems.bulbRed, ModItems.bulbGreen, ModItems.bulbBlue, ModItems.bulbPurple, ModBlocks.shredder, Item.getByNameOrId("rats:plastic_waste")).forEach {
+		arrayOf<Any?>(ModItems.plasticSheet, ModItems.plasticRod, ModItems.plasticWaste, ModItems.bulbRed, ModItems.bulbGreen, ModItems.bulbBlue, ModItems.bulbPurple, ModBlocks.aquaponicFrame,
+			ModBlocks.plasticBlock, ModBlocks.clearPlasticBlock, ModBlocks.hydroponicGrowLight/*, ModBlocks.hydroponicGrowBed*/, ModBlocks.machineCase, ModBlocks.processor, ModBlocks.shredder, Item.getByNameOrId("rats:plastic_waste")).forEach {
 			recipes.add(ShredderRecipe(toIngredient(it) ?: return@forEach, ModItems.shreddedPlastic.toStack()))
 		}
 

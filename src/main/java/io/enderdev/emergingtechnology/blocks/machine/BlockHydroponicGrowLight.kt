@@ -13,11 +13,14 @@ import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.properties.PropertyBool
 import net.minecraft.block.state.BlockStateContainer
 import net.minecraft.block.state.IBlockState
+import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.item.Item
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.EnumHand
+import net.minecraft.util.math.AxisAlignedBB
 import net.minecraft.util.math.BlockPos
+import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 
@@ -48,5 +51,8 @@ class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light"
 	override fun getStateForPlacement(world: World, pos: BlockPos, facing: EnumFacing, hitX: Float, hitY: Float, hitZ: Float, meta: Int, placer: EntityLivingBase, hand: EnumHand): IBlockState =
 		super.getStateForPlacement(world, pos, facing, hitX, hitY, hitZ, meta, placer, hand).withProperty(LIT, false)
 
-	// TODO custom AABB
+	val aabb = AxisAlignedBB(.0, .125, .0, 1.0, 1.0, 1.0)
+
+	@Deprecated("")
+	override fun getBoundingBox(state: IBlockState, source: IBlockAccess, pos: BlockPos) = aabb
 }

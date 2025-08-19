@@ -28,10 +28,9 @@ object ModItems {
 	val hydroponics: HydroponicsModule = EmergingTechnologyConfig.HYDROPONICS_MODULE
 	val synthetics: SyntheticsModule = EmergingTechnologyConfig.SYNTHETICS_MODULE
 
-	// TODO: we should keep "Press SHIFT" consistent across items, or, ideally, just remove it altogether, it's stupid
+	// TODO we should keep "Press SHIFT" consistent across items, or, ideally, just remove it altogether, it's stupid
 
 	// Hydroponics
-	// roz: it's 02:13 and I'm gonna go insane with this stupid config being so long and annoying to work with
 	val bulbRed = ItemBulb("red", hydroponics.GROWLIGHT.energyRedBulbModifier, hydroponics.GROWLIGHT.growthRedBulbModifier, Color.red.brighter().rgb)
 	val bulbGreen = ItemBulb("green", hydroponics.GROWLIGHT.energyGreenBulbModifier, hydroponics.GROWLIGHT.growthGreenBulbModifier, Color.green.darker().rgb)
 	val bulbBlue = ItemBulb("blue", hydroponics.GROWLIGHT.energyBlueBulbModifier, hydroponics.GROWLIGHT.growthBlueBulbModifier, Color(64, 64, 255).rgb)

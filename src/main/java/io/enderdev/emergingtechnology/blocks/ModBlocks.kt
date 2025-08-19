@@ -23,7 +23,7 @@ object ModBlocks {
 	// TODO - make sure that every stupid little detail aligns between every GUI texture (bar positions, output fluid tanks, i/o positions, all guis have the little off-gray thingies at the left and right side, etc.)
 
 	// Hydroponics
-	//val hydroponicGrowBed = BlockHydroponicGrowBed()
+	//val hydroponicGrowBed = BlockHydroponicGrowBed() // if implemented, uncomment ModRecipes.kt#L37, ShredderRegister.kt#L22
 	val hydroponicGrowLight = BlockHydroponicGrowLight()
 	val harvester = BlockHarvester()
 	val waterFiller = BlockWaterFiller()

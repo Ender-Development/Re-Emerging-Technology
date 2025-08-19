@@ -36,5 +36,4 @@ class CustomCollisionMachineBlock(name: String, tileClass: Class<out TileEntity>
 			addCollisionBoxToList(pos, entityBox, collidingBoxes, it)
 		}
 	}
-
 }

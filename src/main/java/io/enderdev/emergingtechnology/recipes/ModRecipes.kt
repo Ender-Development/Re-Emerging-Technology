@@ -33,16 +33,16 @@ object ModRecipes {
 
 	// copy of the OreRegistrationHandler in original EMT
 	fun initOredict() {
-		registerOres("machinePlastic", // TODO
-			//ModBlocks.hydroponic,
-			//ModBlocks.light,
+		registerOres("machinePlastic",
+			//ModBlocks.hydroponicGrowBed,
+			ModBlocks.hydroponicGrowLight,
 			ModBlocks.shredder,
 			ModBlocks.processor,
-			//ModBlocks.machinecase,
-			//ModBlocks.cooker,
-			//ModBlocks.bioreactor,
-			//ModBlocks.scaffolder,
-			//ModBlocks.fabricator
+			ModBlocks.machineCase,
+			ModBlocks.solarCooker,
+			ModBlocks.tissueScaffolder,
+			ModBlocks.fabricator,
+			ModBlocks.tissueBioreactor
 		)
 
 		registerOre("blockPlastic", ModBlocks.plasticBlock)

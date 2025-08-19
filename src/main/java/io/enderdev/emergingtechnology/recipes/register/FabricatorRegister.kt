@@ -21,14 +21,14 @@ class FabricatorRegister : AbstractRecipeRegister<FabricatorRecipe>() {
 			ModItems.plasticRod.toStack(4),
 			ModItems.plasticSheet.toStack(2),
 			ModBlocks.aquaponicFrame.toStack(2),
-			// ModBlocks.ladder.toStack(2), // TODO
+			ModBlocks.bioplasticLadder.toStack(2),
 			ModItems.plasticTissueScaffold.toStack(2),
 			ModItems.nozzleComponent.toStack()).forEach {
 			recipes.add(FabricatorRecipe(nextId, 1, it))
 		}
 
 		arrayOf(
-			// ModBlocks.machineCase.toStack() // TODO
+			ModBlocks.machineCase.toStack(),
 			ModItems.syringeEmpty.toStack(3),
 			ModItems.turbine.toStack(3)
 		).forEach {
