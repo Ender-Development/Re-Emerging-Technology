@@ -10,8 +10,6 @@ import net.minecraft.util.ResourceLocation
 class GuiBiomassGenerator(playerInv: IInventory, tile: TileBiomassGenerator) : BaseETGui(ContainerBiomassGenerator(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/biomass_generator_gui.png")
 
-	// TODO the title clips into the power bar
-
 	init {
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 7, 39, 9, tile::energyStorage))
 	}

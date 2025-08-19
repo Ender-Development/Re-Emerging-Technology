@@ -18,6 +18,7 @@ item.emergingtechnology:nozzles.desc=Used by the CO₂ Diffuser
 item.emergingtechnology:fertilizer.name=Fertilizer
 
 tile.emergingtechnology:hydroponic_grow_light.name=Hydroponic Grow Light
+tile.emergingtechnology:hydroponic_grow_light.name.short=Grow Light
 tile.emergingtechnology:hydroponic_grow_light.desc=Provides a growth boost to plants planted up to %d blocks below
 tile.emergingtechnology:hydroponic_grow_light.growth=Growth: %d%%/t
 
@@ -162,7 +163,6 @@ tile.emergingtechnology:battery.output=Output
 tile.emergingtechnology:biochar_block.name=Biochar Block
 
 tile.emergingtechnology:algorithmic_optimiser.name=Algorithmic Optimiser
-tile.emergingtechnology:algorithmic_optimiser.name.short=Optimiser
 tile.emergingtechnology:algorithmic_optimiser.desc=Decreases the resource consumption of surrounding machines
 tile.emergingtechnology:algorithmic_optimiser.tooltip.resource=Reduces %s usage in nearby machines by %d%%
 tile.emergingtechnology:algorithmic_optimiser.tooltip.recipe_time=Reduces processing time in nearby machines by %d%%

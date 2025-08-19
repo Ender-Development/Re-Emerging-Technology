@@ -11,8 +11,6 @@ import net.minecraft.util.ResourceLocation
 class GuiNutrientInjector(playerInv: IInventory, tile: TileNutrientInjector) : BaseETGui(ContainerNutrientInjector(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/nutrient_injector_gui.png")
 
-	// TODO the title clips into the water bar
-
 	init {
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 22, 39, 9, tile::energyStorage))
 		displayData.add(CapabilityFluidDisplayWrapper(129, 7, 39, 9, tile::waterTank))

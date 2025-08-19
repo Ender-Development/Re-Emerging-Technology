@@ -28,8 +28,6 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimi
 		displayData.add(CapabilityFluidDisplayWrapper(129, 7, 39, 9, tile::inputTank))
 	}
 
-	override val displayName = "tile.${Tags.MODID}:algorithmic_optimiser.name.short".translate()
-
 	val assignments = MutableOptimiserData(tile.assignments.energy, tile.assignments.water, tile.assignments.gas, tile.assignments.recipeTime, BlockPos.ORIGIN, 1)
 	val minusButtons = mutableListOf<TileAlgorithmicOptimiser.AssignButtonWrapper>()
 	val plusButtons = mutableListOf<TileAlgorithmicOptimiser.AssignButtonWrapper>()

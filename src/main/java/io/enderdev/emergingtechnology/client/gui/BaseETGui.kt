@@ -1,13 +1,13 @@
 package io.enderdev.emergingtechnology.client.gui
 
 import io.enderdev.catalyx.client.gui.BaseGuiTyped
-import io.enderdev.catalyx.client.gui.ButtonSide
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityDisplayWrapper
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
 import io.enderdev.catalyx.tiles.BaseMachineTile
 import io.enderdev.catalyx.tiles.BaseTile
 import io.enderdev.catalyx.tiles.helper.IGuiTile
+import io.enderdev.catalyx.utils.RenderAlignment
 import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.fluids.ModFluids
@@ -18,7 +18,8 @@ import net.minecraftforge.fluids.FluidRegistry
 
 abstract class BaseETGuiTyped<T>(container: Container, tile: T) : BaseGuiTyped<T>(container, tile) where T : IGuiTile, T : BaseTile, T : BaseGuiTyped.IDefaultButtonVariables {
 	override val powerBarTexture = ResourceLocation(Tags.MODID, "textures/gui/container/shared.png")
-	override val buttonSide = ButtonSide.LEFT
+	override val buttonAlignment = RenderAlignment(RenderAlignment.Alignment.MIDDLE_RIGHT)
+	override val displayNameAlignment = RenderAlignment(RenderAlignment.Alignment.TOP_LEFT)
 
 	fun drawBar(storage: CapabilityDisplayWrapper) {
 		if(storage.getStored() < 5)

@@ -10,8 +10,6 @@ import net.minecraft.util.ResourceLocation
 class GuiTissueScaffolder(playerInv: IInventory, tile: TileTissueScaffolder) : BaseETGui(ContainerTissueScaffolder(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/tissue_scaffolder_gui.png")
 
-	// TODO the title clips into the power bar
-
 	init {
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 7, 39, 9, tile::energyStorage))
 	}

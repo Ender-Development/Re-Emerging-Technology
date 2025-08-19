@@ -1,6 +1,7 @@
 package io.enderdev.emergingtechnology.client.gui
 
 import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import io.enderdev.catalyx.utils.RenderAlignment
 import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerBiomassGenerator
@@ -17,7 +18,7 @@ class GuiHydroponicGrowLight(playerInv: IInventory, tile: TileHydroponicGrowLigh
 	@Suppress("CanBePrimaryConstructorProperty")
 	val tile = tile
 
-	// TODO the title clips into the power bar
+	override val displayName = "tile.${Tags.MODID}:hydroponic_grow_light.name.short".translate()
 
 	init {
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 7, 39, 9, tile::energyStorage))

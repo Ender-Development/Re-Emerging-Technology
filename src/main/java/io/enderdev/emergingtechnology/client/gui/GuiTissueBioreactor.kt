@@ -11,8 +11,6 @@ import net.minecraft.util.ResourceLocation
 class GuiTissueBioreactor(playerInv: IInventory, tile: TileTissueBioreactor) : BaseETGui(ContainerTissueBioreactor(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/tissue_bioreactor_gui.png")
 
-	// TODO the title clips into the power bar
-
 	init {
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 22, 39, 9, tile::energyStorage))
 		displayData.add(CapabilityFluidDisplayWrapper(129, 7, 39, 9, tile::inputTank))
