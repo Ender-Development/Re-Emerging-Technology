@@ -8,8 +8,6 @@ import net.minecraftforge.items.SlotItemHandler
 class ContainerHarvester(playerInv: IInventory, tile: TileHarvester) : BaseContainer(playerInv, tile) {
 	init {
 		addSlotToContainer(SlotItemHandler(tile.input, 0, 16, 35))
-		addSlotToContainer(SlotItemHandler(tile.output, 0, 54, 35))
-		addSlotToContainer(SlotItemHandler(tile.output, 1, 79, 35))
-		addSlotToContainer(SlotItemHandler(tile.output, 2, 104, 35))
+		addSlotArray(61, 35, 1, 3, tile.output)
 	}
 }

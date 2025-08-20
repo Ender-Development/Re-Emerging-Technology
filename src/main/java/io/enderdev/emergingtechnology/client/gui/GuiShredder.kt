@@ -11,11 +11,11 @@ class GuiShredder(playerInv: IInventory, tile: TileShredder) : BaseETGui(Contain
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/shredder_gui.png")
 
 	init {
-		displayData.add(CapabilityEnergyDisplayWrapper(129, 23, 39, 9, tile::energyStorage))
+		displayData.add(CapabilityEnergyDisplayWrapper(129, 7, 39, 9, tile::energyStorage))
 	}
 
 	override fun drawGuiContainerBackgroundLayer(partialTicks: Float, mouseX: Int, mouseY: Int) {
 		super.drawGuiContainerBackgroundLayer(partialTicks, mouseX, mouseY)
-		drawProgressBar(36, 54, 175, 0, 37, 10)
+		drawProgressBar(35, 38, 175, 0, 37, 10)
 	}
 }

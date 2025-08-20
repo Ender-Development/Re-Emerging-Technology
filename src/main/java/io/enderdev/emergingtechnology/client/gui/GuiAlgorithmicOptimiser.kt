@@ -17,11 +17,8 @@ import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
 import java.awt.Color
 
-class GuiAlgorithmicOptimiser(playerInv: IInventory, tile: TileAlgorithmicOptimiser) : BaseETGuiTyped<TileAlgorithmicOptimiser>(ContainerAlgorithmicOptimiser(playerInv, tile), tile) {
+class GuiAlgorithmicOptimiser(playerInv: IInventory, val tile: TileAlgorithmicOptimiser) : BaseETGuiTyped<TileAlgorithmicOptimiser>(ContainerAlgorithmicOptimiser(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/algorithmic_optimiser_gui.png")
-
-	@Suppress("CanBePrimaryConstructorProperty") // do not.
-	val tile = tile
 
 	init {
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 22, 39, 9, tile::energyStorage))

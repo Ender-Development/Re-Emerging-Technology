@@ -10,7 +10,6 @@ import net.minecraft.init.Biomes
 import net.minecraft.init.Blocks
 import net.minecraft.util.math.BlockPos
 
-// TODO GUI icon and explanation for water requirements and if it's currently working
 class TileWasteCollector() : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings) {
 	init {
 		initInventoryCapability(0, 5)
@@ -46,21 +45,39 @@ class TileWasteCollector() : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 	override fun shouldTick() = true
 	override fun shouldProcess() = true
 
+	var failReasons = mutableListOf<FailReason>()
+
 	fun checkSurroundings(): Boolean {
 		// TODO this is a debug thing!
 		if(world.getBlockState(pos.down()).block == Blocks.BEDROCK)
 			return true
 
+		failReasons.clear()
+		var requirementsMet = true
+
 		if(!EmergingTechnologyConfig.POLYMERS_MODULE.COLLECTOR.biomeRequirementDisabled) {
 			val biome = world.getBiome(pos)
-			if(biome != Biomes.BEACH && biome != Biomes.OCEAN && biome != Biomes.DEEP_OCEAN) // Ender-TODO - config for this
-				return false
+			if(biome != Biomes.BEACH && biome != Biomes.OCEAN && biome != Biomes.DEEP_OCEAN) { // Ender-TODO - config for this
+				failReasons.add(FailReason.BIOME)
+				requirementsMet = false
+			}
 		}
 
-		if(world.getBlockState(pos.up()).block == Blocks.WATER)
-			return false
+		if(world.getBlockState(pos.up()).block == Blocks.WATER) {
+			failReasons.add(FailReason.WATER_ABOVE)
+			requirementsMet = false
+		}
 
 		val count = BlockPos.getAllInBox(pos.x - 2, pos.y, pos.z - 2, pos.x + 2, pos.y, pos.z + 2).count { world.getBlockState(it).block == Blocks.WATER }
-		return count >= EmergingTechnologyConfig.POLYMERS_MODULE.COLLECTOR.minimumWaterBlocks
+		if(count < EmergingTechnologyConfig.POLYMERS_MODULE.COLLECTOR.minimumWaterBlocks) {
+			failReasons.add(FailReason.WATER_COUNT)
+			requirementsMet = false
+		}
+
+		return requirementsMet
+	}
+
+	enum class FailReason(val translationKey: String) {
+		BIOME("biome"), WATER_ABOVE("surface"), WATER_COUNT("water");
 	}
 }

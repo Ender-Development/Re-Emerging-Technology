@@ -20,7 +20,6 @@ object ModBlocks {
 
 	// TODO - CTM support for certain blocks (aquaponic_base, aquaponic_frame, aquaponic_glass)
 	// TODO - run optipng once finished :3
-	// TODO - make sure that every stupid little detail aligns between every GUI texture (bar positions, output fluid tanks, i/o positions, all guis have the little off-gray thingies at the left and right side, etc.)
 
 	// Hydroponics
 	//val hydroponicGrowBed = BlockHydroponicGrowBed() // if implemented, uncomment ModRecipes.kt#L37, ShredderRegister.kt#L22

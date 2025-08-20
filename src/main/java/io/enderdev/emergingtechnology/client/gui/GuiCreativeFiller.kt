@@ -15,9 +15,7 @@ import org.lwjgl.input.Mouse
 import java.awt.Color
 import java.text.DecimalFormat
 
-class GuiCreativeFiller(playerInv: IInventory, tile: TileCreativeFiller) : GuiContainer(ContainerCreativeFiller(playerInv, tile)) {
-	@Suppress("CanBePrimaryConstructorProperty") // do not.
-	val tile = tile
+class GuiCreativeFiller(playerInv: IInventory, val tile: TileCreativeFiller) : GuiContainer(ContainerCreativeFiller(playerInv, tile)) {
 
 	var changeBy = 100
 

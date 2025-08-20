@@ -13,14 +13,10 @@ import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.RenderHelper
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
-import org.lwjgl.input.Mouse
 import java.awt.Color
 
-class GuiFabricator(playerInv: IInventory, tile: TileFabricator) : BaseETGui(ContainerFabricator(playerInv, tile), tile) {
+class GuiFabricator(playerInv: IInventory, val tile: TileFabricator) : BaseETGui(ContainerFabricator(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/fabricator_gui.png")
-
-	@Suppress("CanBePrimaryConstructorProperty") // do not.
-	val tile = tile
 
 	init {
 		displayData.add(CapabilityEnergyDisplayWrapper(129, 7, 39, 9, tile::energyStorage))
