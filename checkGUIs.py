@@ -141,3 +141,16 @@ for fn in listdir(DIR):
 	print()
 
 exit(exitCode)
+
+# .git/hooks/pre-commit
+##!/bin/sh
+#if ! python3 checkGUIs.py git-hook
+#then
+#   echo 'the checkGUI script failed execution, this could be because you don'"'"'t have python3 in path'
+#   echo '-> in which case, run git commit again with --no-verify'
+#   echo '-> I have no clue how the fuck this will be handled within IJ, but good luck!'
+#   echo
+#   echo 'or because a GUI is fucked up and needs fixing'
+#   echo '-> in which case run the checkGUI script like `python3 checkGUIs.py` and see what exactly needs fixing'
+#   exit 1
+#fi
