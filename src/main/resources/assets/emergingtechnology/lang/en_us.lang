@@ -159,6 +159,7 @@ tile.emergingtechnology:battery.name=Battery
 tile.emergingtechnology:battery.desc=Takes in energy on the red side, outputs it on the yellow sides, stores up to 100 kFE
 tile.emergingtechnology:battery.input=Input
 tile.emergingtechnology:battery.output=Output
+tile.emergingtechnology:battery.net_flow=Net flow
 
 tile.emergingtechnology:biochar_block.name=Biochar Block
 

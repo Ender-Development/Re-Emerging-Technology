@@ -29,18 +29,18 @@ class TileBattery : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile, B
 		private const val ENERGY_CAPACITY = 100000
 	}
 
-	override var energyStorage: IEnergyStorage = object : EnergyStorage(ENERGY_CAPACITY) {
+	override val energyStorage: IEnergyStorage = object : EnergyStorage(ENERGY_CAPACITY) {
 		override fun receiveEnergy(maxReceive: Int, simulate: Boolean): Int {
 			val result = super.receiveEnergy(maxReceive, simulate)
-			//if(!simulate)
-			//	netInput += result
+			if(!simulate)
+				netInput += result
 			return result
 		}
 
 		override fun extractEnergy(maxExtract: Int, simulate: Boolean): Int {
 			val result = super.extractEnergy(maxExtract, simulate)
 			if(!simulate)
-				netInput -= result
+				netOutput += result
 			return result
 		}
 	}
@@ -50,16 +50,10 @@ class TileBattery : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile, B
 	override fun update() {
 		CapabilityUtils.spreadEnergy(world, pos, energyStorage, *EnumFacing.VALUES.filter { it != inputSide }.toTypedArray())
 		markDirtyGUI()
-		// TODO this shit doesn't fucking work for some stupid fucking reason
-		netInput = 0
-		netOutput = 0
 	}
 
 	val inputSide: EnumFacing // don't wanna inline this once in case a wrench mod or something rotates the block
 		get() = world.getBlockState(pos).getValue(BlockDirectional.FACING)
-
-	override fun hasCapability(capability: Capability<*>, facing: EnumFacing?) =
-		capability == ENERGY_CAP || super.hasCapability(capability, facing)
 
 	val extractOnlyWrapper = EnergyUtils.ExtractOnlyEnergyStorage(energyStorage)
 	val receiveOnlyWrapper = EnergyUtils.ReceiveOnlyEnergyStorage(energyStorage)
@@ -72,14 +66,20 @@ class TileBattery : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile, B
 
 	override fun writeToNBT(compound: NBTTagCompound): NBTTagCompound {
 		super.writeToNBT(compound)
-		compound.setInteger("NetInput", netInput)
-		compound.setInteger("NetOutput", netOutput)
+		if(!world.isRemote) {
+			compound.setInteger("NetInput", netInput)
+			compound.setInteger("NetOutput", netOutput)
+			netInput = 0
+			netOutput = 0
+		}
 		return compound
 	}
 
 	override fun readFromNBT(compound: NBTTagCompound) {
 		super.readFromNBT(compound)
-		netInput = compound.getInteger("NetInput")
-		netOutput = compound.getInteger("NetOutput")
+		if(world?.isRemote == true) { // world is null on first load
+			netInput = compound.getInteger("NetInput")
+			netOutput = compound.getInteger("NetOutput")
+		}
 	}
 }
