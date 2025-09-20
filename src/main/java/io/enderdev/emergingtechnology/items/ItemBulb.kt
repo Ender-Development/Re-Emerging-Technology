@@ -1,12 +1,12 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World
+import org.ender_development.catalyx.utils.extensions.translate
 
 class ItemBulb(type: String, val energyMult: Int, val growthMult: Int, val colour: Int) : ItemBase("bulb_$type") {
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {

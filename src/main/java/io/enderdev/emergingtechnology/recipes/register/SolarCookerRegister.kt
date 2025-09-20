@@ -1,11 +1,10 @@
 package io.enderdev.emergingtechnology.recipes.register
 
-import io.enderdev.catalyx.utils.extensions.toIngredient
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.recipes.SolarCookerRecipe
 import net.minecraft.item.EnumAction
-import net.minecraft.item.ItemFood
 import net.minecraft.item.crafting.FurnaceRecipes
+import org.ender_development.catalyx.utils.extensions.toIngredient
 
 class SolarCookerRegister : AbstractRecipeRegister<SolarCookerRecipe>() {
 	companion object {

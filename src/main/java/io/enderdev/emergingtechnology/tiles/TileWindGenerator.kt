@@ -1,11 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.animation.NoopAnimationStateMachine
-import io.enderdev.catalyx.tiles.BaseTile.Companion.ANIMATION_CAP
-import io.enderdev.catalyx.tiles.BaseTile.Companion.ENERGY_CAP
-import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
-import io.enderdev.catalyx.tiles.helper.IAnimatedTile
-import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
@@ -18,6 +12,12 @@ import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.model.animation.IAnimationStateMachine
+import org.ender_development.catalyx.animation.NoopAnimationStateMachine
+import org.ender_development.catalyx.tiles.BaseTile.Companion.ANIMATION_CAP
+import org.ender_development.catalyx.tiles.BaseTile.Companion.ENERGY_CAP
+import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
+import org.ender_development.catalyx.tiles.helper.IAnimatedTile
+import org.ender_development.catalyx.tiles.helper.IEnergyTile
 import java.util.*
 
 class TileWindGenerator : TileEntity(), ITickable, IEnergyTile by EnergyTileImpl(10000), IAnimatedTile {

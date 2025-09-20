@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerCreativeFiller
@@ -15,6 +14,7 @@ import net.minecraft.util.NonNullList
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockCreativeFiller() : ModelMachineBlock("creative_filler", TileCreativeFiller::class.java,
 	EmergingTechnology.guiHandler.registerId(TileCreativeFiller::class.java, ContainerCreativeFiller::class.java) { GuiCreativeFiller::class.java }) {

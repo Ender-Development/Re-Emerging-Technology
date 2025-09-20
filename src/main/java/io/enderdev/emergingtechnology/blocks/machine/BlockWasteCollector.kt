@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerWasteCollector
@@ -19,6 +18,7 @@ import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockWasteCollector() : ModelMachineBlock("waste_collector", TileWasteCollector::class.java,
 	EmergingTechnology.guiHandler.registerId(TileWasteCollector::class.java, ContainerWasteCollector::class.java) { GuiWasteCollector::class.java }) {

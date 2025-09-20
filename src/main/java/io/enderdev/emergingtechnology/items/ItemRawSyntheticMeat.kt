@@ -1,10 +1,10 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World
+import org.ender_development.catalyx.utils.extensions.translate
 
 class ItemRawSyntheticMeat(val type: String, val entityId: String) : ItemBase("synthetic_${type}") {
 	override fun getItemStackDisplayName(stack: ItemStack) =

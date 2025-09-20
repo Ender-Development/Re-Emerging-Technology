@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerHydroponicGrowLight
@@ -13,7 +12,6 @@ import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.properties.PropertyBool
 import net.minecraft.block.state.BlockStateContainer
 import net.minecraft.block.state.IBlockState
-import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityLivingBase
 import net.minecraft.item.Item
 import net.minecraft.util.EnumFacing
@@ -23,6 +21,7 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light", TileHydroponicGrowLight::class.java,
 	EmergingTechnology.guiHandler.registerId(TileHydroponicGrowLight::class.java, ContainerHydroponicGrowLight::class.java) { GuiHydroponicGrowLight::class.java }) {

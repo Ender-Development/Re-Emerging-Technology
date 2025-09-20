@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks
 
-import io.enderdev.catalyx.IBothProvider
 import io.enderdev.emergingtechnology.blocks.machine.*
 import io.enderdev.emergingtechnology.fluids.ModFluids
 import io.enderdev.emergingtechnology.tiles.TileHydroponicGrowLight
@@ -14,6 +13,7 @@ import net.minecraft.util.math.BlockPos
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+import org.ender_development.catalyx.IBothProvider
 
 object ModBlocks {
 	val blocks = mutableListOf<IBothProvider>()

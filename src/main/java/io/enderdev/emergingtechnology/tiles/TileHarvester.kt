@@ -1,14 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.animation.NoopAnimationStateMachine
-import io.enderdev.catalyx.client.button.AbstractButtonWrapper
-import io.enderdev.catalyx.client.button.PauseButtonWrapper
-import io.enderdev.catalyx.client.button.RedstoneButtonWrapper
-import io.enderdev.catalyx.client.gui.BaseGuiTyped
-import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.*
-import io.enderdev.catalyx.utils.extensions.canMergeWith
-import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -24,6 +15,15 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.IPlantable
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.common.model.animation.IAnimationStateMachine
+import org.ender_development.catalyx.animation.NoopAnimationStateMachine
+import org.ender_development.catalyx.client.button.AbstractButtonWrapper
+import org.ender_development.catalyx.client.button.PauseButtonWrapper
+import org.ender_development.catalyx.client.button.RedstoneButtonWrapper
+import org.ender_development.catalyx.client.gui.BaseGuiTyped
+import org.ender_development.catalyx.tiles.BaseTile
+import org.ender_development.catalyx.tiles.helper.*
+import org.ender_development.catalyx.utils.extensions.canMergeWith
+import org.ender_development.catalyx.utils.extensions.get
 
 class TileHarvester : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IAnimatedTile {	override var isPaused = false
 	override var needsRedstonePower = false

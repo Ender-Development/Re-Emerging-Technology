@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerBattery
@@ -18,6 +17,7 @@ import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockBattery() : ModelMachineBlock("battery", TileBattery::class.java,
 	EmergingTechnology.guiHandler.registerId(TileBattery::class.java, ContainerBattery::class.java) { GuiBattery::class.java }) {

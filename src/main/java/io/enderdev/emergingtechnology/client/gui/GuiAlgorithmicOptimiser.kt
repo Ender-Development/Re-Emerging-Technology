@@ -1,11 +1,5 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.button.AbstractButtonWrapper
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
-import io.enderdev.catalyx.network.ButtonPacket
-import io.enderdev.catalyx.network.PacketHandler
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerAlgorithmicOptimiser
 import io.enderdev.emergingtechnology.tiles.MutableOptimiserData
@@ -15,6 +9,12 @@ import net.minecraft.client.gui.GuiButton
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
+import org.ender_development.catalyx.client.button.AbstractButtonWrapper
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
+import org.ender_development.catalyx.network.ButtonPacket
+import org.ender_development.catalyx.network.PacketHandler
+import org.ender_development.catalyx.utils.extensions.translate
 import java.awt.Color
 
 class GuiAlgorithmicOptimiser(playerInv: IInventory, val tile: TileAlgorithmicOptimiser) : BaseETGuiTyped<TileAlgorithmicOptimiser>(ContainerAlgorithmicOptimiser(playerInv, tile), tile) {

@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerSolarCooker
@@ -14,6 +13,7 @@ import net.minecraft.item.Item
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockSolarCooker() : RotatableMachineBlock("solar_cooker", TileSolarCooker::class.java,
 	EmergingTechnology.guiHandler.registerId(TileSolarCooker::class.java, ContainerSolarCooker::class.java) { GuiSolarCooker::class.java }) {

@@ -1,8 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.client.gui.BaseGuiTyped
-import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
 import io.enderdev.emergingtechnology.utils.EnergyUtils
@@ -13,6 +10,9 @@ import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.energy.EnergyStorage
 import net.minecraftforge.energy.IEnergyStorage
+import org.ender_development.catalyx.client.gui.BaseGuiTyped
+import org.ender_development.catalyx.tiles.BaseTile
+import org.ender_development.catalyx.tiles.helper.IEnergyTile
 
 class TileBattery : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile, BaseGuiTyped.IDefaultButtonVariables, ITickable {
 	// only here so I can make GuiBattery extend BaseETGuiTyped<TileBattery>

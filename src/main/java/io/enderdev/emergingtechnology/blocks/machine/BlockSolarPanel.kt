@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.TooltipItemBlock
@@ -18,6 +17,7 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockSolarPanel() : RotatableModelBlock("solar_panel"), ITileEntityProvider {
 	init {

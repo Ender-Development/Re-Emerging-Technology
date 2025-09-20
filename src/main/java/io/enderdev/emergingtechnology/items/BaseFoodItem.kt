@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.items.IItemProvider
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
@@ -10,6 +9,7 @@ import net.minecraft.item.ItemFood
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.items.IItemProvider
 
 open class BaseFoodItem(val name: String, hunger: Int, saturation: Float) : ItemFood(hunger, saturation, false), IItemProvider, IHasModel {
 	init {

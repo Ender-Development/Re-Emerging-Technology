@@ -1,15 +1,12 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import io.enderdev.catalyx.utils.RenderAlignment
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
-import io.enderdev.emergingtechnology.client.container.ContainerBiomassGenerator
 import io.enderdev.emergingtechnology.client.container.ContainerHydroponicGrowLight
-import io.enderdev.emergingtechnology.tiles.TileBiomassGenerator
 import io.enderdev.emergingtechnology.tiles.TileHydroponicGrowLight
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import org.ender_development.catalyx.utils.extensions.translate
 import java.awt.Color
 
 class GuiHydroponicGrowLight(playerInv: IInventory, tile: TileHydroponicGrowLight) : BaseETGui(ContainerHydroponicGrowLight(playerInv, tile), tile) {

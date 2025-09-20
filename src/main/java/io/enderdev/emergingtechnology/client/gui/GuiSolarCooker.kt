@@ -1,11 +1,11 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityDisplayWrapper
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerSolarCooker
 import io.enderdev.emergingtechnology.tiles.TileSolarCooker
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityDisplayWrapper
 
 class GuiSolarCooker(playerInv: IInventory, tile: TileSolarCooker) : BaseETGui(ContainerSolarCooker(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/solar_cooker_gui.png")

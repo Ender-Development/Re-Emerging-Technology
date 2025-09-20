@@ -1,8 +1,8 @@
 package io.enderdev.emergingtechnology.client.container
 
-import io.enderdev.catalyx.client.container.BaseContainer
 import io.enderdev.emergingtechnology.tiles.TileWasteCollector
 import net.minecraft.inventory.IInventory
+import org.ender_development.catalyx.client.container.BaseContainer
 
 class ContainerWasteCollector(playerInv: IInventory, tile: TileWasteCollector) : BaseContainer(playerInv, tile) {
 	init {

@@ -1,8 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
-import io.enderdev.catalyx.tiles.helper.IEnergyTile
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -12,6 +9,9 @@ import net.minecraft.block.BlockHorizontal
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
+import org.ender_development.catalyx.tiles.BaseTile
+import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
+import org.ender_development.catalyx.tiles.helper.IEnergyTile
 
 class TileSolarGlass : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(2500), ITickable {
 	val energyPerTick = EmergingTechnologyConfig.ELECTRICS_MODULE.SOLARGLASS.solarEnergyGenerated

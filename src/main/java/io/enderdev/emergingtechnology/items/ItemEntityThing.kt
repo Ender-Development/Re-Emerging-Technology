@@ -1,7 +1,5 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.utils.extensions.toStack
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
@@ -9,6 +7,8 @@ import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
 import net.minecraft.world.World
 import net.minecraftforge.fml.common.registry.ForgeRegistries
+import org.ender_development.catalyx.utils.extensions.toStack
+import org.ender_development.catalyx.utils.extensions.translate
 
 class ItemEntityThing(name: String) : ItemBase(name) {
 	companion object {

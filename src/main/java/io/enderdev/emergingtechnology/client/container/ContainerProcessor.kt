@@ -1,9 +1,9 @@
 package io.enderdev.emergingtechnology.client.container
 
-import io.enderdev.catalyx.client.container.BaseContainer
 import io.enderdev.emergingtechnology.tiles.TileProcessor
 import net.minecraft.inventory.IInventory
 import net.minecraftforge.items.SlotItemHandler
+import org.ender_development.catalyx.client.container.BaseContainer
 
 class ContainerProcessor(playerInv: IInventory, tile: TileProcessor) : BaseContainer(playerInv, tile) {
 	init {

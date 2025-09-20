@@ -1,12 +1,12 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerAlgaeBioreactor
 import io.enderdev.emergingtechnology.tiles.TileAlgaeBioreactor
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
 
 class GuiAlgaeBioreactor(playerInv: IInventory, tile: TileAlgaeBioreactor) : BaseETGui(ContainerAlgaeBioreactor(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/algae_bioreactor_gui.png")

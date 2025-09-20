@@ -1,17 +1,8 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.tiles.BaseMachineTile
-import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
-import io.enderdev.catalyx.tiles.helper.IEnergyTile
-import io.enderdev.catalyx.tiles.helper.IFluidTile
-import io.enderdev.catalyx.tiles.helper.TileStackHandler
-import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
-import io.enderdev.emergingtechnology.blocks.ModBlocks
-import io.enderdev.emergingtechnology.blocks.machine.BlockHydroponicGrowLight.Companion.LIT
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.items.ItemBulb
-import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.IGrowable
 import net.minecraft.block.state.IBlockState
 import net.minecraft.init.Blocks
@@ -22,8 +13,12 @@ import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
-import java.awt.Color
-import kotlin.math.absoluteValue
+import org.ender_development.catalyx.tiles.BaseMachineTile
+import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
+import org.ender_development.catalyx.tiles.helper.IEnergyTile
+import org.ender_development.catalyx.tiles.helper.IFluidTile
+import org.ender_development.catalyx.tiles.helper.TileStackHandler
+import org.ender_development.catalyx.utils.extensions.get
 
 class TileHydroponicGrowBed : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(5000), IFluidTile {
 	init {

@@ -1,20 +1,20 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.gui.BaseGuiTyped
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityDisplayWrapper
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
-import io.enderdev.catalyx.tiles.BaseMachineTile
-import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.IGuiTile
-import io.enderdev.catalyx.utils.RenderAlignment
-import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.fluids.ModFluids
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.inventory.Container
 import net.minecraft.util.ResourceLocation
 import net.minecraftforge.fluids.FluidRegistry
+import org.ender_development.catalyx.client.gui.BaseGuiTyped
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityDisplayWrapper
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
+import org.ender_development.catalyx.tiles.BaseMachineTile
+import org.ender_development.catalyx.tiles.BaseTile
+import org.ender_development.catalyx.tiles.helper.IGuiTile
+import org.ender_development.catalyx.utils.RenderAlignment
+import org.ender_development.catalyx.utils.extensions.get
 
 abstract class BaseETGuiTyped<T>(container: Container, tile: T) : BaseGuiTyped<T>(container, tile) where T : IGuiTile, T : BaseTile, T : BaseGuiTyped.IDefaultButtonVariables {
 	override val powerBarTexture = ResourceLocation(Tags.MODID, "textures/gui/container/shared.png")

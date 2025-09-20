@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.IBothProvider
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.ModBlocks
@@ -19,6 +18,7 @@ import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+import org.ender_development.catalyx.IBothProvider
 
 class LadderBlock(name: String, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BlockLadder(), IBothProvider, IHasModel {
 	init {

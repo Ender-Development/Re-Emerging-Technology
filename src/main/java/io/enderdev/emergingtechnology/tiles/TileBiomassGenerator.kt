@@ -1,11 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.tiles.BaseMachineTile
-import io.enderdev.catalyx.tiles.helper.EnergyTileImpl
-import io.enderdev.catalyx.tiles.helper.IEnergyTile
-import io.enderdev.catalyx.tiles.helper.TileStackHandler
-import io.enderdev.catalyx.utils.extensions.canMergeWith
-import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.recipes.BiomassGeneratorRecipe
@@ -15,6 +9,12 @@ import io.enderdev.emergingtechnology.utils.EnergyUtils
 import net.minecraft.item.ItemStack
 import net.minecraft.util.EnumFacing
 import net.minecraftforge.common.capabilities.Capability
+import org.ender_development.catalyx.tiles.BaseMachineTile
+import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
+import org.ender_development.catalyx.tiles.helper.IEnergyTile
+import org.ender_development.catalyx.tiles.helper.TileStackHandler
+import org.ender_development.catalyx.utils.extensions.canMergeWith
+import org.ender_development.catalyx.utils.extensions.get
 
 class TileBiomassGenerator : BaseMachineTile<BiomassGeneratorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000) {
 	init {

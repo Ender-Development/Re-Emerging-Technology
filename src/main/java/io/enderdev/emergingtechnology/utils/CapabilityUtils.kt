@@ -1,13 +1,13 @@
 package io.enderdev.emergingtechnology.utils
 
-import io.enderdev.catalyx.tiles.BaseTile.Companion.ENERGY_CAP
-import io.enderdev.catalyx.tiles.BaseTile.Companion.FLUID_CAP
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.energy.IEnergyStorage
 import net.minecraftforge.fluids.IFluidTank
+import org.ender_development.catalyx.tiles.BaseTile.Companion.ENERGY_CAP
+import org.ender_development.catalyx.tiles.BaseTile.Companion.FLUID_CAP
 
 object CapabilityUtils {
 	fun <T> getCapabilities(world: World, pos: BlockPos, cap: Capability<T>, vararg directions: EnumFacing) : Iterable<T> {

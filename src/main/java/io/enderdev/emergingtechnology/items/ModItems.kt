@@ -1,25 +1,20 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.items.IItemProvider
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.config.hydroponics.HydroponicsModule
 import io.enderdev.emergingtechnology.config.synthetics.SyntheticsModule
 import io.enderdev.emergingtechnology.utils.ItemUtils
-import net.minecraft.block.state.IBlockState
-import net.minecraft.client.Minecraft
-import net.minecraft.client.renderer.color.IBlockColor
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraft.util.math.BlockPos
-import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+import org.ender_development.catalyx.items.IItemProvider
+import org.ender_development.catalyx.utils.extensions.translate
 import java.awt.Color
 
 object ModItems {

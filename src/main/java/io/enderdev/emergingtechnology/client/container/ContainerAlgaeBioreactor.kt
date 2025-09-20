@@ -1,9 +1,9 @@
 package io.enderdev.emergingtechnology.client.container
 
-import io.enderdev.catalyx.client.container.BaseContainer
 import io.enderdev.emergingtechnology.tiles.TileAlgaeBioreactor
 import net.minecraft.inventory.IInventory
 import net.minecraftforge.items.SlotItemHandler
+import org.ender_development.catalyx.client.container.BaseContainer
 
 class ContainerAlgaeBioreactor(playerInv: IInventory, tile: TileAlgaeBioreactor) : BaseContainer(playerInv, tile) {
 	init {

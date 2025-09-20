@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerWasteCollector
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -8,7 +7,7 @@ import io.enderdev.emergingtechnology.tiles.TileWasteCollector
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
-import scala.Function.const
+import org.ender_development.catalyx.utils.extensions.translate
 
 class GuiWasteCollector(playerInv: IInventory, val tile: TileWasteCollector) : BaseETGui(ContainerWasteCollector(playerInv, tile), tile) {
 	override val textureLocation = ResourceLocation(Tags.MODID, "textures/gui/container/waste_collector_gui.png")

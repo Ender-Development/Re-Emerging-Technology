@@ -1,10 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.animation.NoopAnimationStateMachine
-import io.enderdev.catalyx.tiles.BaseMachineTile
-import io.enderdev.catalyx.tiles.helper.*
-import io.enderdev.catalyx.utils.extensions.canMergeWith
-import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.ModBlocks
@@ -26,6 +21,11 @@ import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
+import org.ender_development.catalyx.animation.NoopAnimationStateMachine
+import org.ender_development.catalyx.tiles.BaseMachineTile
+import org.ender_development.catalyx.tiles.helper.*
+import org.ender_development.catalyx.utils.extensions.canMergeWith
+import org.ender_development.catalyx.utils.extensions.get
 import java.util.*
 
 class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl(), IAnimatedTile {

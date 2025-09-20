@@ -1,12 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.client.button.AbstractButtonWrapper
-import io.enderdev.catalyx.client.button.PauseButtonWrapper
-import io.enderdev.catalyx.client.button.RedstoneButtonWrapper
-import io.enderdev.catalyx.client.gui.BaseGuiTyped
-import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.*
-import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -27,7 +20,13 @@ import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
-import net.minecraftforge.fml.client.config.GuiUtils.drawTexturedModalRect
+import org.ender_development.catalyx.client.button.AbstractButtonWrapper
+import org.ender_development.catalyx.client.button.PauseButtonWrapper
+import org.ender_development.catalyx.client.button.RedstoneButtonWrapper
+import org.ender_development.catalyx.client.gui.BaseGuiTyped
+import org.ender_development.catalyx.tiles.BaseTile
+import org.ender_development.catalyx.tiles.helper.*
+import org.ender_development.catalyx.utils.extensions.get
 
 class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables {
 	override var isPaused = false

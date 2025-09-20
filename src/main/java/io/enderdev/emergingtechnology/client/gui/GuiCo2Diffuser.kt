@@ -1,9 +1,5 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
-import io.enderdev.catalyx.utils.extensions.get
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerCo2Diffuser
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -11,6 +7,10 @@ import io.enderdev.emergingtechnology.items.ItemNozzle
 import io.enderdev.emergingtechnology.tiles.TileCo2Diffuser
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
+import org.ender_development.catalyx.utils.extensions.get
+import org.ender_development.catalyx.utils.extensions.translate
 import java.awt.Color
 
 class GuiCo2Diffuser(playerInv: IInventory, val tile: TileCo2Diffuser) : BaseETGuiTyped<TileCo2Diffuser>(ContainerCo2Diffuser(playerInv, tile), tile) {

@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.ModelBlock
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -12,14 +11,12 @@ import net.minecraft.block.state.IBlockState
 import net.minecraft.item.Item
 import net.minecraft.util.EnumBlockRenderType
 import net.minecraft.util.ResourceLocation
-import net.minecraft.util.math.AxisAlignedBB
-import net.minecraft.util.math.BlockPos
-import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.common.property.ExtendedBlockState
 import net.minecraftforge.common.property.Properties.AnimationProperty
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockTidalGenerator() : ModelBlock("tidal_generator"), ITileEntityProvider {
 	init {

@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerCo2Diffuser
@@ -11,6 +10,7 @@ import io.enderdev.emergingtechnology.tiles.TileCo2Diffuser
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockCo2Diffuser() : ModelMachineBlock("co2_diffuser", TileCo2Diffuser::class.java,
 	EmergingTechnology.guiHandler.registerId(TileCo2Diffuser::class.java, ContainerCo2Diffuser::class.java) { GuiCo2Diffuser::class.java }) {

@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.items
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import net.minecraft.client.util.ITooltipFlag
@@ -10,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
 import net.minecraft.util.EnumHand
 import net.minecraft.world.World
+import org.ender_development.catalyx.utils.extensions.translate
 
 class ItemEmptySyringe : ItemBase("syringe_empty") {
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {

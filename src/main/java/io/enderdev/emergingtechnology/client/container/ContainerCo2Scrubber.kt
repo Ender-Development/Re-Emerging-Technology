@@ -1,9 +1,9 @@
 package io.enderdev.emergingtechnology.client.container
 
-import io.enderdev.catalyx.client.container.BaseContainer
 import io.enderdev.emergingtechnology.tiles.TileCo2Scrubber
 import net.minecraft.inventory.IInventory
 import net.minecraftforge.items.SlotItemHandler
+import org.ender_development.catalyx.client.container.BaseContainer
 
 class ContainerCo2Scrubber(playerInv: IInventory, tile: TileCo2Scrubber) : BaseContainer(playerInv, tile) {
 	init {

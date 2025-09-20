@@ -1,20 +1,10 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.client.button.AbstractButtonWrapper
-import io.enderdev.catalyx.client.button.PauseButtonWrapper
-import io.enderdev.catalyx.client.button.RedstoneButtonWrapper
-import io.enderdev.catalyx.client.gui.BaseGuiTyped
-import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.*
-import io.enderdev.catalyx.utils.extensions.get
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.fluids.ModFluids
 import io.enderdev.emergingtechnology.items.ItemNozzle
 import io.enderdev.emergingtechnology.utils.PlantUtils
-import net.minecraft.block.BlockCactus
-import net.minecraft.block.BlockCrops
-import net.minecraft.block.BlockReed
 import net.minecraft.block.IGrowable
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
@@ -25,6 +15,13 @@ import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
+import org.ender_development.catalyx.client.button.AbstractButtonWrapper
+import org.ender_development.catalyx.client.button.PauseButtonWrapper
+import org.ender_development.catalyx.client.button.RedstoneButtonWrapper
+import org.ender_development.catalyx.client.gui.BaseGuiTyped
+import org.ender_development.catalyx.tiles.BaseTile
+import org.ender_development.catalyx.tiles.helper.*
+import org.ender_development.catalyx.utils.extensions.get
 
 class TileCo2Diffuser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IFluidTile {
 	init {

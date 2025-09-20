@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerHarvester
@@ -16,6 +15,7 @@ import net.minecraft.util.EnumBlockRenderType
 import net.minecraftforge.common.property.ExtendedBlockState
 import net.minecraftforge.common.property.Properties.AnimationProperty
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockHarvester() : RotatableMachineBlock("harvester", TileHarvester::class.java,
 	EmergingTechnology.guiHandler.registerId(TileHarvester::class.java, ContainerHarvester::class.java) { GuiHarvester::class.java }) {

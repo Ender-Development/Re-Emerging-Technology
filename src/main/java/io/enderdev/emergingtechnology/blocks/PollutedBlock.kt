@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks
 
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.items.ModItems
 import net.minecraft.block.Block
 import net.minecraft.block.state.IBlockState
@@ -13,6 +12,7 @@ import net.minecraft.util.NonNullList
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
+import org.ender_development.catalyx.utils.extensions.toStack
 
 @Suppress("DEPRECATION") // Block#soundType
 class PollutedBlock(name: String, val block: Block) : ModelBlock("polluted_$name", block.defaultState.material, block.soundType, 1f) {

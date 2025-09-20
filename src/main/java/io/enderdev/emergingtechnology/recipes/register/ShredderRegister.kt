@@ -1,8 +1,5 @@
 package io.enderdev.emergingtechnology.recipes.register
 
-import io.enderdev.catalyx.utils.extensions.toIngredient
-import io.enderdev.catalyx.utils.extensions.toOre
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.recipes.ShredderRecipe
@@ -10,6 +7,9 @@ import net.minecraft.block.Block
 import net.minecraft.init.Items
 import net.minecraft.item.Item
 import net.minecraft.item.crafting.Ingredient
+import org.ender_development.catalyx.utils.extensions.toIngredient
+import org.ender_development.catalyx.utils.extensions.toOre
+import org.ender_development.catalyx.utils.extensions.toStack
 
 class ShredderRegister : AbstractRecipeRegister<ShredderRecipe>() {
 	companion object {

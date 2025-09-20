@@ -1,8 +1,5 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.button.AbstractButtonWrapper
-import io.enderdev.catalyx.network.ButtonPacket
-import io.enderdev.catalyx.network.PacketHandler
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerCreativeFiller
 import io.enderdev.emergingtechnology.tiles.TileCreativeFiller
@@ -11,6 +8,9 @@ import net.minecraft.client.gui.inventory.GuiContainer
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.ender_development.catalyx.client.button.AbstractButtonWrapper
+import org.ender_development.catalyx.network.ButtonPacket
+import org.ender_development.catalyx.network.PacketHandler
 import org.lwjgl.input.Mouse
 import java.awt.Color
 import java.text.DecimalFormat

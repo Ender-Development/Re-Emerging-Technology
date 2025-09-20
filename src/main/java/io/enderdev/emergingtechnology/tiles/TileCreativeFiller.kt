@@ -1,9 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.client.button.AbstractButtonWrapper
-import io.enderdev.catalyx.tiles.BaseTile
-import io.enderdev.catalyx.tiles.helper.IButtonTile
-import io.enderdev.catalyx.tiles.helper.IGuiTile
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.fluids.ModFluids
@@ -19,10 +15,13 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.energy.IEnergyStorage
 import net.minecraftforge.fluids.*
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler
 import net.minecraftforge.fluids.capability.FluidTankProperties
 import net.minecraftforge.fluids.capability.IFluidHandler
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
+import org.ender_development.catalyx.client.button.AbstractButtonWrapper
+import org.ender_development.catalyx.tiles.BaseTile
+import org.ender_development.catalyx.tiles.helper.IButtonTile
+import org.ender_development.catalyx.tiles.helper.IGuiTile
 
 class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IButtonTile {
 	init {

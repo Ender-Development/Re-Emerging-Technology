@@ -1,9 +1,9 @@
 package io.enderdev.emergingtechnology.client.container
 
-import io.enderdev.catalyx.client.container.BaseContainer
 import io.enderdev.emergingtechnology.tiles.TileFabricator
 import net.minecraft.inventory.IInventory
 import net.minecraftforge.items.SlotItemHandler
+import org.ender_development.catalyx.client.container.BaseContainer
 
 class ContainerFabricator(playerInv: IInventory, tile: TileFabricator) : BaseContainer(playerInv, tile) {
 	init {

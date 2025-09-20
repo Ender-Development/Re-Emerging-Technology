@@ -1,14 +1,14 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.tiles.BaseMachineTile
-import io.enderdev.catalyx.utils.extensions.get
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.blocks.machine.BlockWasteCollector.Companion.FULL
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import net.minecraft.init.Biomes
 import net.minecraft.init.Blocks
 import net.minecraft.util.math.BlockPos
+import org.ender_development.catalyx.tiles.BaseMachineTile
+import org.ender_development.catalyx.utils.extensions.get
+import org.ender_development.catalyx.utils.extensions.toStack
 
 class TileWasteCollector() : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings) {
 	init {

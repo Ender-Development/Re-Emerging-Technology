@@ -17,7 +17,6 @@ import net.minecraftforge.fml.relauncher.SideOnly
 
 @SideOnly(Side.CLIENT)
 class ClientProxy : CommonProxy() {
-
 	override fun preInit(e: FMLPreInitializationEvent) {
 		super.preInit(e)
 		OBJLoader.INSTANCE.addDomain(Tags.MODID)

@@ -1,13 +1,11 @@
 package io.enderdev.emergingtechnology.blocks
 
-import io.enderdev.catalyx.IBothProvider
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import net.minecraft.block.Block
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
-import net.minecraft.client.renderer.ItemMeshDefinition
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.client.renderer.block.statemap.StateMapperBase
 import net.minecraft.item.Item
@@ -18,6 +16,7 @@ import net.minecraftforge.fluids.BlockFluidClassic
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
+import org.ender_development.catalyx.IBothProvider
 
 class BaseFluidBlock(fluid: Fluid, material: Material) : BlockFluidClassic(fluid, material), IBothProvider, IHasModel {
 	init {

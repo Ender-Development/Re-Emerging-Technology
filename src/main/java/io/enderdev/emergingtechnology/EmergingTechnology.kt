@@ -1,15 +1,10 @@
 package io.enderdev.emergingtechnology
 
-import io.enderdev.catalyx.CatalyxSettings
-import io.enderdev.catalyx.blocks.BaseBlock
-import io.enderdev.catalyx.client.gui.CatalyxGuiHandler
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.proxy.CommonProxy
 import net.minecraft.block.Block
 import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.init.Items
 import net.minecraft.item.Item
 import net.minecraftforge.client.event.ModelRegistryEvent
 import net.minecraftforge.event.RegistryEvent
@@ -24,6 +19,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
 import org.apache.logging.log4j.Logger
+import org.ender_development.catalyx.CatalyxSettings
+import org.ender_development.catalyx.blocks.BaseBlock
+import org.ender_development.catalyx.client.gui.CatalyxGuiHandler
+import org.ender_development.catalyx.utils.extensions.toStack
 import java.text.DecimalFormat
 
 @Mod(

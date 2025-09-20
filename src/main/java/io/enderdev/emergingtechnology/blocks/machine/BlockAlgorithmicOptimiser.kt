@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerAlgorithmicOptimiser
@@ -11,6 +10,7 @@ import io.enderdev.emergingtechnology.tiles.TileAlgorithmicOptimiser
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.item.Item
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockAlgorithmicOptimiser() : RotatableMachineBlock("algorithmic_optimiser", TileAlgorithmicOptimiser::class.java,
 	EmergingTechnology.guiHandler.registerId(TileAlgorithmicOptimiser::class.java, ContainerAlgorithmicOptimiser::class.java) { GuiAlgorithmicOptimiser::class.java }) {

@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.GlassBlock
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
@@ -18,6 +17,7 @@ import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockSolarGlass() : RotatableModelBlock("solar_glass"), ITileEntityProvider {
 	init {

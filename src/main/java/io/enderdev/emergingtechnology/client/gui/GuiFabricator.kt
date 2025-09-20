@@ -1,9 +1,5 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.button.AbstractButtonWrapper
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import io.enderdev.catalyx.network.ButtonPacket
-import io.enderdev.catalyx.network.PacketHandler
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerFabricator
 import io.enderdev.emergingtechnology.recipes.ModRecipes
@@ -13,6 +9,10 @@ import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.RenderHelper
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.ender_development.catalyx.client.button.AbstractButtonWrapper
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import org.ender_development.catalyx.network.ButtonPacket
+import org.ender_development.catalyx.network.PacketHandler
 import java.awt.Color
 
 class GuiFabricator(playerInv: IInventory, val tile: TileFabricator) : BaseETGui(ContainerFabricator(playerInv, tile), tile) {

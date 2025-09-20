@@ -1,6 +1,5 @@
 package io.enderdev.emergingtechnology.blocks.machine
 
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerCo2Scrubber
@@ -16,6 +15,7 @@ import net.minecraft.util.EnumBlockRenderType
 import net.minecraftforge.common.property.ExtendedBlockState
 import net.minecraftforge.common.property.Properties.AnimationProperty
 import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockCo2Scrubber() : RotatableMachineBlock("co2_scrubber", TileCo2Scrubber::class.java,
 	EmergingTechnology.guiHandler.registerId(TileCo2Scrubber::class.java, ContainerCo2Scrubber::class.java) { GuiCo2Scrubber::class.java }) {

@@ -1,7 +1,5 @@
 package io.enderdev.emergingtechnology.tiles
 
-import io.enderdev.catalyx.tiles.BaseTile.Companion.FLUID_CAP
-import io.enderdev.catalyx.tiles.helper.IFluidTile
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.utils.CapabilityUtils
 import net.minecraft.tileentity.TileEntity
@@ -12,6 +10,8 @@ import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
 import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
+import org.ender_development.catalyx.tiles.BaseTile.Companion.FLUID_CAP
+import org.ender_development.catalyx.tiles.helper.IFluidTile
 
 class TileWaterFiller : TileEntity(), ITickable, IFluidTile {
 	val fluidTank = object : FluidTank(EmergingTechnologyConfig.HYDROPONICS_MODULE.FILLER.fillerFluidTransferRate) {

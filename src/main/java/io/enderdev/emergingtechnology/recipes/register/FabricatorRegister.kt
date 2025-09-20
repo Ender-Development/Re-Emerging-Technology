@@ -1,9 +1,9 @@
 package io.enderdev.emergingtechnology.recipes.register
 
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.recipes.FabricatorRecipe
+import org.ender_development.catalyx.utils.extensions.toStack
 
 class FabricatorRegister : AbstractRecipeRegister<FabricatorRecipe>() {
 	companion object {

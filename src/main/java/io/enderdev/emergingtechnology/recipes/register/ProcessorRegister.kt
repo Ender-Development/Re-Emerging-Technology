@@ -1,12 +1,12 @@
 package io.enderdev.emergingtechnology.recipes.register
 
-import io.enderdev.catalyx.utils.extensions.toIngredient
-import io.enderdev.catalyx.utils.extensions.toOre
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.blocks.ModBlocks
 import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.recipes.ProcessorRecipe
 import net.minecraft.init.Items
+import org.ender_development.catalyx.utils.extensions.toIngredient
+import org.ender_development.catalyx.utils.extensions.toOre
+import org.ender_development.catalyx.utils.extensions.toStack
 
 class ProcessorRegister : AbstractRecipeRegister<ProcessorRecipe>() {
 	companion object {

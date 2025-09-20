@@ -1,9 +1,9 @@
 package io.enderdev.emergingtechnology.recipes.register
 
-import io.enderdev.catalyx.utils.extensions.toStack
 import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.recipes.TissueScaffolderRecipe
 import net.minecraft.init.Items
+import org.ender_development.catalyx.utils.extensions.toStack
 
 class TissueScaffolderRegister  : AbstractRecipeRegister<TissueScaffolderRecipe>() {
 	companion object {

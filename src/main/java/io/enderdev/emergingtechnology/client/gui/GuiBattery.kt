@@ -1,16 +1,16 @@
 package io.enderdev.emergingtechnology.client.gui
 
-import io.enderdev.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import io.enderdev.catalyx.utils.extensions.translate
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerBattery
 import io.enderdev.emergingtechnology.tiles.TileBattery
 import net.minecraft.client.Minecraft
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
+import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
+import org.ender_development.catalyx.utils.extensions.translate
 import java.awt.Color
 import java.text.NumberFormat
-import java.util.Locale
+import java.util.*
 import kotlin.math.absoluteValue
 
 class GuiBattery(playerInv: IInventory, val tile: TileBattery) : BaseETGuiTyped<TileBattery>(ContainerBattery(playerInv, tile), tile) {
