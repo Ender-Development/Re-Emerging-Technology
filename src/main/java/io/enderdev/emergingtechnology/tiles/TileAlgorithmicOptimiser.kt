@@ -28,7 +28,7 @@ import org.ender_development.catalyx.tiles.BaseTile
 import org.ender_development.catalyx.tiles.helper.*
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables {
+class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, ICopyPasteExtraTile {
 	override var isPaused = false
 	override var needsRedstonePower = false
 
@@ -194,6 +194,29 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 
 	init {
 		AbstractButtonWrapper.registerWrapper(UpdateButtonWrapper::class.java)
+	}
+
+	// ICopyPasteExtraTile
+
+	override fun copyData(tag: NBTTagCompound) {
+		tag.setInteger("EnergyAssignment", assignments.energy)
+		tag.setInteger("WaterAssignment", assignments.water)
+		tag.setInteger("GasAssignment", assignments.gas)
+		tag.setInteger("RecipeTimeAssignment", assignments.recipeTime)
+	}
+
+	override fun pasteData(tag: NBTTagCompound) {
+		if(tag.hasKey("EnergyAssignment"))
+			assignments.energy = tag.getInteger("EnergyAssignment").coerceIn(0, getCores() - assignments.water - assignments.gas - assignments.recipeTime)
+
+		if(tag.hasKey("WaterAssignment"))
+			assignments.energy = tag.getInteger("WaterAssignment").coerceIn(0, getCores() - assignments.energy - assignments.gas - assignments.recipeTime)
+
+		if(tag.hasKey("GasAssignment"))
+			assignments.energy = tag.getInteger("GasAssignment").coerceIn(0, getCores() - assignments.energy - assignments.water - assignments.recipeTime)
+
+		if(tag.hasKey("RecipeTimeAssignment"))
+			assignments.energy = tag.getInteger("RecipeTimeAssignment").coerceIn(0, getCores() - assignments.energy - assignments.water - assignments.gas)
 	}
 }
 

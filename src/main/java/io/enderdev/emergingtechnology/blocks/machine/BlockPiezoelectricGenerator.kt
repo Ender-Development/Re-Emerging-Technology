@@ -3,7 +3,6 @@ package io.enderdev.emergingtechnology.blocks.machine
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.ModelBlock
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
-import io.enderdev.emergingtechnology.items.TooltipItemBlock
 import io.enderdev.emergingtechnology.tiles.TilePiezoelectricGenerator
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.ITileEntityProvider
@@ -14,8 +13,8 @@ import net.minecraft.item.Item
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
-import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
+import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockPiezoelectricGenerator() : ModelBlock("piezoelectric_generator"), ITileEntityProvider {
@@ -23,15 +22,14 @@ class BlockPiezoelectricGenerator() : ModelBlock("piezoelectric_generator"), ITi
 		GameRegistry.registerTileEntity(TilePiezoelectricGenerator::class.java, ResourceLocation(Tags.MODID, name))
 	}
 
-	override fun registerItem(event: RegistryEvent.Register<Item>) {
-		event.registry.register(TooltipItemBlock(this) {
+	override fun createItemBlock(): Item =
+		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip("tile.${Tags.MODID}:piezoelectric_generator.desc".translate(
 				EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricEnergyGenerated,
 				EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricStepCooldown / 20.0,
 				EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricEnergyGenerated / EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricStepCooldown.toFloat()
 			))
-		})
-	}
+		}
 
 	override fun hasTileEntity(state: IBlockState) = true
 

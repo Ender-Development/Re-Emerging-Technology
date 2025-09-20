@@ -4,7 +4,6 @@ import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerBattery
 import io.enderdev.emergingtechnology.client.gui.GuiBattery
-import io.enderdev.emergingtechnology.items.TooltipItemBlock
 import io.enderdev.emergingtechnology.tiles.TileBattery
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.BlockDirectional
@@ -16,7 +15,7 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
-import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockBattery() : ModelMachineBlock("battery", TileBattery::class.java,
@@ -26,11 +25,10 @@ class BlockBattery() : ModelMachineBlock("battery", TileBattery::class.java,
 		defaultState = blockState.baseState.withProperty(BlockDirectional.FACING, EnumFacing.NORTH)
 	}
 
-	override fun registerItem(event: RegistryEvent.Register<Item>) {
-		event.registry.register(TooltipItemBlock(this) {
+	override fun createItemBlock(): Item =
+		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip("tile.${Tags.MODID}:battery.desc".translate())
-		})
-	}
+		}
 
 	override fun createBlockState() = BlockStateContainer(this, BlockDirectional.FACING)
 

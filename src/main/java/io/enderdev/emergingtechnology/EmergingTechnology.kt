@@ -91,12 +91,5 @@ object EmergingTechnology {
 			ModBlocks.registerItems(event)
 			ModItems.registerItems(event)
 		}
-
-		@SideOnly(Side.CLIENT)
-		@SubscribeEvent
-		fun registerModels(event: ModelRegistryEvent) {
-			ModBlocks.registerModels()
-			ModItems.registerModels()
-		}
 	}
 }

@@ -3,7 +3,6 @@ package io.enderdev.emergingtechnology.blocks.machine
 import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.blocks.ModelBlock
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
-import io.enderdev.emergingtechnology.items.TooltipItemBlock
 import io.enderdev.emergingtechnology.tiles.TileWindGenerator
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.ITileEntityProvider
@@ -17,8 +16,8 @@ import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 import net.minecraftforge.common.property.ExtendedBlockState
 import net.minecraftforge.common.property.Properties.AnimationProperty
-import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.common.registry.GameRegistry
+import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockWindGenerator() : ModelBlock("wind_generator"), ITileEntityProvider {
@@ -26,14 +25,13 @@ class BlockWindGenerator() : ModelBlock("wind_generator"), ITileEntityProvider {
 		GameRegistry.registerTileEntity(TileWindGenerator::class.java, ResourceLocation(Tags.MODID, name))
 	}
 
-	override fun registerItem(event: RegistryEvent.Register<Item>) {
-		event.registry.register(TooltipItemBlock(this) {
+	override fun createItemBlock(): Item =
+		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:wind_generator.desc".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.WIND.energyGenerated, EmergingTechnologyConfig.ELECTRICS_MODULE.WIND.minOptimalHeight, EmergingTechnologyConfig.ELECTRICS_MODULE.WIND.maxOptimalHeight),
 				"tile.${Tags.MODID}:wind_generator.desc.req".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.WIND.minimumAirBlocks)
 			)
-		})
-	}
+		}
 
 	override fun hasTileEntity(state: IBlockState) = true
 

@@ -2,7 +2,6 @@ package io.enderdev.emergingtechnology.items
 
 import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
-import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.item.Item
 import net.minecraft.item.ItemFood
@@ -11,7 +10,7 @@ import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
 import org.ender_development.catalyx.items.IItemProvider
 
-open class BaseFoodItem(val name: String, hunger: Int, saturation: Float) : ItemFood(hunger, saturation, false), IItemProvider, IHasModel {
+open class BaseFoodItem(val name: String, hunger: Int, saturation: Float) : ItemFood(hunger, saturation, false), IItemProvider {
 	init {
 		registryName = ResourceLocation(Tags.MODID, name)
 		translationKey = "$registryName"
@@ -21,9 +20,6 @@ open class BaseFoodItem(val name: String, hunger: Int, saturation: Float) : Item
 
 	override fun registerItem(event: RegistryEvent.Register<Item>) {
 		event.registry.register(this)
-	}
-
-	override fun registerModel() {
 		ModelLoader.setCustomModelResourceLocation(this, 0, ModelResourceLocation(registryName!!, "inventory"))
 	}
 }

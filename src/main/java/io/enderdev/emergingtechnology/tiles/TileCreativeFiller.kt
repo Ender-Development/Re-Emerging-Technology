@@ -21,9 +21,10 @@ import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.tiles.BaseTile
 import org.ender_development.catalyx.tiles.helper.IButtonTile
+import org.ender_development.catalyx.tiles.helper.ICopyPasteExtraTile
 import org.ender_development.catalyx.tiles.helper.IGuiTile
 
-class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IButtonTile {
+class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IButtonTile, ICopyPasteExtraTile {
 	init {
 		initInventoryCapability(0, 0)
 	}
@@ -256,5 +257,48 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 
 	init {
 		AbstractButtonWrapper.registerWrapper(UpdateButtonWrapper::class.java)
+	}
+
+	// ICopyPasteExtraTile
+
+	override fun copyData(tag: NBTTagCompound) {
+		tag.setInteger("EnergyOutput", energyOutput)
+		tag.setInteger("WaterOutput", waterOutput)
+		tag.setInteger("CO2Output", co2Output)
+		tag.setInteger("NutrientOutput", nutrientOutput)
+		tag.setInteger("EnergyInput", maxEnergyInput)
+		tag.setInteger("WaterInput", maxWaterInput)
+		tag.setInteger("CO2Input", maxCo2Input)
+		tag.setInteger("NutrientInput", maxNutrientInput)
+	}
+
+	override fun pasteData(tag: NBTTagCompound) {
+		// thank god for regex, otherwise I'd have to do this all manually
+		// for future reference:
+		// find: tag\.setinteger\("(.+?)", (.+?)\)
+		// replace: if(tag.hasKey("\1"))\n\t\2 = tag.getInteger("\1")\n
+		if(tag.hasKey("EnergyOutput"))
+			energyOutput = tag.getInteger("EnergyOutput")
+
+		if(tag.hasKey("WaterOutput"))
+			waterOutput = tag.getInteger("WaterOutput")
+
+		if(tag.hasKey("CO2Output"))
+			co2Output = tag.getInteger("CO2Output")
+
+		if(tag.hasKey("NutrientOutput"))
+			nutrientOutput = tag.getInteger("NutrientOutput")
+
+		if(tag.hasKey("EnergyInput"))
+			maxEnergyInput = tag.getInteger("EnergyInput")
+
+		if(tag.hasKey("WaterInput"))
+			maxWaterInput = tag.getInteger("WaterInput")
+
+		if(tag.hasKey("CO2Input"))
+			maxCo2Input = tag.getInteger("CO2Input")
+
+		if(tag.hasKey("NutrientInput"))
+			maxNutrientInput = tag.getInteger("NutrientInput")
 	}
 }

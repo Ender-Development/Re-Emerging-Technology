@@ -16,12 +16,13 @@ import net.minecraft.util.ResourceLocation
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
+import org.ender_development.catalyx.tiles.helper.ICopyPasteExtraTile
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
 import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
+class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl(), ICopyPasteExtraTile {
 	init {
 		initInventoryCapability(1, 1)
 	}
@@ -138,5 +139,20 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 
 	init {
 		AbstractButtonWrapper.registerWrapper(UpdateButtonWrapper::class.java)
+	}
+
+	// ICopyPasteExtraTile
+
+	override fun copyData(tag: NBTTagCompound) {
+		tag.setInteger("RecipeId", recipeId)
+		tag.setBoolean("Stopped", stopped)
+	}
+
+	override fun pasteData(tag: NBTTagCompound) {
+		if(tag.hasKey("RecipeId"))
+			recipeId = tag.getInteger("RecipeId")
+
+		if(tag.hasKey("Stopped"))
+			stopped = tag.getBoolean("Stopped")
 	}
 }

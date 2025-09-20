@@ -5,7 +5,6 @@ import io.enderdev.emergingtechnology.Tags
 import io.enderdev.emergingtechnology.client.container.ContainerHydroponicGrowLight
 import io.enderdev.emergingtechnology.client.gui.GuiHydroponicGrowLight
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
-import io.enderdev.emergingtechnology.items.TooltipItemBlock
 import io.enderdev.emergingtechnology.tiles.TileHydroponicGrowLight
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.BlockHorizontal
@@ -20,7 +19,7 @@ import net.minecraft.util.math.AxisAlignedBB
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
-import net.minecraftforge.event.RegistryEvent
+import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
 class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light", TileHydroponicGrowLight::class.java,
@@ -34,13 +33,12 @@ class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light"
 		defaultState = blockState.baseState.withProperty(LIT, false)
 	}
 
-	override fun registerItem(event: RegistryEvent.Register<Item>) {
-		event.registry.register(TooltipItemBlock(this) {
+	override fun createItemBlock(): Item =
+		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:hydroponic_grow_light.desc".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.lightBlockRange)
 			)
-		})
-	}
+		}
 
 	@Deprecated("")
 	override fun getLightValue(state: IBlockState) = if(state.getValue(LIT)) 15 else 0

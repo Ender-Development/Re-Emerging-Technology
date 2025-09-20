@@ -1,5 +1,6 @@
 package io.enderdev.emergingtechnology.items
 
+import io.enderdev.emergingtechnology.EmergingTechnology
 import io.enderdev.emergingtechnology.Tags
 import net.minecraft.client.util.ITooltipFlag
 import net.minecraft.item.ItemStack
@@ -7,10 +8,11 @@ import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
 import net.minecraft.world.World
 import net.minecraftforge.fml.common.registry.ForgeRegistries
+import org.ender_development.catalyx.items.BaseItem
 import org.ender_development.catalyx.utils.extensions.toStack
 import org.ender_development.catalyx.utils.extensions.translate
 
-class ItemEntityThing(name: String) : ItemBase(name) {
+class ItemEntityThing(name: String) : BaseItem(EmergingTechnology.catalyxSettings, name) {
 	companion object {
 		const val ENTITY_NBT = "${Tags.MODID}:entity_id"
 

@@ -1,29 +1,18 @@
 package io.enderdev.emergingtechnology.blocks
 
 import io.enderdev.emergingtechnology.EmergingTechnology
-import io.enderdev.emergingtechnology.blocks.machine.IHasModel
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.block.state.IBlockState
-import net.minecraft.client.renderer.block.model.ModelResourceLocation
-import net.minecraft.item.Item
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
-import net.minecraftforge.client.model.ModelLoader
-import net.minecraftforge.fml.relauncher.Side
-import net.minecraftforge.fml.relauncher.SideOnly
 import org.ender_development.catalyx.blocks.BaseBlock
 
-open class ModelBlock(val name: String, material: Material = Material.ROCK, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BaseBlock(EmergingTechnology.catalyxSettings, name, material), IHasModel {
+open class ModelBlock(val name: String, material: Material = Material.ROCK, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BaseBlock(EmergingTechnology.catalyxSettings, name, material) {
 	init {
 		this.soundType = soundType
 		blockHardness = hardness
-	}
-
-	@SideOnly(Side.CLIENT)
-	override fun registerModel() {
-		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, ModelResourceLocation(registryName!!, "inventory"))
 	}
 
 	@Deprecated("")

@@ -86,9 +86,6 @@ object ModBlocks {
 	fun registerItems(event: RegistryEvent.Register<Item>) = blocks.forEach { it.registerItem(event) }
 
 	@SideOnly(Side.CLIENT)
-	fun registerModels() = blocks.forEach { if(it is IHasModel) it.registerModel() }
-
-	@SideOnly(Side.CLIENT)
 	fun initColours() {
 		// original EMT did this by changing texture in blockstate, but this felt like a better solution
 		Minecraft.getMinecraft().blockColors.registerBlockColorHandler({ state, world, pos, tintIndex ->

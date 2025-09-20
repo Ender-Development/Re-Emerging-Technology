@@ -16,11 +16,9 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
-import net.minecraftforge.fml.relauncher.Side
-import net.minecraftforge.fml.relauncher.SideOnly
 import org.ender_development.catalyx.IBothProvider
 
-class LadderBlock(name: String, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BlockLadder(), IBothProvider, IHasModel {
+class LadderBlock(name: String, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BlockLadder(), IBothProvider {
 	init {
 		registryName = ResourceLocation(Tags.MODID, name)
 		translationKey = "$registryName"
@@ -36,10 +34,6 @@ class LadderBlock(name: String, soundType: SoundType = SoundType.STONE, hardness
 
 	override fun registerItem(event: RegistryEvent.Register<Item>) {
 		event.registry.register(ItemBlock(this).setRegistryName(registryName))
-	}
-
-	@SideOnly(Side.CLIENT)
-	override fun registerModel() {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, ModelResourceLocation(registryName!!, "inventory"))
 	}
 
