@@ -11,14 +11,13 @@ import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
-import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
 import org.ender_development.catalyx.tiles.helper.IFluidTile
 import org.ender_development.catalyx.tiles.helper.TileStackHandler
+import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
@@ -34,21 +33,8 @@ class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechn
 		}
 	}
 
-	val waterTank = object : FluidTank(Fluid.BUCKET_VOLUME * 5) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == FluidRegistry.WATER
-	}.apply {
-		setTileEntity(this@TileAlgaeBioreactor)
-		setCanFill(true)
-		setCanDrain(false)
-	}
-
-	val gasTank = object : FluidTank(Fluid.BUCKET_VOLUME * 5) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == ModFluids.co2
-	}.apply {
-		setTileEntity(this@TileAlgaeBioreactor)
-		setCanFill(true)
-		setCanDrain(false)
-	}
+	val waterTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 5, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
+	val gasTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 5, true, false, ModFluids.co2, onContentsChangedCallback = this::markDirtyGUI)
 
 	override val fluidTanks = FluidHandlerConcatenate(waterTank, gasTank)
 

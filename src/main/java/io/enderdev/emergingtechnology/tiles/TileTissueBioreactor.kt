@@ -8,14 +8,13 @@ import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
-import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
 import org.ender_development.catalyx.tiles.helper.IFluidTile
 import org.ender_development.catalyx.tiles.helper.TileStackHandler
+import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.get
 
 class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
@@ -30,13 +29,7 @@ class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 		}
 	}
 
-	val inputTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == FluidRegistry.WATER
-	}.apply {
-		setTileEntity(this@TileTissueBioreactor)
-		setCanFill(true)
-		setCanDrain(false)
-	}
+	val inputTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
 
 	override val fluidTanks: FluidHandlerConcatenate
 		get() = FluidHandlerConcatenate(inputTank)

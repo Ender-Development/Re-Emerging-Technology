@@ -12,13 +12,13 @@ import net.minecraft.util.EnumFacing
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
 import org.ender_development.catalyx.tiles.helper.IFluidTile
 import org.ender_development.catalyx.tiles.helper.TileStackHandler
+import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
@@ -34,21 +34,8 @@ class TileNutrientInjector : BaseMachineTile<NutrientInjectorRecipe>(EmergingTec
 		}
 	}
 
-	val waterTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == FluidRegistry.WATER
-	}.apply {
-		setTileEntity(this@TileNutrientInjector)
-		setCanFill(true)
-		setCanDrain(false)
-	}
-
-	val nutrientTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == ModFluids.nutrient
-	}.apply {
-		setTileEntity(this@TileNutrientInjector)
-		setCanFill(false)
-		setCanDrain(true)
-	}
+	val waterTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
+	val nutrientTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, false, true, ModFluids.nutrient, onContentsChangedCallback = this::markDirtyGUI)
 
 	override val fluidTanks = FluidHandlerConcatenate(waterTank, nutrientTank)
 

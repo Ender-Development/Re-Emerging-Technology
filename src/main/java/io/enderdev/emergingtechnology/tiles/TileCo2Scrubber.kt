@@ -19,11 +19,11 @@ import net.minecraftforge.common.model.animation.IAnimationStateMachine
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.animation.NoopAnimationStateMachine
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.*
+import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 import java.util.*
@@ -40,21 +40,8 @@ class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.ca
 		}
 	}
 
-	val waterTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == FluidRegistry.WATER
-	}.apply {
-		setTileEntity(this@TileCo2Scrubber)
-		setCanFill(true)
-		setCanDrain(false)
-	}
-
-	val co2Tank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == ModFluids.co2
-	}.apply {
-		setTileEntity(this@TileCo2Scrubber)
-		setCanFill(false)
-		setCanDrain(true)
-	}
+	val waterTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
+	val co2Tank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, false, true, ModFluids.co2, onContentsChangedCallback = this::markDirtyGUI)
 
 	override val fluidTanks = FluidHandlerConcatenate(waterTank, co2Tank)
 

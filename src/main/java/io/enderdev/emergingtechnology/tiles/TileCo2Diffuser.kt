@@ -12,8 +12,6 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.fluids.Fluid
-import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.FluidTank
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.client.button.PauseButtonWrapper
@@ -21,6 +19,7 @@ import org.ender_development.catalyx.client.button.RedstoneButtonWrapper
 import org.ender_development.catalyx.client.gui.BaseGuiTyped
 import org.ender_development.catalyx.tiles.BaseTile
 import org.ender_development.catalyx.tiles.helper.*
+import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.get
 
 class TileCo2Diffuser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IFluidTile {
@@ -39,13 +38,7 @@ class TileCo2Diffuser : BaseTile(EmergingTechnology.catalyxSettings), ITickable,
 	override var isPaused = false
 	override var needsRedstonePower = false
 
-	val gasTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-		override fun canFillFluidType(fluid: FluidStack?) = fluid?.fluid == ModFluids.co2
-	}.apply {
-		setTileEntity(this@TileCo2Diffuser)
-		setCanFill(true)
-		setCanDrain(false)
-	}
+	val gasTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, ModFluids.co2, onContentsChangedCallback = this::markDirtyGUI)
 
 	override val fluidTanks = FluidHandlerConcatenate(gasTank)
 

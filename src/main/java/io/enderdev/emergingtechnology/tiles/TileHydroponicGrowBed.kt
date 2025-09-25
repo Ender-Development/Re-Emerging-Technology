@@ -8,11 +8,8 @@ import net.minecraft.block.state.IBlockState
 import net.minecraft.init.Blocks
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
-import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.FluidTank
-import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
@@ -35,26 +32,27 @@ class TileHydroponicGrowBed : BaseMachineTile<Any>(EmergingTechnology.catalyxSet
 		}
 	}
 
-	val inputTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
-		override fun canFillFluidType(fluid: FluidStack?) = true // RN-TODO ASJDKLASJDLKAJDKL
-
-		//override fun fillInternal(resource: FluidStack?, doFill: Boolean): Int {
-		//	val ret = super.fillInternal(resource, doFill)
-		//	markDirtyClient() // update renderer
-		//	return ret
-		//}
-		//
-		//override fun drainInternal(maxDrain: Int, doDrain: Boolean): FluidStack? {
-		//	val ret = super.drainInternal(maxDrain, doDrain)
-		//	markDirtyClient() // update renderer
-		//	return ret
-		//}
-	}.apply {
-		setTileEntity(this@TileHydroponicGrowBed)
-		setCanFill(true)
-		setCanDrain(false)
-	}
-	override val fluidTanks = FluidHandlerConcatenate(inputTank)
+	// replace with Catalyx FluidTankUtils
+	//val inputTank = object : FluidTank(Fluid.BUCKET_VOLUME * 10) {
+	//	override fun canFillFluidType(fluid: FluidStack?) = true // RN-TODO ASJDKLASJDLKAJDKL
+	//
+	//	//override fun fillInternal(resource: FluidStack?, doFill: Boolean): Int {
+	//	//	val ret = super.fillInternal(resource, doFill)
+	//	//	markDirtyClient() // update renderer
+	//	//	return ret
+	//	//}
+	//	//
+	//	//override fun drainInternal(maxDrain: Int, doDrain: Boolean): FluidStack? {
+	//	//	val ret = super.drainInternal(maxDrain, doDrain)
+	//	//	markDirtyClient() // update renderer
+	//	//	return ret
+	//	//}
+	//}.apply {
+	//	setTileEntity(this@TileHydroponicGrowBed)
+	//	setCanFill(true)
+	//	setCanDrain(false)
+	//}
+	override val fluidTanks = TODO()//FluidHandlerConcatenate(inputTank)
 
 
 	// TODO EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWBED.growBedsRequireEnergy
