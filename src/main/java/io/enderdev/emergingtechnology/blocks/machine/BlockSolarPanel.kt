@@ -23,7 +23,7 @@ class BlockSolarPanel() : RotatableModelBlock("solar_panel"), ITileEntityProvide
 		GameRegistry.registerTileEntity(TileSolarPanel::class.java, ResourceLocation(Tags.MODID, name))
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip("tile.${Tags.MODID}:solar_panel.desc".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.SOLAR.solarEnergyGenerated))
 		}

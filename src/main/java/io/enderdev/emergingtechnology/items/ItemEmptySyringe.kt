@@ -13,7 +13,7 @@ import net.minecraft.world.World
 import org.ender_development.catalyx.items.BaseItem
 import org.ender_development.catalyx.utils.extensions.translate
 
-class ItemEmptySyringe : BaseItem(EmergingTechnology.catalyxSettings, "syringe_empty") {
+class ItemEmptySyringe : BaseItem(EmergingTechnology.modSettings, "syringe_empty") {
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 		tooltip as MutableList
 		tooltip.add("item.${Tags.MODID}:syringe_empty.desc".translate())

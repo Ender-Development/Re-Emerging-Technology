@@ -12,7 +12,6 @@ import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.fluids.Fluid
-import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.client.button.PauseButtonWrapper
 import org.ender_development.catalyx.client.button.RedstoneButtonWrapper
@@ -22,7 +21,7 @@ import org.ender_development.catalyx.tiles.helper.*
 import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileCo2Diffuser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IFluidTile {
+class TileCo2Diffuser : BaseTile(EmergingTechnology.modSettings), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IFluidTile {
 	init {
 		initInventoryCapability(1, 0)
 	}
@@ -40,7 +39,7 @@ class TileCo2Diffuser : BaseTile(EmergingTechnology.catalyxSettings), ITickable,
 
 	val gasTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, ModFluids.co2, onContentsChangedCallback = this::markDirtyGUI)
 
-	override val fluidTanks = FluidHandlerConcatenate(gasTank)
+	override val fluidHandler = gasTank
 
 	val energyPerTick = EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.diffuserEnergyBaseUsage
 	val gasPerPlant = EmergingTechnologyConfig.HYDROPONICS_MODULE.DIFFUSER.diffuserGasBaseUsage

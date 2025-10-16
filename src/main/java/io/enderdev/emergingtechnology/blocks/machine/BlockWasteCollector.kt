@@ -38,7 +38,7 @@ class BlockWasteCollector() : ModelMachineBlock("waste_collector", TileWasteColl
 	override fun getMetaFromState(state: IBlockState) =
 		if(state.getValue(FULL)) 1 else 0
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:waste_collector.desc".translate(),

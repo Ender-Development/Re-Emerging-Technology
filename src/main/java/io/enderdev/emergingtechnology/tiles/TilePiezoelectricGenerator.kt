@@ -11,7 +11,7 @@ import org.ender_development.catalyx.tiles.BaseTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
 
-class TilePiezoelectricGenerator : BaseTile(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(1000), ITickable {
+class TilePiezoelectricGenerator : BaseTile(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(1000), ITickable {
 	val recipeTime = EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricStepCooldown
 	val energyPerTick = EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricEnergyGenerated
 

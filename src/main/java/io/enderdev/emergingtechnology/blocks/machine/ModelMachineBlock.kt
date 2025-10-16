@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import org.ender_development.catalyx.blocks.BaseMachineBlock
 
-open class ModelMachineBlock(name: String, tileClass: Class<out TileEntity>, guiID: Int) : BaseMachineBlock(EmergingTechnology.catalyxSettings, name, tileClass, guiID) {
+open class ModelMachineBlock(name: String, tileClass: Class<out TileEntity>, guiID: Int) : BaseMachineBlock(EmergingTechnology.modSettings, name, tileClass, guiID) {
 	@Deprecated("")
 	override fun isOpaqueCube(state: IBlockState) = false
 

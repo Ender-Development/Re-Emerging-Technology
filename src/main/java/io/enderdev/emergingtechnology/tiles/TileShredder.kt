@@ -13,7 +13,7 @@ import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
+class TileShredder : BaseMachineTile<ShredderRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
 	}

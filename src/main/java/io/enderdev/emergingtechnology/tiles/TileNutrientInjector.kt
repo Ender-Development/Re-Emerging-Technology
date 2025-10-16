@@ -22,7 +22,7 @@ import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileNutrientInjector : BaseMachineTile<NutrientInjectorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
+class TileNutrientInjector : BaseMachineTile<NutrientInjectorRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
 	}
@@ -37,7 +37,7 @@ class TileNutrientInjector : BaseMachineTile<NutrientInjectorRecipe>(EmergingTec
 	val waterTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
 	val nutrientTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, false, true, ModFluids.nutrient, onContentsChangedCallback = this::markDirtyGUI)
 
-	override val fluidTanks = FluidHandlerConcatenate(waterTank, nutrientTank)
+	override val fluidHandler = FluidHandlerConcatenate(waterTank, nutrientTank)
 
 	override val recipeTime: Int
 		get() = getEffectiveRecipeTime(EmergingTechnologyConfig.HYDROPONICS_MODULE.INJECTOR.injectorBaseTimeTaken)

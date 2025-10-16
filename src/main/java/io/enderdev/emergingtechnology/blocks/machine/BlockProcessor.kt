@@ -17,7 +17,7 @@ class BlockProcessor() : RotatableMachineBlock("processor", TileProcessor::class
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:processor.desc".translate(),

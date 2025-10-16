@@ -17,7 +17,7 @@ import org.ender_development.catalyx.tiles.helper.IFluidTile
 import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileHydroponicGrowBed : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(5000), IFluidTile {
+class TileHydroponicGrowBed : BaseMachineTile<Any>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(5000), IFluidTile {
 	init {
 		initInventoryCapability(1, 0)
 		currentRecipe = 1
@@ -52,7 +52,7 @@ class TileHydroponicGrowBed : BaseMachineTile<Any>(EmergingTechnology.catalyxSet
 	//	setCanFill(true)
 	//	setCanDrain(false)
 	//}
-	override val fluidTanks = TODO()//FluidHandlerConcatenate(inputTank)
+	override val fluidHandler = TODO()//FluidHandlerConcatenate(inputTank)
 
 
 	// TODO EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWBED.growBedsRequireEnergy

@@ -17,7 +17,7 @@ class BlockAlgorithmicOptimiser() : RotatableMachineBlock("algorithmic_optimiser
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:algorithmic_optimiser.desc".translate(),

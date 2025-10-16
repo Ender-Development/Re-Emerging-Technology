@@ -28,7 +28,7 @@ import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 import java.util.*
 
-class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl(), IAnimatedTile {
+class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl(), IAnimatedTile {
 	init {
 		initInventoryCapability(1, 1)
 	}
@@ -43,7 +43,7 @@ class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.ca
 	val waterTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
 	val co2Tank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, false, true, ModFluids.co2, onContentsChangedCallback = this::markDirtyGUI)
 
-	override val fluidTanks = FluidHandlerConcatenate(waterTank, co2Tank)
+	override val fluidHandler = FluidHandlerConcatenate(waterTank, co2Tank)
 
 	var surroundingDelay = 1
 	var surroundingBoost = 0

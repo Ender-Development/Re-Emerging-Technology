@@ -19,7 +19,7 @@ class BlockWaterFiller() : ModelBlock("water_filler"), ITileEntityProvider {
 		GameRegistry.registerTileEntity(TileWaterFiller::class.java, ResourceLocation(Tags.MODID, name))
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip("tile.${Tags.MODID}:water_filler.desc".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.FILLER.fillerFluidTransferRate))
 		}

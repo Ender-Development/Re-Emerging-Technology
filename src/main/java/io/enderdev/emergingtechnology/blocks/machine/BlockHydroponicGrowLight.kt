@@ -33,7 +33,7 @@ class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light"
 		defaultState = blockState.baseState.withProperty(LIT, false)
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:hydroponic_grow_light.desc".translate(EmergingTechnologyConfig.HYDROPONICS_MODULE.GROWLIGHT.lightBlockRange)

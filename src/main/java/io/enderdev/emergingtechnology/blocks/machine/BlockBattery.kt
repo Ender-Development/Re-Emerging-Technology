@@ -25,7 +25,7 @@ class BlockBattery() : ModelMachineBlock("battery", TileBattery::class.java,
 		defaultState = blockState.baseState.withProperty(BlockDirectional.FACING, EnumFacing.NORTH)
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip("tile.${Tags.MODID}:battery.desc".translate())
 		}

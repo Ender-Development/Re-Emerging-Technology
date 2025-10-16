@@ -13,20 +13,32 @@ import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fluids.BlockFluidClassic
 import net.minecraftforge.fluids.Fluid
-import org.ender_development.catalyx.IBothProvider
+import org.ender_development.catalyx.core.IBlockProvider
+import org.ender_development.catalyx.utils.SideUtils
 
-class BaseFluidBlock(fluid: Fluid, material: Material) : BlockFluidClassic(fluid, material), IBothProvider {
+class BaseFluidBlock(fluid: Fluid, material: Material) : BlockFluidClassic(fluid, material), IBlockProvider {
 	init {
 		registryName = ResourceLocation(Tags.MODID, fluid.name)
 		translationKey = "$registryName"
 		creativeTab = EmergingTechnology.creativeTab
-		ModBlocks.blocks.add(this)
+		EmergingTechnology.modSettings.blocks(this)
 	}
 
-	override fun registerBlock(event: RegistryEvent.Register<Block>) = event.registry.register(this)
+	override val instance = this
 
-	override fun registerItem(event: RegistryEvent.Register<Item>) {
-		// don't register any actual item, Forge adds a bucket because of fluid registration and universal bucket
+	override var modDependencies = ""
+
+	override val item: Item
+		get() = Item.getItemFromBlock(this)
+
+	override val isEnabled = true
+
+	override fun register(event: RegistryEvent.Register<Block>) =
+		event.registry.register(this)
+
+	override fun registerItemBlock(event: RegistryEvent.Register<Item>) {
+		if(!SideUtils.isClient)
+			return
 
 		val resourceLocation = ModelResourceLocation(registryName!!, "fluid")
 
@@ -36,4 +48,8 @@ class BaseFluidBlock(fluid: Fluid, material: Material) : BlockFluidClassic(fluid
 				resourceLocation
 		})
 	}
+
+	// no-op
+	override fun requires(modDependencies: String) =
+		this
 }

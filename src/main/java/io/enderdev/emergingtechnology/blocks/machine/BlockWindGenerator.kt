@@ -25,7 +25,7 @@ class BlockWindGenerator() : ModelBlock("wind_generator"), ITileEntityProvider {
 		GameRegistry.registerTileEntity(TileWindGenerator::class.java, ResourceLocation(Tags.MODID, name))
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:wind_generator.desc".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.WIND.energyGenerated, EmergingTechnologyConfig.ELECTRICS_MODULE.WIND.minOptimalHeight, EmergingTechnologyConfig.ELECTRICS_MODULE.WIND.maxOptimalHeight),

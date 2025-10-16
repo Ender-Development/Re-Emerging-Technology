@@ -17,7 +17,7 @@ class BlockAlgaeBioreactor() : RotatableMachineBlock("algae_bioreactor", TileAlg
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:algae_bioreactor.desc".translate(),

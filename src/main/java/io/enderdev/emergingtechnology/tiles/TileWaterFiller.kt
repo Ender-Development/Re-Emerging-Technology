@@ -8,7 +8,6 @@ import net.minecraft.util.ITickable
 import net.minecraftforge.common.capabilities.Capability
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fluids.FluidStack
-import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.tiles.BaseTile.Companion.FLUID_CAP
 import org.ender_development.catalyx.tiles.helper.IFluidTile
 import org.ender_development.catalyx.utils.FluidTankUtils
@@ -16,7 +15,7 @@ import org.ender_development.catalyx.utils.FluidTankUtils
 class TileWaterFiller : TileEntity(), ITickable, IFluidTile {
 	val fluidTank = FluidTankUtils.create(this, EmergingTechnologyConfig.HYDROPONICS_MODULE.FILLER.fillerFluidTransferRate, true, false, FluidRegistry.WATER) {}
 
-	override val fluidTanks = FluidHandlerConcatenate(fluidTank)
+	override val fluidHandler = fluidTank
 
 	override fun update() {
 		fluidTank.fillInternal(FluidStack(FluidRegistry.WATER, fluidTank.capacity), true)

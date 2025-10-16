@@ -17,7 +17,7 @@ class BlockCo2Diffuser() : ModelMachineBlock("co2_diffuser", TileCo2Diffuser::cl
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:co2_diffuser.desc".translate(),

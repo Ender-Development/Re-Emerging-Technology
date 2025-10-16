@@ -8,7 +8,7 @@ import net.minecraft.world.World
 import org.ender_development.catalyx.items.BaseItem
 import org.ender_development.catalyx.utils.extensions.translate
 
-class ItemRawSyntheticMeat(val type: String, val entityId: String) : BaseItem(EmergingTechnology.catalyxSettings, "synthetic_${type}") {
+class ItemRawSyntheticMeat(val type: String, val entityId: String) : BaseItem(EmergingTechnology.modSettings, "synthetic_${type}") {
 	override fun getItemStackDisplayName(stack: ItemStack) =
 		"item.${Tags.MODID}:synthetic_meat.name".translate(type.replaceFirstChar(Char::uppercaseChar))
 

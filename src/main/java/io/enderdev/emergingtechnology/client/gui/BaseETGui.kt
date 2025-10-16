@@ -22,14 +22,14 @@ abstract class BaseETGuiTyped<T>(container: Container, tile: T) : BaseGuiTyped<T
 	override val displayNameAlignment = RenderAlignment(RenderAlignment.Alignment.TOP_LEFT)
 
 	fun drawBar(storage: CapabilityDisplayWrapper) {
-		if(storage.getStored() < 5)
+		if(storage.stored < 5)
 			return
 
 		val x = storage.x + ((width - xSize) shr 1)
 		val y = storage.y + ((height - ySize) shr 1)
-		val w = getBarScaled(storage.width, storage.getStored(), storage.getCapacity())
+		val w = getBarScaled(storage.width, storage.stored, storage.capacity)
 		val v = when(storage) {
-			is CapabilityFluidDisplayWrapper -> when(storage.getFluid()?.fluid) {
+			is CapabilityFluidDisplayWrapper -> when(storage.fluid?.fluid) {
 				FluidRegistry.WATER -> 9
 				ModFluids.co2 -> 18
 				ModFluids.nutrient -> 27

@@ -8,6 +8,7 @@ import io.netty.buffer.ByteBuf
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.renderer.GlStateManager
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ITickable
@@ -18,13 +19,14 @@ import net.minecraftforge.fluids.*
 import net.minecraftforge.fluids.capability.FluidTankProperties
 import net.minecraftforge.fluids.capability.IFluidHandler
 import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.tiles.BaseTile
 import org.ender_development.catalyx.tiles.helper.IButtonTile
 import org.ender_development.catalyx.tiles.helper.ICopyPasteExtraTile
 import org.ender_development.catalyx.tiles.helper.IGuiTile
 
-class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IGuiTile, IButtonTile, ICopyPasteExtraTile {
+class TileCreativeFiller : BaseTile(EmergingTechnology.modSettings), ITickable, IGuiTile, IButtonTile, ICopyPasteExtraTile {
 	init {
 		initInventoryCapability(0, 0)
 	}
@@ -239,7 +241,7 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 			drawTexturedModalRect(x, y, 175, 0, 16, 16)
 		} }
 
-		override fun readExtraData(buf: ByteBuf) {
+		override fun readExtraData(buf: ByteBuf, ctx: MessageContext) {
 			field = buf.readInt()
 			value = buf.readInt()
 		}
@@ -272,7 +274,7 @@ class TileCreativeFiller : BaseTile(EmergingTechnology.catalyxSettings), ITickab
 		tag.setInteger("NutrientInput", maxNutrientInput)
 	}
 
-	override fun pasteData(tag: NBTTagCompound) {
+	override fun pasteData(tag: NBTTagCompound, player: EntityPlayer) {
 		// thank god for regex, otherwise I'd have to do this all manually
 		// for future reference:
 		// find: tag\.setinteger\("(.+?)", (.+?)\)

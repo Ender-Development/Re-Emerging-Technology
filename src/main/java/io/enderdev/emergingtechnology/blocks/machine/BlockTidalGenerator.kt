@@ -22,7 +22,7 @@ class BlockTidalGenerator() : ModelBlock("tidal_generator"), ITileEntityProvider
 		GameRegistry.registerTileEntity(TileTidalGenerator::class.java, ResourceLocation(Tags.MODID, name))
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:tidal_generator.desc".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.TIDALGENERATOR.tidalEnergyGenerated, EmergingTechnologyConfig.ELECTRICS_MODULE.TIDALGENERATOR.minOptimalDepth, EmergingTechnologyConfig.ELECTRICS_MODULE.TIDALGENERATOR.maxOptimalDepth),

@@ -3,21 +3,15 @@ package io.enderdev.emergingtechnology.blocks
 import io.enderdev.emergingtechnology.blocks.machine.*
 import io.enderdev.emergingtechnology.fluids.ModFluids
 import io.enderdev.emergingtechnology.tiles.TileHydroponicGrowLight
-import net.minecraft.block.Block
 import net.minecraft.block.SoundType
 import net.minecraft.block.material.Material
 import net.minecraft.client.Minecraft
 import net.minecraft.init.Blocks
-import net.minecraft.item.Item
 import net.minecraft.util.math.BlockPos
-import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fml.relauncher.Side
 import net.minecraftforge.fml.relauncher.SideOnly
-import org.ender_development.catalyx.IBothProvider
 
 object ModBlocks {
-	val blocks = mutableListOf<IBothProvider>()
-
 	// TODO - CTM support for certain blocks (aquaponic_base, aquaponic_frame, aquaponic_glass)
 	// TODO - run optipng once finished :3
 
@@ -80,16 +74,11 @@ object ModBlocks {
 	// Creative
 	val creativeFiller = BlockCreativeFiller()
 
-
-	fun registerBlocks(event: RegistryEvent.Register<Block>) = blocks.forEach { it.registerBlock(event) }
-
-	fun registerItems(event: RegistryEvent.Register<Item>) = blocks.forEach { it.registerItem(event) }
-
 	@SideOnly(Side.CLIENT)
 	fun initColours() {
 		// original EMT did this by changing texture in blockstate, but this felt like a better solution
 		Minecraft.getMinecraft().blockColors.registerBlockColorHandler({ state, world, pos, tintIndex ->
-			(world?.getTileEntity(pos ?: BlockPos.ORIGIN) as? TileHydroponicGrowLight)?.getColour() ?: -1
+			(world?.getTileEntity(pos ?: return@registerBlockColorHandler -1) as? TileHydroponicGrowLight)?.getColour() ?: -1
 		}, hydroponicGrowLight)
 	}
 }

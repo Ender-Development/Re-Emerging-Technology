@@ -20,8 +20,10 @@ class GuiSolarCooker(playerInv: IInventory, tile: TileSolarCooker) : BaseETGui(C
 	}
 
 	class HeatDisplayWrapper(x: Int, y: Int, width: Int, height: Int, val heatGetter: () -> Int, val max: Int) : CapabilityDisplayWrapper(x, y, width, height) {
-		override fun getStored() = heatGetter()
-		override fun getCapacity() = max
-		override fun toStringList() = listOf("${heatGetter()}/$max °C") // TODO: does this unit make sense with config values (no, it really doesn't, but it's kinda funny)
+		override val stored: Int
+			get() = heatGetter()
+		override val capacity = max
+		override val textLines
+			get() = listOf("${heatGetter()}/$max °C") // TODO: does this unit make sense with config values (no, it really doesn't, but it's kinda funny)
 	}
 }

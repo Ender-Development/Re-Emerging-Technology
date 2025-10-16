@@ -10,7 +10,7 @@ import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.utils.extensions.get
 import org.ender_development.catalyx.utils.extensions.toStack
 
-class TileWasteCollector() : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings) {
+class TileWasteCollector() : BaseMachineTile<Any>(EmergingTechnology.modSettings) {
 	init {
 		initInventoryCapability(0, 5)
 		currentRecipe = 1

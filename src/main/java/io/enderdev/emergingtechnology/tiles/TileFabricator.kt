@@ -10,9 +10,11 @@ import io.netty.buffer.ByteBuf
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.renderer.GlStateManager
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.ResourceLocation
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
@@ -22,7 +24,7 @@ import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl(), ICopyPasteExtraTile {
+class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl(), ICopyPasteExtraTile {
 	init {
 		initInventoryCapability(1, 1)
 	}
@@ -117,7 +119,7 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 			drawTexturedModalRect(x, y, 175, v, 16, 16)
 		} }
 
-		override fun readExtraData(buf: ByteBuf) {
+		override fun readExtraData(buf: ByteBuf, ctx: MessageContext) {
 			recipeId = buf.readInt()
 			stopped = buf.readBoolean()
 		}
@@ -148,7 +150,7 @@ class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.cata
 		tag.setBoolean("Stopped", stopped)
 	}
 
-	override fun pasteData(tag: NBTTagCompound) {
+	override fun pasteData(tag: NBTTagCompound, player: EntityPlayer) {
 		if(tag.hasKey("RecipeId"))
 			recipeId = tag.getInteger("RecipeId")
 

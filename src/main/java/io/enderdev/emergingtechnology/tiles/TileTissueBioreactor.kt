@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
-import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
 import org.ender_development.catalyx.tiles.BaseMachineTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
@@ -17,7 +16,7 @@ import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
+class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
 		currentRecipe = 1
@@ -31,8 +30,7 @@ class TileTissueBioreactor : BaseMachineTile<Any>(EmergingTechnology.catalyxSett
 
 	val inputTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
 
-	override val fluidTanks: FluidHandlerConcatenate
-		get() = FluidHandlerConcatenate(inputTank)
+	override val fluidHandler = inputTank
 
 	override val recipeTime: Int
 		get() = getEffectiveRecipeTime(EmergingTechnologyConfig.SYNTHETICS_MODULE.BIOREACTOR.bioreactorBaseTimeTaken)

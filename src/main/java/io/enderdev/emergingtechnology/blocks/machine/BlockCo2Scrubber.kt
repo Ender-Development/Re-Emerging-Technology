@@ -22,7 +22,7 @@ class BlockCo2Scrubber() : RotatableMachineBlock("co2_scrubber", TileCo2Scrubber
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:co2_scrubber.desc".translate(),

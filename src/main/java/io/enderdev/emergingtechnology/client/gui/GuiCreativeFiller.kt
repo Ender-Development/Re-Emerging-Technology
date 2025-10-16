@@ -53,7 +53,7 @@ class GuiCreativeFiller(playerInv: IInventory, val tile: TileCreativeFiller) : G
 			else -> 0
 		}
 
-		PacketHandler.channel.sendToServer(ButtonPacket(tile.pos, wrapper))
+		PacketHandler.sendWrapper(tile.pos, wrapper)
 	}
 
 	override fun mouseClicked(mouseX: Int, mouseY: Int, mouseButton: Int) {

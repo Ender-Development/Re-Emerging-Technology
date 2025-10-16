@@ -9,6 +9,7 @@ import io.netty.buffer.ByteBuf
 import net.minecraft.client.Minecraft
 import net.minecraft.client.gui.GuiButton
 import net.minecraft.client.renderer.GlStateManager
+import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NBTTagCompound
 import net.minecraft.util.EnumFacing
@@ -17,7 +18,7 @@ import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.BlockPos
 import net.minecraftforge.fluids.Fluid
 import net.minecraftforge.fluids.FluidRegistry
-import net.minecraftforge.fluids.capability.templates.FluidHandlerConcatenate
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.client.button.PauseButtonWrapper
 import org.ender_development.catalyx.client.button.RedstoneButtonWrapper
@@ -27,7 +28,7 @@ import org.ender_development.catalyx.tiles.helper.*
 import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, ICopyPasteExtraTile {
+class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.modSettings), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, ICopyPasteExtraTile {
 	override var isPaused = false
 	override var needsRedstonePower = false
 
@@ -37,7 +38,7 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 
 	val inputTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 10, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
 
-	override val fluidTanks = FluidHandlerConcatenate(inputTank)
+	override val fluidHandler = inputTank
 
 	override fun initInventoryInputCapability() {
 		input = object : TileStackHandler(inputSlots, this) {
@@ -168,7 +169,7 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 			drawTexturedModalRect(x, y, 175, v, 16, 16)
 		} }
 
-		override fun readExtraData(buf: ByteBuf) {
+		override fun readExtraData(buf: ByteBuf, ctx: MessageContext) {
 			count = buf.readInt()
 			resource = OptimiserResource.entries.toTypedArray()[buf.readInt()]
 		}
@@ -197,7 +198,7 @@ class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.catalyxSettings), I
 		tag.setInteger("RecipeTimeAssignment", assignments.recipeTime)
 	}
 
-	override fun pasteData(tag: NBTTagCompound) {
+	override fun pasteData(tag: NBTTagCompound, player: EntityPlayer) {
 		if(tag.hasKey("EnergyAssignment"))
 			assignments.energy = tag.getInteger("EnergyAssignment").coerceIn(0, getCores() - assignments.water - assignments.gas - assignments.recipeTime)
 

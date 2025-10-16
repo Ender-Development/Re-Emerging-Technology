@@ -17,7 +17,7 @@ class BlockTissueScaffolder() : RotatableMachineBlock("tissue_scaffolder", TileT
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:tissue_scaffolder.desc".translate(),

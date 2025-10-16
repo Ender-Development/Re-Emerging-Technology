@@ -15,7 +15,7 @@ import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileTissueScaffolder : BaseMachineTile<TissueScaffolderRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
+class TileTissueScaffolder : BaseMachineTile<TissueScaffolderRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(2, 1)
 	}

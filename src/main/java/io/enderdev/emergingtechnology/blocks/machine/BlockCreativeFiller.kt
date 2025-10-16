@@ -21,7 +21,7 @@ class BlockCreativeFiller() : ModelMachineBlock("creative_filler", TileCreativeF
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:creative_filler.desc".translate(),

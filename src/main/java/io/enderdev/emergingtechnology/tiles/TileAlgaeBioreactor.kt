@@ -21,7 +21,7 @@ import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechnology.catalyxSettings), IEnergyTile by EnergyTileImpl(5000), IOptimisableTile by OptimisableTileImpl(), IFluidTile {
+class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(5000), IOptimisableTile by OptimisableTileImpl(), IFluidTile {
 	init {
 		initInventoryCapability(1, 1)
 	}
@@ -36,7 +36,7 @@ class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechn
 	val waterTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 5, true, false, FluidRegistry.WATER, onContentsChangedCallback = this::markDirtyGUI)
 	val gasTank = FluidTankUtils.create(this, Fluid.BUCKET_VOLUME * 5, true, false, ModFluids.co2, onContentsChangedCallback = this::markDirtyGUI)
 
-	override val fluidTanks = FluidHandlerConcatenate(waterTank, gasTank)
+	override val fluidHandler = FluidHandlerConcatenate(waterTank, gasTank)
 
 	var bulbCheckTimer = 20
 	var bulbRecipeTimeModifier = 1

@@ -60,7 +60,7 @@ class GuiAlgorithmicOptimiser(playerInv: IInventory, val tile: TileAlgorithmicOp
 					(tile.getCores() - assignments.sum()).coerceAtMost(5)
 			assignments.add(wrapper.resource, wrapper.count)
 			updateButtonVisibility()
-			PacketHandler.channel.sendToServer(ButtonPacket(tile.pos, wrapper))
+			PacketHandler.sendWrapper(tile.pos, wrapper)
 		}
 	}
 

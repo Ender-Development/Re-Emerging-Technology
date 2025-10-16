@@ -22,7 +22,7 @@ class BlockHarvester() : RotatableMachineBlock("harvester", TileHarvester::class
 		blockHardness = 1f
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:harvester.name".translate(),

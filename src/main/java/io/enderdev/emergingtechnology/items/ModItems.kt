@@ -7,18 +7,13 @@ import io.enderdev.emergingtechnology.config.hydroponics.HydroponicsModule
 import io.enderdev.emergingtechnology.config.synthetics.SyntheticsModule
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.client.util.ITooltipFlag
-import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.world.World
-import net.minecraftforge.event.RegistryEvent
 import org.ender_development.catalyx.items.BaseItem
-import org.ender_development.catalyx.items.IItemProvider
 import org.ender_development.catalyx.utils.extensions.translate
 import java.awt.Color
 
 object ModItems {
-	val items = ArrayList<IItemProvider>()
-
 	val hydroponics: HydroponicsModule = EmergingTechnologyConfig.HYDROPONICS_MODULE
 	val synthetics: SyntheticsModule = EmergingTechnologyConfig.SYNTHETICS_MODULE
 
@@ -30,7 +25,7 @@ object ModItems {
 	val bulbBlue = ItemBulb("blue", hydroponics.GROWLIGHT.energyBlueBulbModifier, hydroponics.GROWLIGHT.growthBlueBulbModifier, Color(64, 64, 255).rgb)
 	val bulbPurple = ItemBulb("purple", hydroponics.GROWLIGHT.energyPurpleBulbModifier, hydroponics.GROWLIGHT.growthPurpleBulbModifier, Color.pink.darker().rgb)
 
-	val nozzleComponent = object : BaseItem(EmergingTechnology.catalyxSettings, "nozzle_component") {
+	val nozzleComponent = object : BaseItem(EmergingTechnology.modSettings, "nozzle_component") {
 		override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 			(tooltip as MutableList).addAll(ItemUtils.extendedTooltip("item.${Tags.MODID}:nozzle_component.desc".translate()))
 		}
@@ -39,25 +34,25 @@ object ModItems {
 	val nozzleLong = ItemNozzle("long", hydroponics.DIFFUSER.LONG.rangeMultiplier, hydroponics.DIFFUSER.LONG.boostMultiplier)
 	val nozzlePrecise = ItemNozzle("precise", hydroponics.DIFFUSER.PRECISE.rangeMultiplier, hydroponics.DIFFUSER.PRECISE.boostMultiplier)
 
-	val fertilizer = BaseItem(EmergingTechnology.catalyxSettings, "fertilizer")
+	val fertilizer = BaseItem(EmergingTechnology.modSettings, "fertilizer")
 
 	// Polymers
-	val shreddedPlastic = BaseItem(EmergingTechnology.catalyxSettings, "shredded_plastic")
-	val shreddedPlant = object : BaseItem(EmergingTechnology.catalyxSettings, "shredded_plant") {
+	val shreddedPlastic = BaseItem(EmergingTechnology.modSettings, "shredded_plastic")
+	val shreddedPlant = object : BaseItem(EmergingTechnology.modSettings, "shredded_plant") {
 		override fun getItemBurnTime(itemStack: ItemStack) = 800
 	}
-	val shreddedStarch = BaseItem(EmergingTechnology.catalyxSettings, "shredded_starch")
-	val shreddedPaper = BaseItem(EmergingTechnology.catalyxSettings, "shredded_paper")
+	val shreddedStarch = BaseItem(EmergingTechnology.modSettings, "shredded_starch")
+	val shreddedPaper = BaseItem(EmergingTechnology.modSettings, "shredded_paper")
 	
-	val plasticWaste = BaseItem(EmergingTechnology.catalyxSettings, "plastic_waste")
-	val paperWaste = BaseItem(EmergingTechnology.catalyxSettings, "paper_waste")
-	val paperPulp = BaseItem(EmergingTechnology.catalyxSettings, "paper_pulp")
+	val plasticWaste = BaseItem(EmergingTechnology.modSettings, "plastic_waste")
+	val paperWaste = BaseItem(EmergingTechnology.modSettings, "paper_waste")
+	val paperPulp = BaseItem(EmergingTechnology.modSettings, "paper_pulp")
 	
-	val filament = BaseItem(EmergingTechnology.catalyxSettings, "filament")
-	val plasticRod = BaseItem(EmergingTechnology.catalyxSettings, "plastic_rod")
-	val plasticSheet = BaseItem(EmergingTechnology.catalyxSettings, "plastic_sheet")
-	val plasticTissueScaffold = BaseItem(EmergingTechnology.catalyxSettings, "plastic_tissue_scaffold")
-	val turbine = BaseItem(EmergingTechnology.catalyxSettings, "turbine")
+	val filament = BaseItem(EmergingTechnology.modSettings, "filament")
+	val plasticRod = BaseItem(EmergingTechnology.modSettings, "plastic_rod")
+	val plasticSheet = BaseItem(EmergingTechnology.modSettings, "plastic_sheet")
+	val plasticTissueScaffold = BaseItem(EmergingTechnology.modSettings, "plastic_tissue_scaffold")
+	val turbine = BaseItem(EmergingTechnology.modSettings, "turbine")
 
 	// Synthetics
 	val syringeEmpty = ItemEmptySyringe()
@@ -72,25 +67,22 @@ object ModItems {
 	val syntheticChickenCooked = ItemCookedSyntheticMeat("chicken", "minecraft:chicken", synthetics.chickenHunger, synthetics.chickenHungerSaturation.toFloat())
 	val syntheticPorkchopCooked = ItemCookedSyntheticMeat("porkchop", "minecraft:pig", synthetics.porkchopHunger, synthetics.porkchopHungerSaturation.toFloat())
 
-	val syntheticLeather = BaseItem(EmergingTechnology.catalyxSettings, "synthetic_leather")
-	val syntheticSlime = BaseItem(EmergingTechnology.catalyxSettings, "synthetic_slime")
-	val syntheticSilk = BaseItem(EmergingTechnology.catalyxSettings, "synthetic_silk")
+	val syntheticLeather = BaseItem(EmergingTechnology.modSettings, "synthetic_leather")
+	val syntheticSlime = BaseItem(EmergingTechnology.modSettings, "synthetic_slime")
+	val syntheticSilk = BaseItem(EmergingTechnology.modSettings, "synthetic_silk")
 
-	val algae = BaseItem(EmergingTechnology.catalyxSettings, "algae")
-	val algaeBar = BaseItem(EmergingTechnology.catalyxSettings, "algae_bar")
+	val algae = BaseItem(EmergingTechnology.modSettings, "algae")
+	val algaeBar = BaseItem(EmergingTechnology.modSettings, "algae_bar")
 	val algaeBarCooked = BaseFoodItem("algae_bar_cooked", synthetics.algaeHunger, synthetics.algaeHungerSaturation.toFloat())
 	
 	// Electrics
-	val biomass = object : BaseItem(EmergingTechnology.catalyxSettings, "biomass") {
+	val biomass = object : BaseItem(EmergingTechnology.modSettings, "biomass") {
 		override fun getItemBurnTime(itemStack: ItemStack) = 1600
 	}
-	val biochar = BaseItem(EmergingTechnology.catalyxSettings, "biochar")
+	val biochar = BaseItem(EmergingTechnology.modSettings, "biochar")
 
-	val circuit = BaseItem(EmergingTechnology.catalyxSettings, "circuit")
+	val circuit = BaseItem(EmergingTechnology.modSettings, "circuit")
 	val circuitBasic = ItemCircuit("basic", 4)
 	val circuitAdvanced = ItemCircuit("advanced", 8)
 	val circuitSuperior = ItemCircuit("superior", 16)
-
-
-	fun registerItems(event: RegistryEvent.Register<Item>) = items.forEach { it.registerItem(event) }
 }

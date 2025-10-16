@@ -1,13 +1,8 @@
 package io.enderdev.emergingtechnology
 
 import io.enderdev.emergingtechnology.blocks.ModBlocks
-import io.enderdev.emergingtechnology.items.ModItems
 import io.enderdev.emergingtechnology.proxy.CommonProxy
-import net.minecraft.block.Block
 import net.minecraft.creativetab.CreativeTabs
-import net.minecraft.item.Item
-import net.minecraftforge.client.event.ModelRegistryEvent
-import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fluids.FluidRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
@@ -15,33 +10,25 @@ import net.minecraftforge.fml.common.SidedProxy
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
-import net.minecraftforge.fml.relauncher.Side
-import net.minecraftforge.fml.relauncher.SideOnly
 import org.apache.logging.log4j.Logger
-import org.ender_development.catalyx.CatalyxSettings
-import org.ender_development.catalyx.blocks.BaseBlock
 import org.ender_development.catalyx.client.gui.CatalyxGuiHandler
+import org.ender_development.catalyx.core.CatalyxSettings
+import org.ender_development.catalyx.core.ICatalyxMod
 import org.ender_development.catalyx.utils.extensions.toStack
-import java.text.DecimalFormat
 
 @Mod(
 	modid = Tags.MODID,
 	name = Tags.MOD_NAME,
 	version = Tags.VERSION,
-	dependencies = EmergingTechnology.DEPENDENCIES,
-	modLanguageAdapter = "io.github.chaosunity.forgelin.KotlinAdapter"
+	dependencies = ICatalyxMod.CATALYX_ADDON,
+	modLanguageAdapter = ICatalyxMod.MOD_LANGUAGE_ADAPTER
 )
-object EmergingTechnology {
-	const val DEPENDENCIES =
-		"required-after:configanytime;required-after:forgelin_continuous@[${Tags.KOTLIN_VERSION},);required-after:catalyx"//;after:crafttweaker;after:groovyscript@[${Tags.GROOVYSCRIPT_VERSION},);before:jei;"
-	val DECIMAL_FORMAT = DecimalFormat("#0.00")
-
+object EmergingTechnology : ICatalyxMod {
 	val creativeTab = object : CreativeTabs(Tags.MODID) {
 		override fun createIcon() = ModBlocks.algaeBioreactor.toStack()
 	}
 
- 	val catalyxSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true, { ModBlocks.blocks.add(it as BaseBlock) }, { ModItems.items.add(it) })
+ 	override val modSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true)
 	val guiHandler = CatalyxGuiHandler()
 
 	//https://github.com/jaredlll08/ModTweaker/blob/1.12/src/main/java/com/blamejared/ModTweaker.java
@@ -78,18 +65,4 @@ object EmergingTechnology {
 	//	LATE_REMOVALS.clear()
 	//	LATE_ADDITIONS.clear()
 	//}
-
-	@Mod.EventBusSubscriber(modid = Tags.MODID)
-	object Registration {
-		@SubscribeEvent
-		fun registerBlocks(event: RegistryEvent.Register<Block>) {
-			ModBlocks.registerBlocks(event)
-		}
-
-		@SubscribeEvent
-		fun registerItems(event: RegistryEvent.Register<Item>) {
-			ModBlocks.registerItems(event)
-			ModItems.registerItems(event)
-		}
-	}
 }

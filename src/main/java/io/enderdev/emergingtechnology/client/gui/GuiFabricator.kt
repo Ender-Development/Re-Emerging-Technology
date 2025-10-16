@@ -90,7 +90,7 @@ class GuiFabricator(playerInv: IInventory, val tile: TileFabricator) : BaseETGui
 			wrapper.recipeId = recipeId
 			wrapper.stopped = stopped
 			updateButtonState()
-			PacketHandler.channel.sendToServer(ButtonPacket(tileEntity.pos, wrapper))
+			PacketHandler.sendWrapper(tileEntity.pos, wrapper)
 		}
 	}
 

@@ -24,7 +24,7 @@ class BlockSolarGlass() : RotatableModelBlock("solar_glass"), ITileEntityProvide
 		lightOpacity = 0
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip(
 				"tile.${Tags.MODID}:solar_glass.desc".translate(EmergingTechnologyConfig.ELECTRICS_MODULE.SOLARGLASS.solarEnergyGenerated),

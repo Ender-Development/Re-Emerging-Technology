@@ -22,7 +22,7 @@ class BlockPiezoelectricGenerator() : ModelBlock("piezoelectric_generator"), ITi
 		GameRegistry.registerTileEntity(TilePiezoelectricGenerator::class.java, ResourceLocation(Tags.MODID, name))
 	}
 
-	override fun createItemBlock(): Item =
+	override val item =
 		TooltipItemBlock(this) { stack, world, flag ->
 			ItemUtils.extendedTooltip("tile.${Tags.MODID}:piezoelectric_generator.desc".translate(
 				EmergingTechnologyConfig.ELECTRICS_MODULE.PIEZOELECTRIC.piezoelectricEnergyGenerated,
