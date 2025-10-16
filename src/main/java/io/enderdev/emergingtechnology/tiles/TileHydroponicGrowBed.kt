@@ -17,7 +17,7 @@ import org.ender_development.catalyx.tiles.helper.IFluidTile
 import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileHydroponicGrowBed : BaseMachineTile<Any>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(5000), IFluidTile {
+class TileHydroponicGrowBed : BaseMachineTile<Any>(EmergingTechnology), IEnergyTile by EnergyTileImpl(5000), IFluidTile {
 	init {
 		initInventoryCapability(1, 0)
 		currentRecipe = 1

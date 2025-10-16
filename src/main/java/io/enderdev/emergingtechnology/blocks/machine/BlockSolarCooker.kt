@@ -8,7 +8,6 @@ import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.tiles.TileSolarCooker
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.entity.Entity
-import net.minecraft.item.Item
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 import org.ender_development.catalyx.items.TooltipItemBlock

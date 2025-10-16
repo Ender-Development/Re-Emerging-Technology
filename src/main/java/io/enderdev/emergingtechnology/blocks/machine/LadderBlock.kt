@@ -16,6 +16,7 @@ import net.minecraft.world.IBlockAccess
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
 import org.ender_development.catalyx.core.IBlockProvider
+import org.ender_development.catalyx.core.register
 import org.ender_development.catalyx.utils.SideUtils
 
 class LadderBlock(name: String, soundType: SoundType = SoundType.STONE, hardness: Float = 3f) : BlockLadder(), IBlockProvider {
@@ -25,7 +26,7 @@ class LadderBlock(name: String, soundType: SoundType = SoundType.STONE, hardness
 		blockHardness = hardness
 		this.soundType = soundType
 		creativeTab = EmergingTechnology.creativeTab
-		EmergingTechnology.modSettings.blocks(this)
+		EmergingTechnology.register(this)
 	}
 
 	override val instance = this

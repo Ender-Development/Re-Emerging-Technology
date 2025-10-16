@@ -10,7 +10,7 @@ import net.minecraft.world.World
 import org.ender_development.catalyx.items.BaseItem
 import org.ender_development.catalyx.utils.extensions.translate
 
-class ItemBulb(type: String, val energyMult: Int, val growthMult: Int, val colour: Int) : BaseItem(EmergingTechnology.modSettings, "bulb_$type") {
+class ItemBulb(type: String, val energyMult: Int, val growthMult: Int, val colour: Int) : BaseItem(EmergingTechnology, "bulb_$type") {
 	override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 		(tooltip as MutableList).addAll(ItemUtils.extendedTooltip(
 			"item.${Tags.MODID}:bulb.desc".translate(),

@@ -7,7 +7,6 @@ import io.enderdev.emergingtechnology.tiles.TileWindGenerator
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.ITileEntityProvider
 import net.minecraft.block.state.IBlockState
-import net.minecraft.item.Item
 import net.minecraft.util.EnumBlockRenderType
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.math.AxisAlignedBB

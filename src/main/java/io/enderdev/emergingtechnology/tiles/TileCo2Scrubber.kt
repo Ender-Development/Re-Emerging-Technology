@@ -28,7 +28,7 @@ import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 import java.util.*
 
-class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl(), IAnimatedTile {
+class TileCo2Scrubber : BaseMachineTile<Co2ScrubberRecipe>(EmergingTechnology), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl(), IAnimatedTile {
 	init {
 		initInventoryCapability(1, 1)
 	}

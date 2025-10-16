@@ -11,7 +11,7 @@ import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileSolarCooker : BaseMachineTile<SolarCookerRecipe>(EmergingTechnology.modSettings) {
+class TileSolarCooker : BaseMachineTile<SolarCookerRecipe>(EmergingTechnology) {
 	init {
 		initInventoryCapability(1, 1)
 	}

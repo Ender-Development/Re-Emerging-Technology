@@ -22,7 +22,7 @@ import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileNutrientInjector : BaseMachineTile<NutrientInjectorRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
+class TileNutrientInjector : BaseMachineTile<NutrientInjectorRecipe>(EmergingTechnology), IEnergyTile by EnergyTileImpl(10000), IFluidTile, IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
 	}

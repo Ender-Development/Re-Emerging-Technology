@@ -18,7 +18,7 @@ import org.ender_development.catalyx.utils.extensions.get
 import java.awt.Color
 import kotlin.math.absoluteValue
 
-class TileHydroponicGrowLight : BaseMachineTile<Any>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000) {
+class TileHydroponicGrowLight : BaseMachineTile<Any>(EmergingTechnology), IEnergyTile by EnergyTileImpl(10000) {
 	init {
 		initInventoryCapability(1, 0)
 		currentRecipe = 1

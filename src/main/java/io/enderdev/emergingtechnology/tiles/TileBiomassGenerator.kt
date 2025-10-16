@@ -16,7 +16,7 @@ import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileBiomassGenerator : BaseMachineTile<BiomassGeneratorRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000) {
+class TileBiomassGenerator : BaseMachineTile<BiomassGeneratorRecipe>(EmergingTechnology), IEnergyTile by EnergyTileImpl(10000) {
 	init {
 		initInventoryCapability(1, 1)
 	}

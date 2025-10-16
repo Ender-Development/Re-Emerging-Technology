@@ -25,7 +25,7 @@ object ModItems {
 	val bulbBlue = ItemBulb("blue", hydroponics.GROWLIGHT.energyBlueBulbModifier, hydroponics.GROWLIGHT.growthBlueBulbModifier, Color(64, 64, 255).rgb)
 	val bulbPurple = ItemBulb("purple", hydroponics.GROWLIGHT.energyPurpleBulbModifier, hydroponics.GROWLIGHT.growthPurpleBulbModifier, Color.pink.darker().rgb)
 
-	val nozzleComponent = object : BaseItem(EmergingTechnology.modSettings, "nozzle_component") {
+	val nozzleComponent = object : BaseItem(EmergingTechnology, "nozzle_component") {
 		override fun addInformation(stack: ItemStack, worldIn: World?, tooltip: List<String?>, flagIn: ITooltipFlag) {
 			(tooltip as MutableList).addAll(ItemUtils.extendedTooltip("item.${Tags.MODID}:nozzle_component.desc".translate()))
 		}
@@ -34,25 +34,25 @@ object ModItems {
 	val nozzleLong = ItemNozzle("long", hydroponics.DIFFUSER.LONG.rangeMultiplier, hydroponics.DIFFUSER.LONG.boostMultiplier)
 	val nozzlePrecise = ItemNozzle("precise", hydroponics.DIFFUSER.PRECISE.rangeMultiplier, hydroponics.DIFFUSER.PRECISE.boostMultiplier)
 
-	val fertilizer = BaseItem(EmergingTechnology.modSettings, "fertilizer")
+	val fertilizer = BaseItem(EmergingTechnology, "fertilizer")
 
 	// Polymers
-	val shreddedPlastic = BaseItem(EmergingTechnology.modSettings, "shredded_plastic")
-	val shreddedPlant = object : BaseItem(EmergingTechnology.modSettings, "shredded_plant") {
+	val shreddedPlastic = BaseItem(EmergingTechnology, "shredded_plastic")
+	val shreddedPlant = object : BaseItem(EmergingTechnology, "shredded_plant") {
 		override fun getItemBurnTime(itemStack: ItemStack) = 800
 	}
-	val shreddedStarch = BaseItem(EmergingTechnology.modSettings, "shredded_starch")
-	val shreddedPaper = BaseItem(EmergingTechnology.modSettings, "shredded_paper")
+	val shreddedStarch = BaseItem(EmergingTechnology, "shredded_starch")
+	val shreddedPaper = BaseItem(EmergingTechnology, "shredded_paper")
 	
-	val plasticWaste = BaseItem(EmergingTechnology.modSettings, "plastic_waste")
-	val paperWaste = BaseItem(EmergingTechnology.modSettings, "paper_waste")
-	val paperPulp = BaseItem(EmergingTechnology.modSettings, "paper_pulp")
+	val plasticWaste = BaseItem(EmergingTechnology, "plastic_waste")
+	val paperWaste = BaseItem(EmergingTechnology, "paper_waste")
+	val paperPulp = BaseItem(EmergingTechnology, "paper_pulp")
 	
-	val filament = BaseItem(EmergingTechnology.modSettings, "filament")
-	val plasticRod = BaseItem(EmergingTechnology.modSettings, "plastic_rod")
-	val plasticSheet = BaseItem(EmergingTechnology.modSettings, "plastic_sheet")
-	val plasticTissueScaffold = BaseItem(EmergingTechnology.modSettings, "plastic_tissue_scaffold")
-	val turbine = BaseItem(EmergingTechnology.modSettings, "turbine")
+	val filament = BaseItem(EmergingTechnology, "filament")
+	val plasticRod = BaseItem(EmergingTechnology, "plastic_rod")
+	val plasticSheet = BaseItem(EmergingTechnology, "plastic_sheet")
+	val plasticTissueScaffold = BaseItem(EmergingTechnology, "plastic_tissue_scaffold")
+	val turbine = BaseItem(EmergingTechnology, "turbine")
 
 	// Synthetics
 	val syringeEmpty = ItemEmptySyringe()
@@ -67,21 +67,21 @@ object ModItems {
 	val syntheticChickenCooked = ItemCookedSyntheticMeat("chicken", "minecraft:chicken", synthetics.chickenHunger, synthetics.chickenHungerSaturation.toFloat())
 	val syntheticPorkchopCooked = ItemCookedSyntheticMeat("porkchop", "minecraft:pig", synthetics.porkchopHunger, synthetics.porkchopHungerSaturation.toFloat())
 
-	val syntheticLeather = BaseItem(EmergingTechnology.modSettings, "synthetic_leather")
-	val syntheticSlime = BaseItem(EmergingTechnology.modSettings, "synthetic_slime")
-	val syntheticSilk = BaseItem(EmergingTechnology.modSettings, "synthetic_silk")
+	val syntheticLeather = BaseItem(EmergingTechnology, "synthetic_leather")
+	val syntheticSlime = BaseItem(EmergingTechnology, "synthetic_slime")
+	val syntheticSilk = BaseItem(EmergingTechnology, "synthetic_silk")
 
-	val algae = BaseItem(EmergingTechnology.modSettings, "algae")
-	val algaeBar = BaseItem(EmergingTechnology.modSettings, "algae_bar")
+	val algae = BaseItem(EmergingTechnology, "algae")
+	val algaeBar = BaseItem(EmergingTechnology, "algae_bar")
 	val algaeBarCooked = BaseFoodItem("algae_bar_cooked", synthetics.algaeHunger, synthetics.algaeHungerSaturation.toFloat())
 	
 	// Electrics
-	val biomass = object : BaseItem(EmergingTechnology.modSettings, "biomass") {
+	val biomass = object : BaseItem(EmergingTechnology, "biomass") {
 		override fun getItemBurnTime(itemStack: ItemStack) = 1600
 	}
-	val biochar = BaseItem(EmergingTechnology.modSettings, "biochar")
+	val biochar = BaseItem(EmergingTechnology, "biochar")
 
-	val circuit = BaseItem(EmergingTechnology.modSettings, "circuit")
+	val circuit = BaseItem(EmergingTechnology, "circuit")
 	val circuitBasic = ItemCircuit("basic", 4)
 	val circuitAdvanced = ItemCircuit("advanced", 8)
 	val circuitSuperior = ItemCircuit("superior", 16)

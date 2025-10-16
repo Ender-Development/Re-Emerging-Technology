@@ -7,7 +7,6 @@ import io.enderdev.emergingtechnology.client.gui.GuiCreativeFiller
 import io.enderdev.emergingtechnology.tiles.TileCreativeFiller
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.state.IBlockState
-import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.util.NonNullList
 import net.minecraft.util.math.BlockPos

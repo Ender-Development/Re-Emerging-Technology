@@ -17,7 +17,7 @@ import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology.modSettings), IFluidTile, IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
+class TileProcessor : BaseMachineTile<ProcessorRecipe>(EmergingTechnology), IFluidTile, IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl() {
 	init {
 		initInventoryCapability(1, 1)
 	}

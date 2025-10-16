@@ -7,7 +7,6 @@ import io.enderdev.emergingtechnology.tiles.TileSolarGlass
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.ITileEntityProvider
 import net.minecraft.block.state.IBlockState
-import net.minecraft.item.Item
 import net.minecraft.util.BlockRenderLayer
 import net.minecraft.util.EnumFacing
 import net.minecraft.util.ResourceLocation

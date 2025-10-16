@@ -12,7 +12,7 @@ import org.ender_development.catalyx.items.BaseItem
 import org.ender_development.catalyx.utils.extensions.toStack
 import org.ender_development.catalyx.utils.extensions.translate
 
-class ItemEntityThing(name: String) : BaseItem(EmergingTechnology.modSettings, name) {
+class ItemEntityThing(name: String) : BaseItem(EmergingTechnology, name) {
 	companion object {
 		const val ENTITY_NBT = "${Tags.MODID}:entity_id"
 

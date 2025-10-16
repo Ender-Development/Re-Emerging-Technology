@@ -13,7 +13,7 @@ import org.ender_development.catalyx.tiles.BaseTile
 import org.ender_development.catalyx.tiles.helper.EnergyTileImpl
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
 
-class TileSolarGlass : BaseTile(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(2500), ITickable {
+class TileSolarGlass : BaseTile(EmergingTechnology), IEnergyTile by EnergyTileImpl(2500), ITickable {
 	val energyPerTick = EmergingTechnologyConfig.ELECTRICS_MODULE.SOLARGLASS.solarEnergyGenerated
 
 	override fun update() {

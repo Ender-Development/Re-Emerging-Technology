@@ -9,7 +9,6 @@ import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
-import org.ender_development.catalyx.network.ButtonPacket
 import org.ender_development.catalyx.network.PacketHandler
 import org.lwjgl.input.Mouse
 import java.awt.Color

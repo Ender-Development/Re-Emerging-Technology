@@ -11,7 +11,6 @@ import net.minecraft.inventory.IInventory
 import net.minecraft.util.ResourceLocation
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
-import org.ender_development.catalyx.network.ButtonPacket
 import org.ender_development.catalyx.network.PacketHandler
 import java.awt.Color
 

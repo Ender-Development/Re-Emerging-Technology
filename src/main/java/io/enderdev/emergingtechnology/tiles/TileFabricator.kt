@@ -24,7 +24,7 @@ import org.ender_development.catalyx.tiles.helper.TileStackHandler
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl(), ICopyPasteExtraTile {
+class TileFabricator : BaseMachineTile<FabricatorRecipe>(EmergingTechnology), IEnergyTile by EnergyTileImpl(10000), IOptimisableTile by OptimisableTileImpl(), ICopyPasteExtraTile {
 	init {
 		initInventoryCapability(1, 1)
 	}

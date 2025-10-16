@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import org.apache.logging.log4j.Logger
 import org.ender_development.catalyx.client.gui.CatalyxGuiHandler
-import org.ender_development.catalyx.core.CatalyxSettings
 import org.ender_development.catalyx.core.ICatalyxMod
 import org.ender_development.catalyx.utils.extensions.toStack
 
@@ -24,11 +23,10 @@ import org.ender_development.catalyx.utils.extensions.toStack
 	modLanguageAdapter = ICatalyxMod.MOD_LANGUAGE_ADAPTER
 )
 object EmergingTechnology : ICatalyxMod {
-	val creativeTab = object : CreativeTabs(Tags.MODID) {
+	override val creativeTab = object : CreativeTabs(Tags.MODID) {
 		override fun createIcon() = ModBlocks.algaeBioreactor.toStack()
 	}
 
- 	override val modSettings = CatalyxSettings(Tags.MODID, creativeTab, EmergingTechnology, true)
 	val guiHandler = CatalyxGuiHandler()
 
 	//https://github.com/jaredlll08/ModTweaker/blob/1.12/src/main/java/com/blamejared/ModTweaker.java

@@ -28,7 +28,7 @@ import org.ender_development.catalyx.tiles.helper.*
 import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology.modSettings), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, ICopyPasteExtraTile {
+class TileAlgorithmicOptimiser : BaseTile(EmergingTechnology), ITickable, IEnergyTile by EnergyTileImpl(5000), IItemTile, IFluidTile, IGuiTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, ICopyPasteExtraTile {
 	override var isPaused = false
 	override var needsRedstonePower = false
 

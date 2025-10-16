@@ -7,7 +7,6 @@ import io.enderdev.emergingtechnology.client.gui.GuiAlgaeBioreactor
 import io.enderdev.emergingtechnology.config.EmergingTechnologyConfig
 import io.enderdev.emergingtechnology.tiles.TileAlgaeBioreactor
 import io.enderdev.emergingtechnology.utils.ItemUtils
-import net.minecraft.item.Item
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 

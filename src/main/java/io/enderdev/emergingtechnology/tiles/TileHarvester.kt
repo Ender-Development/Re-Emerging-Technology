@@ -25,7 +25,7 @@ import org.ender_development.catalyx.tiles.helper.*
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileHarvester : BaseTile(EmergingTechnology.modSettings), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IAnimatedTile {
+class TileHarvester : BaseTile(EmergingTechnology), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IAnimatedTile {
 	override var isPaused = false
 	override var needsRedstonePower = false
 

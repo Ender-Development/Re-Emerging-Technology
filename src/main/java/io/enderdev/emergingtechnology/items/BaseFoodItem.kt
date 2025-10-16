@@ -9,6 +9,7 @@ import net.minecraft.util.ResourceLocation
 import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.event.RegistryEvent
 import org.ender_development.catalyx.core.IItemProvider
+import org.ender_development.catalyx.core.register
 import org.ender_development.catalyx.utils.SideUtils
 
 open class BaseFoodItem(val name: String, hunger: Int, saturation: Float) : ItemFood(hunger, saturation, false), IItemProvider {
@@ -16,7 +17,7 @@ open class BaseFoodItem(val name: String, hunger: Int, saturation: Float) : Item
 		registryName = ResourceLocation(Tags.MODID, name)
 		translationKey = "$registryName"
 		creativeTab = EmergingTechnology.creativeTab
-		EmergingTechnology.modSettings.items(this)
+		EmergingTechnology.register(this)
 	}
 
 	override val instance = this

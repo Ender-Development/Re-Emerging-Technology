@@ -21,7 +21,7 @@ import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.canMergeWith
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechnology.modSettings), IEnergyTile by EnergyTileImpl(5000), IOptimisableTile by OptimisableTileImpl(), IFluidTile {
+class TileAlgaeBioreactor : BaseMachineTile<AlgaeBioreactorRecipe>(EmergingTechnology), IEnergyTile by EnergyTileImpl(5000), IOptimisableTile by OptimisableTileImpl(), IFluidTile {
 	init {
 		initInventoryCapability(1, 1)
 	}

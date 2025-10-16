@@ -21,7 +21,7 @@ import org.ender_development.catalyx.tiles.helper.*
 import org.ender_development.catalyx.utils.FluidTankUtils
 import org.ender_development.catalyx.utils.extensions.get
 
-class TileCo2Diffuser : BaseTile(EmergingTechnology.modSettings), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IFluidTile {
+class TileCo2Diffuser : BaseTile(EmergingTechnology), ITickable, IGuiTile, IItemTile, IButtonTile, BaseGuiTyped.IDefaultButtonVariables, IEnergyTile by EnergyTileImpl(5000), IFluidTile {
 	init {
 		initInventoryCapability(1, 0)
 	}

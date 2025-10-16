@@ -14,6 +14,7 @@ import net.minecraftforge.event.RegistryEvent
 import net.minecraftforge.fluids.BlockFluidClassic
 import net.minecraftforge.fluids.Fluid
 import org.ender_development.catalyx.core.IBlockProvider
+import org.ender_development.catalyx.core.register
 import org.ender_development.catalyx.utils.SideUtils
 
 class BaseFluidBlock(fluid: Fluid, material: Material) : BlockFluidClassic(fluid, material), IBlockProvider {
@@ -21,7 +22,7 @@ class BaseFluidBlock(fluid: Fluid, material: Material) : BlockFluidClassic(fluid
 		registryName = ResourceLocation(Tags.MODID, fluid.name)
 		translationKey = "$registryName"
 		creativeTab = EmergingTechnology.creativeTab
-		EmergingTechnology.modSettings.blocks(this)
+		EmergingTechnology.register(this)
 	}
 
 	override val instance = this

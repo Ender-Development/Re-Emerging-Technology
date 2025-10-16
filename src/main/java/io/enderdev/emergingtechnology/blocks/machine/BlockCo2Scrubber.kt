@@ -9,7 +9,6 @@ import io.enderdev.emergingtechnology.tiles.TileCo2Scrubber
 import io.enderdev.emergingtechnology.utils.ItemUtils
 import net.minecraft.block.BlockHorizontal
 import net.minecraft.block.state.IBlockState
-import net.minecraft.item.Item
 import net.minecraft.util.EnumBlockRenderType
 import net.minecraftforge.common.property.ExtendedBlockState
 import net.minecraftforge.common.property.Properties.AnimationProperty

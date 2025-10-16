@@ -12,7 +12,6 @@ import net.minecraft.util.math.BlockPos
 import org.ender_development.catalyx.client.button.AbstractButtonWrapper
 import org.ender_development.catalyx.client.gui.wrappers.CapabilityEnergyDisplayWrapper
 import org.ender_development.catalyx.client.gui.wrappers.CapabilityFluidDisplayWrapper
-import org.ender_development.catalyx.network.ButtonPacket
 import org.ender_development.catalyx.network.PacketHandler
 import org.ender_development.catalyx.utils.extensions.translate
 import java.awt.Color

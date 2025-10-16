@@ -14,7 +14,7 @@ import org.ender_development.catalyx.client.gui.BaseGuiTyped
 import org.ender_development.catalyx.tiles.BaseTile
 import org.ender_development.catalyx.tiles.helper.IEnergyTile
 
-class TileBattery : BaseTile(EmergingTechnology.modSettings), IEnergyTile, BaseGuiTyped.IDefaultButtonVariables, ITickable {
+class TileBattery : BaseTile(EmergingTechnology), IEnergyTile, BaseGuiTyped.IDefaultButtonVariables, ITickable {
 	// only here so I can make GuiBattery extend BaseETGuiTyped<TileBattery>
 	override var isPaused = false
 	override var needsRedstonePower = false

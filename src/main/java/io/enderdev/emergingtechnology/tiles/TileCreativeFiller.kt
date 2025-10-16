@@ -26,7 +26,7 @@ import org.ender_development.catalyx.tiles.helper.IButtonTile
 import org.ender_development.catalyx.tiles.helper.ICopyPasteExtraTile
 import org.ender_development.catalyx.tiles.helper.IGuiTile
 
-class TileCreativeFiller : BaseTile(EmergingTechnology.modSettings), ITickable, IGuiTile, IButtonTile, ICopyPasteExtraTile {
+class TileCreativeFiller : BaseTile(EmergingTechnology), ITickable, IGuiTile, IButtonTile, ICopyPasteExtraTile {
 	init {
 		initInventoryCapability(0, 0)
 	}
