@@ -20,8 +20,7 @@ open class BaseFoodItem(val name: String, hunger: Int, saturation: Float) : Item
 		EmergingTechnology.register(this)
 	}
 
-	override val instance
-		get() = this
+	override val instance = this
 
 	override val isEnabled = true
 

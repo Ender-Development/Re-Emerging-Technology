@@ -29,8 +29,7 @@ class LadderBlock(name: String, soundType: SoundType = SoundType.STONE, hardness
 		EmergingTechnology.register(this)
 	}
 
-	override val instance
-		get() = this
+	override val instance = this
 
 	override var modDependencies = ""
 
