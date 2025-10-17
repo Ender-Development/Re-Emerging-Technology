@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockNutrientInjector() : RotatableMachineBlock("nutrient_injector", TileNutrientInjector::class.java,
-	EmergingTechnology.guiHandler.registerId(TileNutrientInjector::class.java, ContainerNutrientInjector::class.java) { GuiNutrientInjector::class.java }) {
+class BlockNutrientInjector() : RotatableMachineBlock("nutrient_injector", EmergingTechnology.guiHandler.registerId(TileNutrientInjector::class.java, ContainerNutrientInjector::class.java) { GuiNutrientInjector::class.java }) {
 	init {
 		blockHardness = 1f
 	}

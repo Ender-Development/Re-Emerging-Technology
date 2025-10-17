@@ -25,7 +25,8 @@ class BaseFluidBlock(fluid: Fluid, material: Material) : BlockFluidClassic(fluid
 		EmergingTechnology.register(this)
 	}
 
-	override val instance = this
+	override val instance
+		get() = this
 
 	override var modDependencies = ""
 

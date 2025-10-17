@@ -15,8 +15,7 @@ import net.minecraftforge.common.property.Properties.AnimationProperty
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockCo2Scrubber() : RotatableMachineBlock("co2_scrubber", TileCo2Scrubber::class.java,
-	EmergingTechnology.guiHandler.registerId(TileCo2Scrubber::class.java, ContainerCo2Scrubber::class.java) { GuiCo2Scrubber::class.java }) {
+class BlockCo2Scrubber() : RotatableMachineBlock("co2_scrubber", EmergingTechnology.guiHandler.registerId(TileCo2Scrubber::class.java, ContainerCo2Scrubber::class.java) { GuiCo2Scrubber::class.java }) {
 	init {
 		blockHardness = 1f
 	}

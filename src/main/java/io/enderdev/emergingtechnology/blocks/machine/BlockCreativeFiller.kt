@@ -14,8 +14,7 @@ import net.minecraft.world.IBlockAccess
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockCreativeFiller() : ModelMachineBlock("creative_filler", TileCreativeFiller::class.java,
-	EmergingTechnology.guiHandler.registerId(TileCreativeFiller::class.java, ContainerCreativeFiller::class.java) { GuiCreativeFiller::class.java }) {
+class BlockCreativeFiller() : ModelMachineBlock("creative_filler", EmergingTechnology.guiHandler.registerId(TileCreativeFiller::class.java, ContainerCreativeFiller::class.java) { GuiCreativeFiller::class.java }) {
 	init {
 		blockHardness = 1f
 	}

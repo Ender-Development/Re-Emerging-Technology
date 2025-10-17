@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockBiomassGenerator() : RotatableMachineBlock("biomass_generator", TileBiomassGenerator::class.java,
-	EmergingTechnology.guiHandler.registerId(TileBiomassGenerator::class.java, ContainerBiomassGenerator::class.java) { GuiBiomassGenerator::class.java }) {
+class BlockBiomassGenerator() : RotatableMachineBlock("biomass_generator", EmergingTechnology.guiHandler.registerId(TileBiomassGenerator::class.java, ContainerBiomassGenerator::class.java) { GuiBiomassGenerator::class.java }) {
 	init {
 		blockHardness = 1f
 	}

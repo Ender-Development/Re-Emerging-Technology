@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockCo2Diffuser() : ModelMachineBlock("co2_diffuser", TileCo2Diffuser::class.java,
-	EmergingTechnology.guiHandler.registerId(TileCo2Diffuser::class.java, ContainerCo2Diffuser::class.java) { GuiCo2Diffuser::class.java }) {
+class BlockCo2Diffuser() : ModelMachineBlock("co2_diffuser", EmergingTechnology.guiHandler.registerId(TileCo2Diffuser::class.java, ContainerCo2Diffuser::class.java) { GuiCo2Diffuser::class.java }) {
 	init {
 		blockHardness = 1f
 	}

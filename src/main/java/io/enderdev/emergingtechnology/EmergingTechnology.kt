@@ -24,10 +24,11 @@ import org.ender_development.catalyx.utils.extensions.toStack
 )
 object EmergingTechnology : ICatalyxMod {
 	override val creativeTab = object : CreativeTabs(Tags.MODID) {
-		override fun createIcon() = ModBlocks.algaeBioreactor.toStack()
+		override fun createIcon() =
+			ModBlocks.algaeBioreactor.toStack()
 	}
 
-	val guiHandler = CatalyxGuiHandler()
+	val guiHandler = CatalyxGuiHandler(this)
 
 	//https://github.com/jaredlll08/ModTweaker/blob/1.12/src/main/java/com/blamejared/ModTweaker.java
 	//val LATE_REMOVALS: LinkedList<IAction> = LinkedList()

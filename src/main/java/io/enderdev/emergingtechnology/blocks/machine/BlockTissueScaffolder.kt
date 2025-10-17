@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockTissueScaffolder() : RotatableMachineBlock("tissue_scaffolder", TileTissueScaffolder::class.java,
-	EmergingTechnology.guiHandler.registerId(TileTissueScaffolder::class.java, ContainerTissueScaffolder::class.java) { GuiTissueScaffolder::class.java }) {
+class BlockTissueScaffolder() : RotatableMachineBlock("tissue_scaffolder", EmergingTechnology.guiHandler.registerId(TileTissueScaffolder::class.java, ContainerTissueScaffolder::class.java) { GuiTissueScaffolder::class.java }) {
 	init {
 		blockHardness = 1f
 	}

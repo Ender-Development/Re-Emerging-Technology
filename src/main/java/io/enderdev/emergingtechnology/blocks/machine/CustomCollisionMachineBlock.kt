@@ -2,14 +2,13 @@ package io.enderdev.emergingtechnology.blocks.machine
 
 import net.minecraft.block.state.IBlockState
 import net.minecraft.entity.Entity
-import net.minecraft.tileentity.TileEntity
 import net.minecraft.util.EnumBlockRenderType
 import net.minecraft.util.math.AxisAlignedBB
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.IBlockAccess
 import net.minecraft.world.World
 
-class CustomCollisionMachineBlock(name: String, tileClass: Class<out TileEntity>, guiID: Int, vararg val boundingBoxes: AxisAlignedBB) : ModelMachineBlock(name, tileClass, guiID) {
+class CustomCollisionMachineBlock(name: String, guiId: Int, vararg val boundingBoxes: AxisAlignedBB) : ModelMachineBlock(name, guiId) {
 	@Deprecated("")
 	override fun getRenderType(state: IBlockState): EnumBlockRenderType = EnumBlockRenderType.MODEL
 

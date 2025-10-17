@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockTissueBioreactor() : RotatableMachineBlock("tissue_bioreactor", TileTissueBioreactor::class.java,
-	EmergingTechnology.guiHandler.registerId(TileTissueBioreactor::class.java, ContainerTissueBioreactor::class.java) { GuiTissueBioreactor::class.java }) {
+class BlockTissueBioreactor() : RotatableMachineBlock("tissue_bioreactor", EmergingTechnology.guiHandler.registerId(TileTissueBioreactor::class.java, ContainerTissueBioreactor::class.java) { GuiTissueBioreactor::class.java }) {
 	init {
 		blockHardness = 1f
 	}

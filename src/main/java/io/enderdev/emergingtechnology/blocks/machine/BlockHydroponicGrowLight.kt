@@ -21,8 +21,7 @@ import net.minecraft.world.World
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light", TileHydroponicGrowLight::class.java,
-	EmergingTechnology.guiHandler.registerId(TileHydroponicGrowLight::class.java, ContainerHydroponicGrowLight::class.java) { GuiHydroponicGrowLight::class.java }) {
+class BlockHydroponicGrowLight() : RotatableMachineBlock("hydroponic_grow_light", EmergingTechnology.guiHandler.registerId(TileHydroponicGrowLight::class.java, ContainerHydroponicGrowLight::class.java) { GuiHydroponicGrowLight::class.java }) {
 	companion object {
 		val LIT: PropertyBool = PropertyBool.create("lit")
 	}

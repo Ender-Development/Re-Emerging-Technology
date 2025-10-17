@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockFabricator : RotatableMachineBlock("fabricator", TileFabricator::class.java,
-	EmergingTechnology.guiHandler.registerId(TileFabricator::class.java, ContainerFabricator::class.java) { GuiFabricator::class.java }) {
+class BlockFabricator : RotatableMachineBlock("fabricator", EmergingTechnology.guiHandler.registerId(TileFabricator::class.java, ContainerFabricator::class.java) { GuiFabricator::class.java }) {
 	init {
 		blockHardness = 1f
 	}

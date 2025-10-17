@@ -15,8 +15,7 @@ import net.minecraftforge.common.property.Properties.AnimationProperty
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockHarvester() : RotatableMachineBlock("harvester", TileHarvester::class.java,
-	EmergingTechnology.guiHandler.registerId(TileHarvester::class.java, ContainerHarvester::class.java) { GuiHarvester::class.java }) {
+class BlockHarvester() : RotatableMachineBlock("harvester", EmergingTechnology.guiHandler.registerId(TileHarvester::class.java, ContainerHarvester::class.java) { GuiHarvester::class.java }) {
 	init {
 		blockHardness = 1f
 	}

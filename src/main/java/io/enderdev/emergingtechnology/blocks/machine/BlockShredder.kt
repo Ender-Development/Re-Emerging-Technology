@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockShredder() : RotatableMachineBlock("shredder", TileShredder::class.java,
-	EmergingTechnology.guiHandler.registerId(TileShredder::class.java, ContainerShredder::class.java) { GuiShredder::class.java }) {
+class BlockShredder() : RotatableMachineBlock("shredder", EmergingTechnology.guiHandler.registerId(TileShredder::class.java, ContainerShredder::class.java) { GuiShredder::class.java }) {
 	init {
 		blockHardness = 1f
 	}

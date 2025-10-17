@@ -17,8 +17,7 @@ import net.minecraft.world.World
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockBattery() : ModelMachineBlock("battery", TileBattery::class.java,
-	EmergingTechnology.guiHandler.registerId(TileBattery::class.java, ContainerBattery::class.java) { GuiBattery::class.java }) {
+class BlockBattery() : ModelMachineBlock("battery", EmergingTechnology.guiHandler.registerId(TileBattery::class.java, ContainerBattery::class.java) { GuiBattery::class.java }) {
 	init {
 		blockHardness = 1f
 		defaultState = blockState.baseState.withProperty(BlockDirectional.FACING, EnumFacing.NORTH)

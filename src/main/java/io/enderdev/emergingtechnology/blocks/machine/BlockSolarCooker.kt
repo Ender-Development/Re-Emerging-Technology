@@ -13,8 +13,7 @@ import net.minecraft.world.World
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockSolarCooker() : RotatableMachineBlock("solar_cooker", TileSolarCooker::class.java,
-	EmergingTechnology.guiHandler.registerId(TileSolarCooker::class.java, ContainerSolarCooker::class.java) { GuiSolarCooker::class.java }) {
+class BlockSolarCooker() : RotatableMachineBlock("solar_cooker", EmergingTechnology.guiHandler.registerId(TileSolarCooker::class.java, ContainerSolarCooker::class.java) { GuiSolarCooker::class.java }) {
 	init {
 		blockHardness = 1f
 	}

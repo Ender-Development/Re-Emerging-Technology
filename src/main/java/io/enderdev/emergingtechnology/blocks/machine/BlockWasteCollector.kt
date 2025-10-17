@@ -18,8 +18,7 @@ import net.minecraft.world.World
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockWasteCollector() : ModelMachineBlock("waste_collector", TileWasteCollector::class.java,
-	EmergingTechnology.guiHandler.registerId(TileWasteCollector::class.java, ContainerWasteCollector::class.java) { GuiWasteCollector::class.java }) {
+class BlockWasteCollector() : ModelMachineBlock("waste_collector", EmergingTechnology.guiHandler.registerId(TileWasteCollector::class.java, ContainerWasteCollector::class.java) { GuiWasteCollector::class.java }) {
 	init {
 		blockHardness = 1f
 		defaultState = blockState.baseState.withProperty(FULL, false)

@@ -10,8 +10,7 @@ import io.enderdev.emergingtechnology.utils.ItemUtils
 import org.ender_development.catalyx.items.TooltipItemBlock
 import org.ender_development.catalyx.utils.extensions.translate
 
-class BlockAlgorithmicOptimiser() : RotatableMachineBlock("algorithmic_optimiser", TileAlgorithmicOptimiser::class.java,
-	EmergingTechnology.guiHandler.registerId(TileAlgorithmicOptimiser::class.java, ContainerAlgorithmicOptimiser::class.java) { GuiAlgorithmicOptimiser::class.java }) {
+class BlockAlgorithmicOptimiser() : RotatableMachineBlock("algorithmic_optimiser", EmergingTechnology.guiHandler.registerId(TileAlgorithmicOptimiser::class.java, ContainerAlgorithmicOptimiser::class.java) { GuiAlgorithmicOptimiser::class.java }) {
 	init {
 		blockHardness = 1f
 	}

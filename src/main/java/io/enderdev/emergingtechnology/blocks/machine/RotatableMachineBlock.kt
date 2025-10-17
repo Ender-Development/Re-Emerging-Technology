@@ -10,7 +10,7 @@ import net.minecraft.util.EnumHand
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
 
-open class RotatableMachineBlock(name: String, tileClass: Class<out TileEntity>, guiID: Int) : ModelMachineBlock(name, tileClass, guiID) {
+open class RotatableMachineBlock(name: String, guiId: Int) : ModelMachineBlock(name, guiId) {
 	init {
 		defaultState = blockState.baseState.withProperty(BlockHorizontal.FACING, EnumFacing.NORTH)
 	}
